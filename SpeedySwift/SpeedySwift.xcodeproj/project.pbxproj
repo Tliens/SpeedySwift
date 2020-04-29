@@ -82,6 +82,11 @@
 		E4AD741724596EFE00D72D72 /* HintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD741624596EFE00D72D72 /* HintView.swift */; };
 		E4AD741924596F1500D72D72 /* HintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4AD741824596F1500D72D72 /* HintView.xib */; };
 		E4AD741B2459739800D72D72 /* SpeedySwift+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD741A2459739800D72D72 /* SpeedySwift+Animation.swift */; };
+		E4AD741E24598BB200D72D72 /* SpeedySwift+Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD741D24598BB200D72D72 /* SpeedySwift+Feedback.swift */; };
+		E4AD742124598C0300D72D72 /* SpeedyTapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */; };
+		E4AD742324598CDA00D72D72 /* SpeedySwift+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */; };
+		E4AD742524598D7D00D72D72 /* SpeedySandBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */; };
+		E4AD74272459925100D72D72 /* SpeedySwift+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -173,6 +178,11 @@
 		E4AD741624596EFE00D72D72 /* HintView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HintView.swift; sourceTree = "<group>"; };
 		E4AD741824596F1500D72D72 /* HintView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HintView.xib; sourceTree = "<group>"; };
 		E4AD741A2459739800D72D72 /* SpeedySwift+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Animation.swift"; sourceTree = "<group>"; };
+		E4AD741D24598BB200D72D72 /* SpeedySwift+Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Feedback.swift"; sourceTree = "<group>"; };
+		E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedyTapticEngine.swift; sourceTree = "<group>"; };
+		E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Cache.swift"; sourceTree = "<group>"; };
+		E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedySandBox.swift; sourceTree = "<group>"; };
+		E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Log.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,11 +246,11 @@
 			isa = PBXGroup;
 			children = (
 				E4AD741124596D1000D72D72 /* ColorExtensions.swift */,
-				E4AD740B24596AD900D72D72 /* CoreLocation */,
 				E4AD740024596ABC00D72D72 /* CoreGraphics */,
+				E4AD740B24596AD900D72D72 /* CoreLocation */,
+				E4AD7384245969BD00D72D72 /* Foundation */,
 				E4AD7386245969CD00D72D72 /* SwiftStdlib */,
 				E4AD7385245969C600D72D72 /* UIKit */,
-				E4AD7384245969BD00D72D72 /* Foundation */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -350,9 +360,13 @@
 			isa = PBXGroup;
 			children = (
 				E4AD740F24596B2800D72D72 /* SpeedySwift.swift */,
-				E4AD741324596D4E00D72D72 /* SpeedySwift+Hint.swift */,
 				E4AD741A2459739800D72D72 /* SpeedySwift+Animation.swift */,
+				E4AD741324596D4E00D72D72 /* SpeedySwift+Hint.swift */,
+				E4AD741D24598BB200D72D72 /* SpeedySwift+Feedback.swift */,
+				E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */,
+				E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */,
 				E4AD741524596EE700D72D72 /* SpeedyViews */,
+				E4AD741F24598BCC00D72D72 /* SpeedyVendor */,
 			);
 			path = SpeedySwift;
 			sourceTree = "<group>";
@@ -372,6 +386,15 @@
 				E4AD741824596F1500D72D72 /* HintView.xib */,
 			);
 			path = Hint;
+			sourceTree = "<group>";
+		};
+		E4AD741F24598BCC00D72D72 /* SpeedyVendor */ = {
+			isa = PBXGroup;
+			children = (
+				E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */,
+				E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */,
+			);
+			path = SpeedyVendor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,6 +516,7 @@
 				E4AD73E324596A9900D72D72 /* UIScrollViewExtensions.swift in Sources */,
 				E4AD73D524596A9900D72D72 /* UIEdgeInsetsExtensions.swift in Sources */,
 				E4AD739D24596A8B00D72D72 /* DoubleExtensions.swift in Sources */,
+				E4AD742124598C0300D72D72 /* SpeedyTapticEngine.swift in Sources */,
 				E4AD73F924596AA500D72D72 /* NSPredicateExtensions.swift in Sources */,
 				E4AD73A224596A8B00D72D72 /* DictionaryExtensions.swift in Sources */,
 				E4AD73D924596A9900D72D72 /* UITableViewExtensions.swift in Sources */,
@@ -524,12 +548,14 @@
 				E4AD73E024596A9900D72D72 /* UITextViewExtensions.swift in Sources */,
 				E4AD73DD24596A9900D72D72 /* UIGestureRecognizerExtensions.swift in Sources */,
 				E4AD741424596D4E00D72D72 /* SpeedySwift+Hint.swift in Sources */,
+				E4AD742324598CDA00D72D72 /* SpeedySwift+Cache.swift in Sources */,
 				E4AD740924596AD400D72D72 /* CGFloatExtensions.swift in Sources */,
 				E4AD740824596AD400D72D72 /* CGSizeExtensions.swift in Sources */,
 				E4AD73E424596A9900D72D72 /* UIAlertControllerExtensions.swift in Sources */,
 				E4AD73D424596A9900D72D72 /* UINavigationItemExtensions.swift in Sources */,
 				E4AD741024596B2800D72D72 /* SpeedySwift.swift in Sources */,
 				E4AD73AF24596A8B00D72D72 /* StringExtensions.swift in Sources */,
+				E4AD742524598D7D00D72D72 /* SpeedySandBox.swift in Sources */,
 				E4AD73DB24596A9900D72D72 /* UISwitchExtensions.swift in Sources */,
 				E4AD73D124596A9900D72D72 /* UIBarButtonItemExtensions.swift in Sources */,
 				E4AD739C24596A8B00D72D72 /* SignedNumericExtensions.swift in Sources */,
@@ -546,6 +572,7 @@
 				E4AD73F624596AA500D72D72 /* LocaleExtensions.swift in Sources */,
 				E4AD73A624596A8B00D72D72 /* BinaryFloatingPointExtensions.swift in Sources */,
 				E4AD740624596AD400D72D72 /* CGPointExtensions.swift in Sources */,
+				E4AD74272459925100D72D72 /* SpeedySwift+Log.swift in Sources */,
 				E4AD73DC24596A9900D72D72 /* UILabelExtensions.swift in Sources */,
 				E4AD73FD24596AA500D72D72 /* DateExtensions.swift in Sources */,
 				E4AD73FF24596AA500D72D72 /* FileManagerExtensions.swift in Sources */,
@@ -553,6 +580,7 @@
 				E4AD73F724596AA500D72D72 /* DataExtensions.swift in Sources */,
 				E4AD73A724596A8B00D72D72 /* ComparableExtensions.swift in Sources */,
 				E4AD73FA24596AA500D72D72 /* URLExtensions.swift in Sources */,
+				E4AD741E24598BB200D72D72 /* SpeedySwift+Feedback.swift in Sources */,
 				E4AD73E124596A9900D72D72 /* UISearchBarExtensions.swift in Sources */,
 				E4AD73F824596AA500D72D72 /* URLRequestExtensions.swift in Sources */,
 				E4AD741224596D1000D72D72 /* ColorExtensions.swift in Sources */,

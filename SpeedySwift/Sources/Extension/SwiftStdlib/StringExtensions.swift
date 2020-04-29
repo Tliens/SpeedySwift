@@ -21,7 +21,7 @@ import Cocoa
 #if canImport(CoreGraphics)
 import CoreGraphics
 #endif
-
+import CommonCrypto
 // MARK: - Properties
 public extension String {
 
@@ -36,7 +36,23 @@ public extension String {
         return String(data: decodedData, encoding: .utf8)
     }
     #endif
-
+    
+    /// md5
+    public var md5:String{
+        let str = self.cString(using: String.Encoding.utf8)
+        let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
+        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
+        
+        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
+        CC_MD5(str!, strLen, result)
+        let hash = NSMutableString()
+        for i in 0 ..< digestLen {
+            hash.appendFormat("%02x", result[i])
+        }
+        result.deallocate()
+        
+        return String(format: hash as String)
+    }
     #if canImport(Foundation)
     /// base64Encoded
     ///

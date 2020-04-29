@@ -23,7 +23,10 @@ import Cocoa
 // MARK: - Properties
 /// SpeedySwift: Common usefull properties and methods.
 public struct SpeedySwift {
-
+    static let `default` = SpeedySwift()
+    private init(){}
+    let lock = DispatchSemaphore(value: 1)
+    
     #if !os(macOS)
     /// App 显示名称
     public static var appDisplayName: String? {

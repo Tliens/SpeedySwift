@@ -5,7 +5,7 @@
 //  Created by Quinn Von on 2020/4/29.
 //  Copyright © 2020 Quinn Von. All rights reserved.
 //
-
+// MARK: 提示框
 import Foundation
 import UIKit
 typealias SS = SpeedySwift
@@ -17,7 +17,7 @@ extension SS{
     ///   - txt: 提示内容
     ///   - view: superview
     ///   - completed: 消失或错误的回调
-    func hint(imgNamed:String,txt:String,view:UIView?,completed:((Error?)->())? = nil){
+    static func hint(imgNamed:String,txt:String,view:UIView?,completed:((Error?)->())? = nil){
         let hint = UINib(nibName: "HintView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! HintView
         hint.image.image = UIImage(named: imgNamed)
         hint.title.text = txt
@@ -33,7 +33,7 @@ extension SS{
         }
         superView!.addSubview(hint)
         hint.layoutIfNeeded()
-        let animate = hintAnimation(position: superView!.center)
+        let animate = SS.hintAnimation(position: superView!.center)
         hint.layer.add(animate, forKey: "hint")
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + animate.duration) {
             hint.removeFromSuperview()

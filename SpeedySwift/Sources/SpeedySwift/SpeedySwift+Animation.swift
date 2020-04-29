@@ -5,12 +5,12 @@
 //  Created by Quinn Von on 2020/4/29.
 //  Copyright © 2020 Quinn Von. All rights reserved.
 //
-
+// MARK: 动画
 import Foundation
 import UIKit
 extension SS{
-    func hintAnimation(position:CGPoint) -> CAAnimation{
-        return fadeInOutWithMovedAndScaleAnimation(fromPosition: CGPoint(x: position.x, y: position.y+30),
+    static func hintAnimation(position:CGPoint) -> CAAnimation{
+        return SS.fadeInOutWithMovedAndScaleAnimation(fromPosition: CGPoint(x: position.x, y: position.y+30),
         toPosition: position,
         inDelay: 0,
         inDuration: 0.15,
@@ -38,7 +38,7 @@ extension SS{
     ///   - outOpacityFrom: 出场透明度起始值
     ///   - outOpacityTo: 出场透明度最终值
     /// - Returns: 一个满足上述条件的CoreAnimation动画组
-    func fadeInOutWithMovedAndScaleAnimation(fromPosition:CGPoint, toPosition:CGPoint, inDelay: Double, inDuration: Double,inScaleFrom:Double, inScaleTo:Double ,outDelay: Double, outDuration: Double,outScaleFrom:Double, outScaleTo:Double, outOpacityFrom:Double, outOpacityTo:Double) -> CAAnimation {
+    static func fadeInOutWithMovedAndScaleAnimation(fromPosition:CGPoint, toPosition:CGPoint, inDelay: Double, inDuration: Double,inScaleFrom:Double, inScaleTo:Double ,outDelay: Double, outDuration: Double,outScaleFrom:Double, outScaleTo:Double, outOpacityFrom:Double, outOpacityTo:Double) -> CAAnimation {
 
         let fadeIn1 = CABasicAnimation(keyPath: "position")
         fadeIn1.duration = inDuration
