@@ -13,6 +13,39 @@ extension SpeedySwift{
     var cachePath:String {
         return SpeedySandbox.shared.cachesDirectory + "/" + "SpeedyCache"
     }
+    //MARK: Set 缓存数据
+    /**
+     写入/更新缓存(异步) [按APP版本号缓存,不同版本APP,同一接口缓存数据互不干扰]
+     - parameter jsonResponse: 要写入的数据(JSON)
+     - parameter URL:          数据请求URL
+     - parameter subPath:      二级文件夹路径subPath（可设置-可不设置）
+     - parameter completed:    异步完成回调(主线程回调)
+     */
+    public func asyncSetCache(jsonResponse: AnyObject, URL: String, subPath: String?, completed:@escaping (Bool) -> ()) {
+        DispatchQueue.global().async{
+            let result = self.setCache(jsonResponse, URL: URL, subPath: subPath)
+            DispatchQueue.main.async(execute: {
+                completed(result)
+            })
+        }
+    }
+    
+    /**
+     写入/更新缓存(同步) [按APP版本号缓存,不同版本APP,同一接口缓存数据互不干扰]
+     - parameter jsonResponse: 要写入的数据(JSON)
+     - parameter URL:          数据请求URL
+     - parameter subPath:      二级文件夹路径subPath（可设置-可不设置）
+     - returns: 是否写入成功
+     */
+    public func setCache(_ jsonResponse: AnyObject, URL: String, subPath: String?) -> Bool {
+        lock.wait()
+        let data = (jsonResponse as? Dictionary<String, Any>)?.jsonData()
+        let atPath = getCacheFilePath(url: URL, subPath: subPath)
+        let isSuccess = FileManager.default.createFile(atPath:atPath, contents: data, attributes: nil)
+        lock.signal()
+        return isSuccess
+    }
+    //MARK: Get  获取数据
     /**
      获取缓存的对象(同步)
      - parameter URL: 数据请求URL
@@ -33,7 +66,6 @@ extension SpeedySwift{
         return resultObject
     }
     
-    // MARK: - 私有方法
     // 获取缓存文件路径
     fileprivate func getCacheFilePath(url: String, subPath:String?) -> String {
         var newPath: String = self.cachePath
@@ -67,7 +99,7 @@ extension SpeedySwift{
             }
         }
     }
-    // MARK: - 创建文件夹
+    ///创建文件夹
     public static func createBaseDirectoryAtPath(_ path: String) {
         do {
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
