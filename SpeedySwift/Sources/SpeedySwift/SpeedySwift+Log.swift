@@ -8,9 +8,6 @@
 
 import UIKit
 
-class SpeedySwift_Log: NSObject {
-
-}
 extension SpeedySwift{
     public static func log<T>(_ object: T?, filename: String = #file, line: Int = #line, funcname: String = #function) {
         #if DEBUG

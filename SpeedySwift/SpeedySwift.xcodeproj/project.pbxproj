@@ -113,6 +113,7 @@
 		E4EEDE47245FEE9C004E3FF0 /* SpeedySwift+Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */; };
 		E4EEDE49245FF5C5004E3FF0 /* SpeedySwift+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE48245FF5C5004E3FF0 /* SpeedySwift+Jump.swift */; };
 		E4EEDE4C245FF650004E3FF0 /* SpeedyJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */; };
+		E4EEDE4F246005E8004E3FF0 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE4E246005E8004E3FF0 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,7 @@
 		E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Permission.swift"; sourceTree = "<group>"; };
 		E4EEDE48245FF5C5004E3FF0 /* SpeedySwift+Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Jump.swift"; sourceTree = "<group>"; };
 		E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedyJump.swift; sourceTree = "<group>"; };
+		E4EEDE4E246005E8004E3FF0 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -446,6 +448,7 @@
 		E4AD741F24598BCC00D72D72 /* SpeedyVendor */ = {
 			isa = PBXGroup;
 			children = (
+				E4EEDE4D246005D3004E3FF0 /* Reachability */,
 				E4EEDE4A245FF63A004E3FF0 /* Jump */,
 				E4EEDE14245FECC4004E3FF0 /* Permission */,
 				E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */,
@@ -497,6 +500,14 @@
 				E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */,
 			);
 			path = Jump;
+			sourceTree = "<group>";
+		};
+		E4EEDE4D246005D3004E3FF0 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEDE4E246005E8004E3FF0 /* Reachability.swift */,
+			);
+			path = Reachability;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -621,6 +632,7 @@
 				E4EEDE3C245FECE3004E3FF0 /* Permission.swift in Sources */,
 				E4AD739D24596A8B00D72D72 /* DoubleExtensions.swift in Sources */,
 				E4EEDE47245FEE9C004E3FF0 /* SpeedySwift+Permission.swift in Sources */,
+				E4EEDE4F246005E8004E3FF0 /* Reachability.swift in Sources */,
 				E4AD742124598C0300D72D72 /* SpeedyTapticEngine.swift in Sources */,
 				E4EEDE27245FECD6004E3FF0 /* SpeechRecognizer.swift in Sources */,
 				E4AD73F924596AA500D72D72 /* NSPredicateExtensions.swift in Sources */,
