@@ -111,6 +111,8 @@
 		E4EEDE41245FED22004E3FF0 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE40245FED22004E3FF0 /* Utilities.swift */; };
 		E4EEDE43245FEDEB004E3FF0 /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE42245FEDEB004E3FF0 /* UIControlExtension.swift */; };
 		E4EEDE47245FEE9C004E3FF0 /* SpeedySwift+Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */; };
+		E4EEDE49245FF5C5004E3FF0 /* SpeedySwift+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE48245FF5C5004E3FF0 /* SpeedySwift+Jump.swift */; };
+		E4EEDE4C245FF650004E3FF0 /* SpeedyJump.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +233,8 @@
 		E4EEDE40245FED22004E3FF0 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E4EEDE42245FEDEB004E3FF0 /* UIControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
 		E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Permission.swift"; sourceTree = "<group>"; };
+		E4EEDE48245FF5C5004E3FF0 /* SpeedySwift+Jump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Jump.swift"; sourceTree = "<group>"; };
+		E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedyJump.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,6 +419,7 @@
 				E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */,
 				E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */,
 				E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */,
+				E4EEDE48245FF5C5004E3FF0 /* SpeedySwift+Jump.swift */,
 				E4AD741524596EE700D72D72 /* SpeedyViews */,
 				E4AD741F24598BCC00D72D72 /* SpeedyVendor */,
 			);
@@ -441,6 +446,7 @@
 		E4AD741F24598BCC00D72D72 /* SpeedyVendor */ = {
 			isa = PBXGroup;
 			children = (
+				E4EEDE4A245FF63A004E3FF0 /* Jump */,
 				E4EEDE14245FECC4004E3FF0 /* Permission */,
 				E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */,
 				E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */,
@@ -483,6 +489,14 @@
 				E4EEDE24245FECD6004E3FF0 /* MediaLibrary.swift */,
 			);
 			path = Types;
+			sourceTree = "<group>";
+		};
+		E4EEDE4A245FF63A004E3FF0 /* Jump */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEDE4B245FF650004E3FF0 /* SpeedyJump.swift */,
+			);
+			path = Jump;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -630,6 +644,7 @@
 				E4AD73CE24596A9900D72D72 /* UIImageViewExtensions.swift in Sources */,
 				E4AD73E824596A9900D72D72 /* UIStackViewExtensions.swift in Sources */,
 				E4EEDE25245FECD6004E3FF0 /* Motion.swift in Sources */,
+				E4EEDE49245FF5C5004E3FF0 /* SpeedySwift+Jump.swift in Sources */,
 				E4AD73D624596A9900D72D72 /* UILayoutPriorityExtensions.swift in Sources */,
 				E4EEDE3D245FECE3004E3FF0 /* PermissionType.swift in Sources */,
 				E4AD73A824596A8B00D72D72 /* SequenceExtensions.swift in Sources */,
@@ -678,6 +693,7 @@
 				E4AD73D224596A9900D72D72 /* UISliderExtensions.swift in Sources */,
 				E4AD73FB24596AA500D72D72 /* UserDefaultsExtensions.swift in Sources */,
 				E4AD73F624596AA500D72D72 /* LocaleExtensions.swift in Sources */,
+				E4EEDE4C245FF650004E3FF0 /* SpeedyJump.swift in Sources */,
 				E4AD73A624596A8B00D72D72 /* BinaryFloatingPointExtensions.swift in Sources */,
 				E4AD740624596AD400D72D72 /* CGPointExtensions.swift in Sources */,
 				E4EEDE32245FECD6004E3FF0 /* Reminders.swift in Sources */,
