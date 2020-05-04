@@ -22,11 +22,12 @@ import Cocoa
 #if !os(Linux)
 // MARK: - Properties
 /// SpeedySwift: Common usefull properties and methods.
-public struct SpeedySwift {
+public class SpeedySwift {
     static let `default` = SpeedySwift()
     private init(){}
     let lock = DispatchSemaphore(value: 1)
-    
+    var didRequestPermission:((_ permissionSet: PermissionSet, _ permission: Permission)->())?
+
     #if !os(macOS)
     /// App 显示名称
     public static var appDisplayName: String? {

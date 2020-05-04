@@ -87,6 +87,30 @@
 		E4AD742324598CDA00D72D72 /* SpeedySwift+Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */; };
 		E4AD742524598D7D00D72D72 /* SpeedySandBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */; };
 		E4AD74272459925100D72D72 /* SpeedySwift+Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */; };
+		E4EEDE25245FECD6004E3FF0 /* Motion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE16245FECD6004E3FF0 /* Motion.swift */; };
+		E4EEDE26245FECD6004E3FF0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE17245FECD6004E3FF0 /* Location.swift */; };
+		E4EEDE27245FECD6004E3FF0 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE18245FECD6004E3FF0 /* SpeechRecognizer.swift */; };
+		E4EEDE28245FECD6004E3FF0 /* Siri.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE19245FECD6004E3FF0 /* Siri.swift */; };
+		E4EEDE29245FECD6004E3FF0 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1A245FECD6004E3FF0 /* Photos.swift */; };
+		E4EEDE2A245FECD6004E3FF0 /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1B245FECD6004E3FF0 /* Contacts.swift */; };
+		E4EEDE2B245FECD6004E3FF0 /* Bluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1C245FECD6004E3FF0 /* Bluetooth.swift */; };
+		E4EEDE2C245FECD6004E3FF0 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1D245FECD6004E3FF0 /* Notifications.swift */; };
+		E4EEDE2D245FECD6004E3FF0 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1E245FECD6004E3FF0 /* Microphone.swift */; };
+		E4EEDE2E245FECD6004E3FF0 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE1F245FECD6004E3FF0 /* Events.swift */; };
+		E4EEDE2F245FECD6004E3FF0 /* LocationWhenInUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE20245FECD6004E3FF0 /* LocationWhenInUse.swift */; };
+		E4EEDE30245FECD6004E3FF0 /* LocationAlways.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE21245FECD6004E3FF0 /* LocationAlways.swift */; };
+		E4EEDE31245FECD6004E3FF0 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE22245FECD6004E3FF0 /* Camera.swift */; };
+		E4EEDE32245FECD6004E3FF0 /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE23245FECD6004E3FF0 /* Reminders.swift */; };
+		E4EEDE33245FECD6004E3FF0 /* MediaLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE24245FECD6004E3FF0 /* MediaLibrary.swift */; };
+		E4EEDE3A245FECE3004E3FF0 /* PermissionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE34245FECE2004E3FF0 /* PermissionSet.swift */; };
+		E4EEDE3B245FECE3004E3FF0 /* PermissionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE35245FECE2004E3FF0 /* PermissionAlert.swift */; };
+		E4EEDE3C245FECE3004E3FF0 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE36245FECE2004E3FF0 /* Permission.swift */; };
+		E4EEDE3D245FECE3004E3FF0 /* PermissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE37245FECE2004E3FF0 /* PermissionType.swift */; };
+		E4EEDE3E245FECE3004E3FF0 /* PermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE38245FECE3004E3FF0 /* PermissionStatus.swift */; };
+		E4EEDE3F245FECE3004E3FF0 /* PermissionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE39245FECE3004E3FF0 /* PermissionButton.swift */; };
+		E4EEDE41245FED22004E3FF0 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE40245FED22004E3FF0 /* Utilities.swift */; };
+		E4EEDE43245FEDEB004E3FF0 /* UIControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE42245FEDEB004E3FF0 /* UIControlExtension.swift */; };
+		E4EEDE47245FEE9C004E3FF0 /* SpeedySwift+Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +207,30 @@
 		E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Cache.swift"; sourceTree = "<group>"; };
 		E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedySandBox.swift; sourceTree = "<group>"; };
 		E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Log.swift"; sourceTree = "<group>"; };
+		E4EEDE16245FECD6004E3FF0 /* Motion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Motion.swift; sourceTree = "<group>"; };
+		E4EEDE17245FECD6004E3FF0 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		E4EEDE18245FECD6004E3FF0 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
+		E4EEDE19245FECD6004E3FF0 /* Siri.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Siri.swift; sourceTree = "<group>"; };
+		E4EEDE1A245FECD6004E3FF0 /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		E4EEDE1B245FECD6004E3FF0 /* Contacts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		E4EEDE1C245FECD6004E3FF0 /* Bluetooth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bluetooth.swift; sourceTree = "<group>"; };
+		E4EEDE1D245FECD6004E3FF0 /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		E4EEDE1E245FECD6004E3FF0 /* Microphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
+		E4EEDE1F245FECD6004E3FF0 /* Events.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		E4EEDE20245FECD6004E3FF0 /* LocationWhenInUse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationWhenInUse.swift; sourceTree = "<group>"; };
+		E4EEDE21245FECD6004E3FF0 /* LocationAlways.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAlways.swift; sourceTree = "<group>"; };
+		E4EEDE22245FECD6004E3FF0 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		E4EEDE23245FECD6004E3FF0 /* Reminders.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
+		E4EEDE24245FECD6004E3FF0 /* MediaLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLibrary.swift; sourceTree = "<group>"; };
+		E4EEDE34245FECE2004E3FF0 /* PermissionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionSet.swift; sourceTree = "<group>"; };
+		E4EEDE35245FECE2004E3FF0 /* PermissionAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionAlert.swift; sourceTree = "<group>"; };
+		E4EEDE36245FECE2004E3FF0 /* Permission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
+		E4EEDE37245FECE2004E3FF0 /* PermissionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionType.swift; sourceTree = "<group>"; };
+		E4EEDE38245FECE3004E3FF0 /* PermissionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionStatus.swift; sourceTree = "<group>"; };
+		E4EEDE39245FECE3004E3FF0 /* PermissionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionButton.swift; sourceTree = "<group>"; };
+		E4EEDE40245FED22004E3FF0 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		E4EEDE42245FEDEB004E3FF0 /* UIControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIControlExtension.swift; sourceTree = "<group>"; };
+		E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeedySwift+Permission.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +353,7 @@
 				E4AD73BC24596A9700D72D72 /* UIViewControllerExtensions.swift */,
 				E4AD73CB24596A9800D72D72 /* UIViewExtensions.swift */,
 				E4AD73C824596A9800D72D72 /* UIWindowExtensions.swift */,
+				E4EEDE42245FEDEB004E3FF0 /* UIControlExtension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -365,6 +414,7 @@
 				E4AD741D24598BB200D72D72 /* SpeedySwift+Feedback.swift */,
 				E4AD742224598CDA00D72D72 /* SpeedySwift+Cache.swift */,
 				E4AD74262459925100D72D72 /* SpeedySwift+Log.swift */,
+				E4EEDE46245FEE9C004E3FF0 /* SpeedySwift+Permission.swift */,
 				E4AD741524596EE700D72D72 /* SpeedyViews */,
 				E4AD741F24598BCC00D72D72 /* SpeedyVendor */,
 			);
@@ -391,10 +441,48 @@
 		E4AD741F24598BCC00D72D72 /* SpeedyVendor */ = {
 			isa = PBXGroup;
 			children = (
+				E4EEDE14245FECC4004E3FF0 /* Permission */,
 				E4AD742024598C0300D72D72 /* SpeedyTapticEngine.swift */,
 				E4AD742424598D7D00D72D72 /* SpeedySandBox.swift */,
 			);
 			path = SpeedyVendor;
+			sourceTree = "<group>";
+		};
+		E4EEDE14245FECC4004E3FF0 /* Permission */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEDE40245FED22004E3FF0 /* Utilities.swift */,
+				E4EEDE36245FECE2004E3FF0 /* Permission.swift */,
+				E4EEDE35245FECE2004E3FF0 /* PermissionAlert.swift */,
+				E4EEDE39245FECE3004E3FF0 /* PermissionButton.swift */,
+				E4EEDE34245FECE2004E3FF0 /* PermissionSet.swift */,
+				E4EEDE38245FECE3004E3FF0 /* PermissionStatus.swift */,
+				E4EEDE37245FECE2004E3FF0 /* PermissionType.swift */,
+				E4EEDE15245FECD6004E3FF0 /* Types */,
+			);
+			path = Permission;
+			sourceTree = "<group>";
+		};
+		E4EEDE15245FECD6004E3FF0 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				E4EEDE16245FECD6004E3FF0 /* Motion.swift */,
+				E4EEDE17245FECD6004E3FF0 /* Location.swift */,
+				E4EEDE18245FECD6004E3FF0 /* SpeechRecognizer.swift */,
+				E4EEDE19245FECD6004E3FF0 /* Siri.swift */,
+				E4EEDE1A245FECD6004E3FF0 /* Photos.swift */,
+				E4EEDE1B245FECD6004E3FF0 /* Contacts.swift */,
+				E4EEDE1C245FECD6004E3FF0 /* Bluetooth.swift */,
+				E4EEDE1D245FECD6004E3FF0 /* Notifications.swift */,
+				E4EEDE1E245FECD6004E3FF0 /* Microphone.swift */,
+				E4EEDE1F245FECD6004E3FF0 /* Events.swift */,
+				E4EEDE20245FECD6004E3FF0 /* LocationWhenInUse.swift */,
+				E4EEDE21245FECD6004E3FF0 /* LocationAlways.swift */,
+				E4EEDE22245FECD6004E3FF0 /* Camera.swift */,
+				E4EEDE23245FECD6004E3FF0 /* Reminders.swift */,
+				E4EEDE24245FECD6004E3FF0 /* MediaLibrary.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,14 +600,20 @@
 				E4AD73DA24596A9900D72D72 /* UIViewControllerExtensions.swift in Sources */,
 				E4AD73AA24596A8B00D72D72 /* ArrayExtensions.swift in Sources */,
 				E4AD73A324596A8B00D72D72 /* RandomAccessCollectionExtensions.swift in Sources */,
+				E4EEDE2E245FECD6004E3FF0 /* Events.swift in Sources */,
 				E4AD73CF24596A9900D72D72 /* UITextFieldExtensions.swift in Sources */,
 				E4AD73E324596A9900D72D72 /* UIScrollViewExtensions.swift in Sources */,
 				E4AD73D524596A9900D72D72 /* UIEdgeInsetsExtensions.swift in Sources */,
+				E4EEDE3C245FECE3004E3FF0 /* Permission.swift in Sources */,
 				E4AD739D24596A8B00D72D72 /* DoubleExtensions.swift in Sources */,
+				E4EEDE47245FEE9C004E3FF0 /* SpeedySwift+Permission.swift in Sources */,
 				E4AD742124598C0300D72D72 /* SpeedyTapticEngine.swift in Sources */,
+				E4EEDE27245FECD6004E3FF0 /* SpeechRecognizer.swift in Sources */,
 				E4AD73F924596AA500D72D72 /* NSPredicateExtensions.swift in Sources */,
 				E4AD73A224596A8B00D72D72 /* DictionaryExtensions.swift in Sources */,
+				E4EEDE28245FECD6004E3FF0 /* Siri.swift in Sources */,
 				E4AD73D924596A9900D72D72 /* UITableViewExtensions.swift in Sources */,
+				E4EEDE43245FEDEB004E3FF0 /* UIControlExtension.swift in Sources */,
 				E4AD741724596EFE00D72D72 /* HintView.swift in Sources */,
 				E4AD73E924596A9900D72D72 /* UIViewExtensions.swift in Sources */,
 				E4AD73EB24596A9900D72D72 /* UINavigationBarExtensions.swift in Sources */,
@@ -532,20 +626,28 @@
 				E4AD740A24596AD400D72D72 /* CGVectorExtensions.swift in Sources */,
 				E4AD73E524596A9900D72D72 /* UICollectionViewExtensions.swift in Sources */,
 				E4AD73AB24596A8B00D72D72 /* FloatExtensions.swift in Sources */,
+				E4EEDE3A245FECE3004E3FF0 /* PermissionSet.swift in Sources */,
 				E4AD73CE24596A9900D72D72 /* UIImageViewExtensions.swift in Sources */,
 				E4AD73E824596A9900D72D72 /* UIStackViewExtensions.swift in Sources */,
+				E4EEDE25245FECD6004E3FF0 /* Motion.swift in Sources */,
 				E4AD73D624596A9900D72D72 /* UILayoutPriorityExtensions.swift in Sources */,
+				E4EEDE3D245FECE3004E3FF0 /* PermissionType.swift in Sources */,
 				E4AD73A824596A8B00D72D72 /* SequenceExtensions.swift in Sources */,
 				E4AD739E24596A8B00D72D72 /* CollectionExtensions.swift in Sources */,
 				E4AD73FC24596AA500D72D72 /* NSAttributedStringExtensions.swift in Sources */,
 				E4AD73FE24596AA500D72D72 /* CalendarExtensions.swift in Sources */,
 				E4AD73AD24596A8B00D72D72 /* IntExtensions.swift in Sources */,
+				E4EEDE31245FECD6004E3FF0 /* Camera.swift in Sources */,
 				E4AD73DF24596A9900D72D72 /* UIFontExtensions.swift in Sources */,
+				E4EEDE2C245FECD6004E3FF0 /* Notifications.swift in Sources */,
+				E4EEDE2B245FECD6004E3FF0 /* Bluetooth.swift in Sources */,
 				E4AD73A424596A8B00D72D72 /* CharacterExtensions.swift in Sources */,
+				E4EEDE41245FED22004E3FF0 /* Utilities.swift in Sources */,
 				E4AD73D024596A9900D72D72 /* UISegmentedControlExtensions.swift in Sources */,
 				E4AD73AC24596A8B00D72D72 /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				E4AD73E724596A9900D72D72 /* UITabBarExtensions.swift in Sources */,
 				E4AD73E024596A9900D72D72 /* UITextViewExtensions.swift in Sources */,
+				E4EEDE3B245FECE3004E3FF0 /* PermissionAlert.swift in Sources */,
 				E4AD73DD24596A9900D72D72 /* UIGestureRecognizerExtensions.swift in Sources */,
 				E4AD741424596D4E00D72D72 /* SpeedySwift+Hint.swift in Sources */,
 				E4AD742324598CDA00D72D72 /* SpeedySwift+Cache.swift in Sources */,
@@ -559,25 +661,35 @@
 				E4AD73DB24596A9900D72D72 /* UISwitchExtensions.swift in Sources */,
 				E4AD73D124596A9900D72D72 /* UIBarButtonItemExtensions.swift in Sources */,
 				E4AD739C24596A8B00D72D72 /* SignedNumericExtensions.swift in Sources */,
+				E4EEDE3E245FECE3004E3FF0 /* PermissionStatus.swift in Sources */,
+				E4EEDE30245FECD6004E3FF0 /* LocationAlways.swift in Sources */,
+				E4EEDE29245FECD6004E3FF0 /* Photos.swift in Sources */,
 				E4AD73D324596A9900D72D72 /* UIRefreshControlExtensions.swift in Sources */,
 				E4AD73E624596A9900D72D72 /* UIWindowExtensions.swift in Sources */,
 				E4AD73A524596A8B00D72D72 /* BoolExtensions.swift in Sources */,
 				E4AD73AE24596A8B00D72D72 /* OptionalExtensions.swift in Sources */,
+				E4EEDE2F245FECD6004E3FF0 /* LocationWhenInUse.swift in Sources */,
 				E4AD73A124596A8B00D72D72 /* SignedIntegerExtensions.swift in Sources */,
 				E4AD73D724596A9900D72D72 /* UINavigationControllerExtensions.swift in Sources */,
+				E4EEDE26245FECD6004E3FF0 /* Location.swift in Sources */,
 				E4AD73DE24596A9900D72D72 /* UIStoryboardExtensions.swift in Sources */,
+				E4EEDE3F245FECE3004E3FF0 /* PermissionButton.swift in Sources */,
 				E4AD739F24596A8B00D72D72 /* BidirectionalCollectionExtensions.swift in Sources */,
 				E4AD73D224596A9900D72D72 /* UISliderExtensions.swift in Sources */,
 				E4AD73FB24596AA500D72D72 /* UserDefaultsExtensions.swift in Sources */,
 				E4AD73F624596AA500D72D72 /* LocaleExtensions.swift in Sources */,
 				E4AD73A624596A8B00D72D72 /* BinaryFloatingPointExtensions.swift in Sources */,
 				E4AD740624596AD400D72D72 /* CGPointExtensions.swift in Sources */,
+				E4EEDE32245FECD6004E3FF0 /* Reminders.swift in Sources */,
 				E4AD74272459925100D72D72 /* SpeedySwift+Log.swift in Sources */,
+				E4EEDE2D245FECD6004E3FF0 /* Microphone.swift in Sources */,
+				E4EEDE2A245FECD6004E3FF0 /* Contacts.swift in Sources */,
 				E4AD73DC24596A9900D72D72 /* UILabelExtensions.swift in Sources */,
 				E4AD73FD24596AA500D72D72 /* DateExtensions.swift in Sources */,
 				E4AD73FF24596AA500D72D72 /* FileManagerExtensions.swift in Sources */,
 				E4AD73D824596A9900D72D72 /* UIButtonExtensions.swift in Sources */,
 				E4AD73F724596AA500D72D72 /* DataExtensions.swift in Sources */,
+				E4EEDE33245FECD6004E3FF0 /* MediaLibrary.swift in Sources */,
 				E4AD73A724596A8B00D72D72 /* ComparableExtensions.swift in Sources */,
 				E4AD73FA24596AA500D72D72 /* URLExtensions.swift in Sources */,
 				E4AD741E24598BB200D72D72 /* SpeedySwift+Feedback.swift in Sources */,
