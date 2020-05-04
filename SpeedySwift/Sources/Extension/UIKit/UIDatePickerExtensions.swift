@@ -1,5 +1,5 @@
 //
-//  UIDatePickerExtensions.swift
+//  UIDatePickerpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 12/9/17.
@@ -13,7 +13,7 @@ import UIKit
 public extension UIDatePicker {
 
     /// UIDatePicker文字颜色
-    public var textColor: UIColor? {
+    var  textColor: UIColor? {
         set {
             setValue(newValue, forKeyPath: "textColor")
         }

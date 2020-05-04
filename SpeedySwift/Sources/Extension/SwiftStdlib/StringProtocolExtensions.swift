@@ -1,5 +1,5 @@
 //
-//  StringProtocolExtensions.swift
+//  StringProtocolpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 11/26/17.
@@ -18,7 +18,7 @@ public extension StringProtocol where Index == String.Index {
     ///     - Parameter aString: The string with which to compare the receiver.
     ///     - Parameter options: Options for the comparison.
     /// - Returns: The longest common suffix of the receiver and the given String
-    public func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
+    func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
         let reversedSuffix = String(reversed()).commonPrefix(with: String(aString.reversed()), options: options)
         return String(reversedSuffix.reversed())
     }

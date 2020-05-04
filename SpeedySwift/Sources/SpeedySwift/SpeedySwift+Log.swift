@@ -8,8 +8,8 @@
 
 import UIKit
 
-extension SpeedySwift{
-    public static func log<T>(_ object: T?, filename: String = #file, line: Int = #line, funcname: String = #function) {
+public extension SpeedySwift{
+    static func log<T>(_ object: T?, filename: String = #file, line: Int = #line, funcname: String = #function) {
         #if DEBUG
             guard let object = object else { return }
             print("SpeedySwift ***** \(Date()) \(filename.components(separatedBy: "/").last ?? "") (line: \(line)) :: \(funcname) :: \(object)")

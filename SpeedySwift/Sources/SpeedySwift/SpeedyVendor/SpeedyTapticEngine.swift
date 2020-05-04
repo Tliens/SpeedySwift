@@ -9,9 +9,9 @@
 import UIKit
 
 public class SpeedyTapticEngine {
-    public static let impact: Impact = .init()
-    public static let selection: Selection = .init()
-    public static let notification: Notification = .init()
+    static let impact: Impact = .init()
+    static let selection: Selection = .init()
+    static let notification: Notification = .init()
 
 
     /// Wrapper of `UIImpactFeedbackGenerator`
@@ -21,7 +21,7 @@ public class SpeedyTapticEngine {
         /// - light: A impact feedback between small, light user interface elements.
         /// - medium: A impact feedback between moderately sized user interface elements.
         /// - heavy: A impact feedback between large, heavy user interface elements.
-        public enum ImpactStyle {
+        enum ImpactStyle {
             case light, medium, heavy
         }
 
@@ -52,7 +52,7 @@ public class SpeedyTapticEngine {
             self.style = style
         }
 
-        public func feedback(_ style: ImpactStyle) {
+        func feedback(_ style: ImpactStyle) {
             guard #available(iOS 10.0, *) else { return }
 
             updateGeneratorIfNeeded(style)
@@ -63,7 +63,7 @@ public class SpeedyTapticEngine {
             generator.prepare()
         }
 
-        public func prepare(_ style: ImpactStyle) {
+        func prepare(_ style: ImpactStyle) {
             guard #available(iOS 10.0, *) else { return }
 
             updateGeneratorIfNeeded(style)
@@ -85,7 +85,7 @@ public class SpeedyTapticEngine {
             return generator
         }()
 
-        public func feedback() {
+        func feedback() {
             guard #available(iOS 10.0, *),
                 let generator = generator as? UISelectionFeedbackGenerator else { return }
 
@@ -93,7 +93,7 @@ public class SpeedyTapticEngine {
             generator.prepare()
         }
 
-        public func prepare() {
+        func prepare() {
             guard #available(iOS 10.0, *),
                 let generator = generator as? UISelectionFeedbackGenerator else { return }
 
@@ -109,7 +109,7 @@ public class SpeedyTapticEngine {
         /// - success: A notification feedback, indicating that a task has completed successfully.
         /// - warning: A notification feedback, indicating that a task has produced a warning.
         /// - error: A notification feedback, indicating that a task has failed.
-        public enum NotificationType {
+        enum NotificationType {
             case success, warning, error
         }
 
@@ -121,7 +121,7 @@ public class SpeedyTapticEngine {
             return generator
         }()
 
-        public func feedback(_ type: NotificationType) {
+        func feedback(_ type: NotificationType) {
             guard #available(iOS 10.0, *),
                 let generator = generator as? UINotificationFeedbackGenerator else { return }
 
@@ -138,7 +138,7 @@ public class SpeedyTapticEngine {
             generator.prepare()
         }
 
-        public func prepare() {
+        func prepare() {
             guard #available(iOS 10.0, *),
                 let generator = generator as? UINotificationFeedbackGenerator else { return }
 

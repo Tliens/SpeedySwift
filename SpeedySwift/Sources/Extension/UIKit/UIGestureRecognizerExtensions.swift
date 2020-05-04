@@ -1,5 +1,5 @@
 //
-//  UIGestureRecognizerExtensions.swift
+//  UIGestureRecognizerpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 4/21/18.
@@ -13,7 +13,7 @@ import UIKit
 public extension UIGestureRecognizer {
 
     /// 从当前view移除手势
-    public func removeFromView() {
+    func removeFromView() {
         view?.removeGestureRecognizer(self)
     }
 

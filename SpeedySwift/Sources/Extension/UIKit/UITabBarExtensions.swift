@@ -1,5 +1,5 @@
 //
-//  UITabBarExtensions.swift
+//  UITabBarpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 9/28/16.
@@ -19,7 +19,7 @@ public extension UITabBar {
     ///   - selectedBackground: background color for selected tab.
     ///   - item: icon tint color for items.
     ///   - selectedItem: icon tint color for item.
-    public func setColors(
+    func setColors(
         background: UIColor? = nil,
         selectedBackground: UIColor? = nil,
         item: UIColor? = nil,

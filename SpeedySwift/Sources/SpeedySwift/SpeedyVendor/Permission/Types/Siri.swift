@@ -24,7 +24,7 @@
 
 import Intents
 
-extension Permission {
+public extension Permission {
     var statusSiri: PermissionStatus {
         guard #available(iOS 10.0, *) else { fatalError() }
 

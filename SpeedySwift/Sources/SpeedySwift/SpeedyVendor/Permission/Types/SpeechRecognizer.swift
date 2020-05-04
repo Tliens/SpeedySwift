@@ -24,7 +24,7 @@
 
 import Speech
 
-extension Permission {
+public extension Permission {
     var statusSpeechRecognizer: PermissionStatus {
         guard #available(iOS 10.0, *) else { fatalError() }
 

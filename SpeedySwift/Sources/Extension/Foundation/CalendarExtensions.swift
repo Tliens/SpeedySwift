@@ -1,5 +1,5 @@
 //
-//  CalendarExtensions.swift
+//  Calendarpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 09/11/17.
@@ -19,7 +19,7 @@ public extension Calendar {
     ///
     /// - Parameter date: the date form which the number of days in month is calculated.
     /// - Returns: The number of days in the month of 'Date'.
-    public func numberOfDaysInMonth(for date: Date) -> Int {
+    func numberOfDaysInMonth(for date: Date) -> Int {
         return range(of: .day, in: .month, for: date)!.count
     }
 

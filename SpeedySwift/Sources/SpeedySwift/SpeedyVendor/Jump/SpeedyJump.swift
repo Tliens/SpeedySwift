@@ -9,7 +9,7 @@
 import UIKit
 
 /// 跳转到具体的App，常用软件
-public enum SpeedyJumpAppType:String{
+enum SpeedyJumpAppType:String{
     /// 微信
     case wechat = "weixin://"
     /// QQ
@@ -18,7 +18,7 @@ public enum SpeedyJumpAppType:String{
     case phone = "mobilephone://"
 }
 /// 跳转状态 是否成功
-public enum SpeedyJumpStatus: String {
+enum SpeedyJumpStatus: String {
     case success    = "success"
     case fail        = "fail"
     init?(string: String?) {

@@ -30,7 +30,7 @@ let BluetoothManager = CBPeripheralManager(
     options: [CBPeripheralManagerOptionShowPowerAlertKey: false]
 )
 
-extension Permission {
+public extension Permission {
     var statusBluetooth: PermissionStatus {
         switch CBPeripheralManager.authorizationStatus() {
         case .restricted:                 return .disabled
@@ -71,7 +71,7 @@ extension Permission: CBPeripheralManagerDelegate {
     }
 }
 
-extension CBPeripheralManager {
+public extension CBPeripheralManager {
     func request(_ permission: Permission) {
         guard case .poweredOn = state else { return }
 

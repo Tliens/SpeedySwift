@@ -1,5 +1,5 @@
 //
-//  FileManagerExtensions.swift
+//  FileManagerpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von. Carreos on 05/02/2018.
@@ -18,7 +18,7 @@ public extension FileManager {
     ///   - options: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
-    public func jsonFromFile(
+    func jsonFromFile(
         atPath path: String,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
 
@@ -36,13 +36,13 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
-    public func jsonFromFile(
+    func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
         // https://stackoverflow.com/questions/24410881/reading-in-a-json-file-using-swift
 
-        // To handle cases that provided filename has an extension
+        // To handle cases that provided filename has an public extension
         let name = filename.components(separatedBy: ".")[0]
         let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
 

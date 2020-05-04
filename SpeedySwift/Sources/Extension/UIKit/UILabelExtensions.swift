@@ -1,5 +1,5 @@
 //
-//  UILabelExtensions.swift
+//  UILabelpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 9/23/16.
@@ -13,13 +13,13 @@ import UIKit
 public extension UILabel {
 
     /// 用文本初始化UILabel
-    public convenience init(text: String?) {
+    convenience init(text: String?) {
         self.init()
         self.text = text
     }
 
     /// 文本所需高度
-    public var requiredHeight: CGFloat {
+    var  requiredHeight: CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping

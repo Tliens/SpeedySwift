@@ -24,7 +24,7 @@
 
 import AVFoundation
 
-extension Permission {
+public extension Permission {
     var statusCamera: PermissionStatus {
         let status = AVCaptureDevice.authorizationStatus(for: .video)
 

@@ -1,5 +1,5 @@
 //
-//  FloatingPointExtensions.swift
+//  FloatingPointpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 7/23/17.
@@ -14,41 +14,41 @@ import Foundation
 public extension FloatingPoint {
 
     /// 绝对值
-    public var abs: Self {
+    var  abs: Self {
         return Swift.abs(self)
     }
 
     /// 是否为正数
-    public var isPositive: Bool {
+    var  isPositive: Bool {
         return self > 0
     }
 
     /// 是否为负数
-    public var isNegative: Bool {
+    var  isNegative: Bool {
         return self < 0
     }
 
     #if canImport(Foundation)
     /// 向上取整
-    public var ceil: Self {
+    var  ceil: Self {
         return Foundation.ceil(self)
     }
     #endif
 
     /// 度数转 弧度
-    public var degreesToRadians: Self {
+    var  degreesToRadians: Self {
         return Self.pi * self / Self(180)
     }
 
     #if canImport(Foundation)
     /// 向下取整
-    public var floor: Self {
+    var  floor: Self {
         return Foundation.floor(self)
     }
     #endif
 
     /// 角度转弧度
-    public var radiansToDegrees: Self {
+    var  radiansToDegrees: Self {
         return self * Self(180) / Self.pi
     }
 
@@ -64,7 +64,7 @@ infix operator ±
 ///   - lhs: number
 ///   - rhs: number
 /// - Returns: tuple of plus-minus operation ( 2.5 ± 1.5 -> (4, 1)).
-public func ±<T: FloatingPoint> (lhs: T, rhs: T) -> (T, T) {
+func ±<T: FloatingPoint> (lhs: T, rhs: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
@@ -75,7 +75,7 @@ prefix operator ±
 ///
 /// - Parameter int: number
 /// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
-public prefix func ±<T: FloatingPoint> (number: T) -> (T, T) {
+prefix func ±<T: FloatingPoint> (number: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
     return 0 ± number
 }

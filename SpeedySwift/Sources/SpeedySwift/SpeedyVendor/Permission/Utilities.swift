@@ -23,7 +23,7 @@
 //
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
     private var topViewController: UIViewController? {
         return SS.mostTopViewController
     }
@@ -33,7 +33,7 @@ extension UIApplication {
     }
 }
 
-extension Bundle {
+public extension Bundle {
     var name: String {
         return SS.appDisplayName ?? ""
     }
@@ -79,7 +79,7 @@ struct Defaults {
     static var stateBluetoothManagerDetermined: Bool
 }
 
-extension String {
+public extension String {
     static let locationWhenInUseUsageDescription = "NSLocationWhenInUseUsageDescription"
     static let locationAlwaysUsageDescription    = "NSLocationAlwaysUsageDescription"
     static let microphoneUsageDescription        = "NSMicrophoneUsageDescription"
@@ -90,20 +90,20 @@ extension String {
     static let siriUsageDescription              = "NSSiriUsageDescription"
 }
 
-extension Selector {
+public extension Selector {
     static let tapped = #selector(PermissionButton.tapped(_:))
     static let highlight = #selector(PermissionButton.highlight(_:))
     static let settingsHandler = #selector(DeniedAlert.settingsHandler)
 }
 
-extension OperationQueue {
+public extension OperationQueue {
     convenience init(_ qualityOfService: QualityOfService) {
         self.init()
         self.qualityOfService = qualityOfService
     }
 }
 
-extension NotificationCenter {
+public extension NotificationCenter {
     func addObserver(_ observer: AnyObject, selector: Selector, name: NSNotification.Name?) {
         addObserver(observer, selector: selector, name: name!, object: nil)
     }

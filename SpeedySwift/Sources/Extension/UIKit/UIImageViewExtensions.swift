@@ -1,5 +1,5 @@
 //
-//  UIImageViewExtensions.swift
+//  UIImageViewpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/25/16.
@@ -19,7 +19,7 @@ public extension UIImageView {
     ///   - contentMode: imageView content mode (default is .scaleAspectFit).
     ///   - placeHolder: optional placeholder image
     ///   - completionHandler: optional completion handler to run when download finishs (default is nil).
-    public func download(
+    func download(
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
         placeholder: UIImage? = nil,
@@ -47,7 +47,7 @@ public extension UIImageView {
     /// 模糊
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
-    public func blur(withStyle style: UIBlurEffect.Style = .light) {
+    func blur(withStyle style: UIBlurEffect.Style = .light) {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
@@ -60,7 +60,7 @@ public extension UIImageView {
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
     /// - Returns: blurred version of self.
-    public func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
+    func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
         let imgView = self
         imgView.blur(withStyle: style)
         return imgView

@@ -1,5 +1,5 @@
 //
-//  UIWindowExtensions.swift
+//  UIWindowpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 6/2/18.
@@ -20,7 +20,7 @@ public extension UIWindow {
     ///   - duration: animation duration in seconds (default is 0.5).
     ///   - options: animataion options (default is .transitionFlipFromRight).
     ///   - completion: optional completion handler called after view controller is changed.
-    public func switchRootViewController(
+    func switchRootViewController(
         to viewController: UIViewController,
         animated: Bool = true,
         duration: TimeInterval = 0.5,

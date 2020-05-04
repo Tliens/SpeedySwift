@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class HintView:UIView{
+public class HintView:UIView{
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
     
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         layer.shadowColor = Color.init(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         layer.shadowOffset = CGSize(width: 0, height: 14)
         layer.shadowRadius = 30

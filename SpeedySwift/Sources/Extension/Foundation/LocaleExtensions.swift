@@ -1,5 +1,5 @@
 //
-//  LocalExtensions.swift
+//  Localpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 4/19/17.
@@ -13,7 +13,7 @@ import Foundation
 public extension Locale {
 
     /// 语言环境的UNIX表示，通常用于规范化。
-    public static var posix: Locale {
+    static var posix: Locale {
         return Locale(identifier: "en_US_POSIX")
     }
 

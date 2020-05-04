@@ -24,7 +24,7 @@
 
 import MediaPlayer
 
-extension Permission {
+public extension Permission {
     var statusMediaLibrary: PermissionStatus {
         guard #available(iOS 9.3, *) else { fatalError() }
 

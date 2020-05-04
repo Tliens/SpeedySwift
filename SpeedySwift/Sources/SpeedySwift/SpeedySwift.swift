@@ -26,11 +26,11 @@ public class SpeedySwift {
     static let `default` = SpeedySwift()
     private init(){}
     let lock = DispatchSemaphore(value: 1)
-    var didRequestPermission:((_ permissionSet: PermissionSet, _ permission: Permission)->())?
+    var  didRequestPermission:((_ permissionSet: PermissionSet, _ permission: Permission)->())?
 
     #if !os(macOS)
     /// App 显示名称
-    public static var appDisplayName: String? {
+    static var appDisplayName: String? {
         // http://stackoverflow.com/questions/28254377/get-app-name-in-swift
         return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
     }
@@ -38,28 +38,28 @@ public class SpeedySwift {
 
     #if !os(macOS)
     /// app 的bundleid
-    public static var appBundleID: String? {
+    static var appBundleID: String? {
         return Bundle.main.bundleIdentifier
     }
     #endif
 
     #if os(iOS)
     /// 状态栏高度
-    public static var statusBarHeight: CGFloat {
+    static var statusBarHeight: CGFloat {
         return UIApplication.shared.statusBarFrame.height
     }
     #endif
 
     #if !os(macOS)
     /// build号
-    public static var appBuild: String? {
+    static var appBuild: String? {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
     #endif
 
     #if os(iOS) || os(tvOS)
     /// 未读消息数量
-    public static var applicationIconBadgeNumber: Int {
+    static var applicationIconBadgeNumber: Int {
         get {
             return UIApplication.shared.applicationIconBadgeNumber
         }
@@ -71,33 +71,33 @@ public class SpeedySwift {
 
     #if !os(macOS)
     /// app版本号
-    public static var appVersion: String? {
+    static var appVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
     #endif
 
     #if os(iOS)
     /// 当前电量等级
-    public static var batteryLevel: Float {
+    static var batteryLevel: Float {
         return UIDevice.current.batteryLevel
     }
     #endif
 
     #if os(iOS) || os(tvOS)
     /// 当前设备
-    public static var currentDevice: UIDevice {
+    static var currentDevice: UIDevice {
         return UIDevice.current
     }
     #elseif os(watchOS)
     /// SpeedySwift: Shared instance of current device.
-    public static var currentDevice: WKInterfaceDevice {
+    static var currentDevice: WKInterfaceDevice {
         return WKInterfaceDevice.current()
     }
     #endif
 
     #if !os(macOS)
     /// 屏幕高度
-    public static var screenHeight: CGFloat {
+    static var screenHeight: CGFloat {
         #if os(iOS) || os(tvOS)
         return UIScreen.main.bounds.height
         #elseif os(watchOS)
@@ -108,28 +108,28 @@ public class SpeedySwift {
 
     #if !os(macOS)
     /// SpeedySwift: Current device model.
-    public static var deviceModel: String {
+    static var deviceModel: String {
         return currentDevice.model
     }
     #endif
 
     #if !os(macOS)
     /// 设备名称
-    public static var deviceName: String {
+    static var deviceName: String {
         return currentDevice.name
     }
     #endif
 
     #if os(iOS)
     /// 设备方向
-    public static var deviceOrientation: UIDeviceOrientation {
+    static var deviceOrientation: UIDeviceOrientation {
         return currentDevice.orientation
     }
     #endif
 
     #if !os(macOS)
     /// 屏幕宽度
-    public static var screenWidth: CGFloat {
+    static var screenWidth: CGFloat {
         #if os(iOS) || os(tvOS)
         return UIScreen.main.bounds.width
         #elseif os(watchOS)
@@ -139,7 +139,7 @@ public class SpeedySwift {
     #endif
 
     /// 是否是Debug模式
-    public static var isInDebuggingMode: Bool {
+    static var isInDebuggingMode: Bool {
         // http://stackoverflow.com/questions/9063100/xcode-ios-how-to-determine-whether-code-is-running-in-debug-release-build
         #if DEBUG
         return true
@@ -150,7 +150,7 @@ public class SpeedySwift {
 
     #if !os(macOS)
     /// 是否是TestFlight
-    public static var isInTestFlight: Bool {
+    static var isInTestFlight: Bool {
         // http://stackoverflow.com/questions/12431994/detect-testflight
         return Bundle.main.appStoreReceiptURL?.path.contains("sandboxReceipt") == true
     }
@@ -158,14 +158,14 @@ public class SpeedySwift {
 
     #if os(iOS)
     /// 检查当前设备是否支持多任务处理
-    public static var isMultitaskingSupported: Bool {
+    static var isMultitaskingSupported: Bool {
         return UIDevice.current.isMultitaskingSupported
     }
     #endif
 
     #if os(iOS)
     /// 当前网络行为知识状态
-    public static var isNetworkActivityIndicatorVisible: Bool {
+    static var isNetworkActivityIndicatorVisible: Bool {
         get {
             return UIApplication.shared.isNetworkActivityIndicatorVisible
         }
@@ -177,27 +177,27 @@ public class SpeedySwift {
 
     #if os(iOS)
     /// 是否为ipad
-    public static var isPad: Bool {
+    static var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     #endif
 
     #if os(iOS)
     /// 是否为iphone
-    public static var isPhone: Bool {
+    static var isPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     #endif
 
     #if os(iOS) || os(tvOS)
     /// 当前app是否注册了远程通知
-    public static var isRegisteredForRemoteNotifications: Bool {
+    static var isRegisteredForRemoteNotifications: Bool {
         return UIApplication.shared.isRegisteredForRemoteNotifications
     }
     #endif
 
     /// 检查是否运行在模拟器上
-    public static var isRunningOnSimulator: Bool {
+    static var isRunningOnSimulator: Bool {
         // http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
         #if targetEnvironment(simulator)
         return true
@@ -208,7 +208,7 @@ public class SpeedySwift {
 
     #if os(iOS)
     /// 状态栏显示隐藏
-    public static var isStatusBarHidden: Bool {
+    static var isStatusBarHidden: Bool {
         get {
             return UIApplication.shared.isStatusBarHidden
         }
@@ -220,14 +220,14 @@ public class SpeedySwift {
 
     #if os(iOS) || os(tvOS)
     /// 主窗口
-    public static var keyWindow: UIView? {
+    static var keyWindow: UIView? {
         return UIApplication.shared.keyWindow
     }
     #endif
 
     #if os(iOS) || os(tvOS)
     /// 最顶层视图控制器(如果适用)。
-    public static var mostTopViewController: UIViewController? {
+    static var mostTopViewController: UIViewController? {
         get {
             return UIApplication.shared.keyWindow?.rootViewController
         }
@@ -239,14 +239,14 @@ public class SpeedySwift {
 
     #if os(iOS) || os(tvOS)
     /// SpeedySwift: Shared instance UIApplication.
-    public static var sharedApplication: UIApplication {
+    static var sharedApplication: UIApplication {
         return UIApplication.shared
     }
     #endif
 
     #if os(iOS)
     /// 当前状态栏类型·
-    public static var statusBarStyle: UIStatusBarStyle? {
+    static var statusBarStyle: UIStatusBarStyle? {
         get {
             return UIApplication.shared.statusBarStyle
         }
@@ -260,7 +260,7 @@ public class SpeedySwift {
 
     #if !os(macOS)
     /// 当前系统版本
-    public static var systemVersion: String {
+    static var systemVersion: String {
         return currentDevice.systemVersion
     }
     #endif
@@ -277,7 +277,7 @@ public extension SpeedySwift {
     ///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
     ///   - completion: closure to be executed after delay.
     ///   - Returns: DispatchWorkItem task. You can call .cancel() on it to cancel delayed execution.
-    @discardableResult public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping () -> Void) -> DispatchWorkItem {
+    @discardableResult static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping () -> Void) -> DispatchWorkItem {
         let task = DispatchWorkItem { completion() }
         queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: task)
         return task
@@ -289,7 +289,7 @@ public extension SpeedySwift {
     ///   - millisecondsOffset: allow execution of method if it was not called since millisecondsOffset.
     ///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
     ///   - action: closure to be executed in a debounced way.
-    public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
+    static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
         var lastFireTime = DispatchTime.now()
         let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
@@ -310,7 +310,7 @@ public extension SpeedySwift {
     /// 当用户截屏时的监听
     ///
     /// - Parameter action: a closure to run when user takes a screenshot
-    public static func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
+    static func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
         // http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot
         _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification,
                                                    object: nil,
@@ -324,7 +324,7 @@ public extension SpeedySwift {
     ///
     /// - Parameter object: Any object to find its class name.
     /// - Returns: Class name for given object.
-    public static func typeName(for object: Any) -> String {
+    static func typeName(for object: Any) -> String {
         let objectType = type(of: object.self)
         return String.init(describing: objectType)
     }

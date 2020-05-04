@@ -64,7 +64,7 @@ open class PermissionButton: UIButton {
     
     - returns: A newly created button.
     */
-    public init(_ permission: Permission) {
+    init(_ permission: Permission) {
         self.permission = permission
 
         super.init(frame: .zero)
@@ -454,7 +454,7 @@ open class PermissionButton: UIButton {
     }
 }
 
-extension PermissionButton {
+public extension PermissionButton {
     @objc func highlight(_ button: PermissionButton) {
         render(.highlighted)
     }

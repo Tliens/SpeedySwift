@@ -1,5 +1,5 @@
 //
-//  UILayoutPriorityExtensions.swift
+//  UILayoutPrioritypublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/19/18.

@@ -1,5 +1,5 @@
 //
-//  CLLocationExtensions.swift
+//  CLLocationpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 21/04/17.
@@ -18,7 +18,7 @@ public extension CLLocation {
     ///   - start: 起点.
     ///   - end: 终点.
     /// - Returns: 中间点.
-    public static func midLocation(start: CLLocation, end: CLLocation) -> CLLocation {
+    static func midLocation(start: CLLocation, end: CLLocation) -> CLLocation {
         let lat1 = Double.pi * start.coordinate.latitude / 180.0
         let long1 = Double.pi * start.coordinate.longitude / 180.0
         let lat2 = Double.pi * end.coordinate.latitude / 180.0
@@ -43,7 +43,7 @@ public extension CLLocation {
     ///
     /// - Parameter point: 终点.
     /// - Returns: 中间点.
-    public func midLocation(to point: CLLocation) -> CLLocation {
+    func midLocation(to point: CLLocation) -> CLLocation {
         return CLLocation.midLocation(start: self, end: point)
     }
 
@@ -52,7 +52,7 @@ public extension CLLocation {
     /// - Parameters:
     ///   - destination: 相对位置.
     /// - Returns: 0° ... 360°的方位角
-    public func bearing(to destination: CLLocation) -> Double {
+    func bearing(to destination: CLLocation) -> Double {
         // http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
         let lat1 = Double.pi * coordinate.latitude / 180.0
         let long1 = Double.pi * coordinate.longitude / 180.0

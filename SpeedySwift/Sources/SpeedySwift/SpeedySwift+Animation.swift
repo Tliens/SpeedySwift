@@ -8,7 +8,7 @@
 // MARK: 动画
 import Foundation
 import UIKit
-extension SS{
+public extension SS{
     static func hintAnimation(position:CGPoint) -> CAAnimation{
         return SS.fadeInOutWithMovedAndScaleAnimation(fromPosition: CGPoint(x: position.x, y: position.y+30),
         toPosition: position,

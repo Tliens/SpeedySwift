@@ -1,5 +1,5 @@
 //
-//  UISearchBarExtensions.swift
+//  UISearchBarpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/23/16.
@@ -13,7 +13,7 @@ import UIKit
 public extension UISearchBar {
 
     /// searchbar 中的 textField
-    public var textField: UITextField? {
+    var  textField: UITextField? {
         let subViews = subviews.flatMap { $0.subviews }
         guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
             return nil
@@ -22,7 +22,7 @@ public extension UISearchBar {
     }
 
     /// 去掉头部和尾部的换行空格
-    public var trimmedText: String? {
+    var  trimmedText: String? {
         return text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
@@ -32,7 +32,7 @@ public extension UISearchBar {
 public extension UISearchBar {
 
     /// 清空
-    public func clear() {
+    func clear() {
         text = ""
     }
 

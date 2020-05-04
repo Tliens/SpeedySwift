@@ -1,5 +1,5 @@
 //
-//  CGPointExtensions.swift
+//  CGPointpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 07/12/2016.
@@ -29,7 +29,7 @@ public extension CGPoint {
     ///
     /// - Parameter point: 相对点
     /// - Returns: 自己和另一个点的距离
-    public func distance(from point: CGPoint) -> CGFloat {
+    func distance(from point: CGPoint) -> CGFloat {
         return CGPoint.distance(from: self, to: point)
     }
 
@@ -44,7 +44,7 @@ public extension CGPoint {
     ///   - point1: 第一个点
     ///   - point2: 第二个点
     /// - Returns: 两个点之间的距离
-    public static func distance(from point1: CGPoint, to point2: CGPoint) -> CGFloat {
+    static func distance(from point1: CGPoint, to point2: CGPoint) -> CGFloat {
         // http://stackoverflow.com/questions/6416101/calculate-the-distance-between-two-cgpoints
         return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
     }
@@ -65,7 +65,7 @@ public extension CGPoint {
     ///   - lhs: CGPoint to add to.
     ///   - rhs: CGPoint to add.
     /// - Returns: 给定的两个点相加的结果
-    public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
 
@@ -79,7 +79,7 @@ public extension CGPoint {
     /// - Parameters:
     ///   - lhs: 本身
     ///   - rhs: 叠加的点.
-    public static func += (lhs: inout CGPoint, rhs: CGPoint) {
+    static func += (lhs: inout CGPoint, rhs: CGPoint) {
         // swiftlint:disable next shorthand_operator
         lhs = lhs + rhs
     }
@@ -95,7 +95,7 @@ public extension CGPoint {
     ///   - lhs: 被减数
     ///   - rhs: 减数
     /// - Returns: result of subtract of the two given CGPoints.
-    public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+    static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
         return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
 
@@ -109,7 +109,7 @@ public extension CGPoint {
     /// - Parameters:
     ///   - lhs: 本身
     ///   - rhs: 减数
-    public static func -= (lhs: inout CGPoint, rhs: CGPoint) {
+    static func -= (lhs: inout CGPoint, rhs: CGPoint) {
         // swiftlint:disable next shorthand_operator
         lhs = lhs - rhs
     }
@@ -124,7 +124,7 @@ public extension CGPoint {
     ///   - point: CGPoint to multiply.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    public static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
+    static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
 
@@ -138,7 +138,7 @@ public extension CGPoint {
     ///   - point: self.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    public static func *= (point: inout CGPoint, scalar: CGFloat) {
+    static func *= (point: inout CGPoint, scalar: CGFloat) {
         // swiftlint:disable next shorthand_operator
         point = point * scalar
     }
@@ -153,7 +153,7 @@ public extension CGPoint {
     ///   - scalar: scalar value.
     ///   - point: CGPoint to multiply.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    public static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
+    static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
 

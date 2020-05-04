@@ -1,5 +1,5 @@
 //
-//  CGColorExtensions.swift
+//  CGColorpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 03/02/2017.
@@ -22,14 +22,14 @@ public extension CGColor {
 
     #if canImport(UIKit)
     /// 转UIColor
-    public var uiColor: UIColor? {
+    var  uiColor: UIColor? {
         return UIColor(cgColor: self)
     }
     #endif
 
     #if canImport(Cocoa)
     /// 转NSColor
-    public var nsColor: NSColor? {
+    var  nsColor: NSColor? {
         return NSColor(cgColor: self)
     }
     #endif

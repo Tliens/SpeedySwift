@@ -24,7 +24,7 @@
 
 import UserNotifications
 
-extension Permission {
+public extension Permission {
     var statusNotifications: PermissionStatus {
         if Defaults.requestedNotifications {
             return synchronousStatusNotifications

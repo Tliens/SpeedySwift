@@ -1,5 +1,5 @@
 //
-//  UISegmentedControlExtensions.swift
+//  UISegmentedControlpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 9/28/16.
@@ -13,7 +13,7 @@ import UIKit
 public extension UISegmentedControl {
 
     /// Segments 标题
-    public var segmentTitles: [String] {
+    var  segmentTitles: [String] {
         get {
             let range = 0..<numberOfSegments
             return range.compactMap { titleForSegment(at: $0) }
@@ -27,7 +27,7 @@ public extension UISegmentedControl {
     }
 
     /// Segments 图片
-    public var segmentImages: [UIImage] {
+    var  segmentImages: [UIImage] {
         get {
             let range = 0..<numberOfSegments
             return range.compactMap { imageForSegment(at: $0) }

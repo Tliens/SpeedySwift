@@ -1,5 +1,5 @@
 //
-//  UIScrollViewExtensions.swift
+//  UIScrollViewpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 22/04/18.
@@ -18,7 +18,7 @@ public extension UIScrollView {
     ///    UITableView().snapshot
     ///
     /// - Returns: Snapshot as UIimage for rendered ScrollView
-    public var snapshot: UIImage? {
+    var  snapshot: UIImage? {
         // Original Source: https://gist.github.com/thestoics/1204051
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
         defer {

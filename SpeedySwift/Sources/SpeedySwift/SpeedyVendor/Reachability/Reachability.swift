@@ -28,7 +28,7 @@ POSSIBILITY OF SUCH DAMAGE.
 import SystemConfiguration
 import Foundation
 
-public enum ReachabilityError: Error {
+enum ReachabilityError: Error {
     case failedToCreateWithAddress(sockaddr, Int32)
     case failedToCreateWithHostname(String, Int32)
     case unableToSetCallback(Int32)
@@ -49,9 +49,9 @@ public class Reachability {
     public typealias NetworkUnreachable = (Reachability) -> ()
 
     @available(*, unavailable, renamed: "Connection")
-    public enum NetworkStatus: CustomStringConvertible {
+    enum NetworkStatus: CustomStringConvertible {
         case notReachable, reachableViaWiFi, reachableViaWWAN
-        public var description: String {
+        public var  description: String {
             switch self {
             case .reachableViaWWAN: return "Cellular"
             case .reachableViaWiFi: return "WiFi"
@@ -128,7 +128,7 @@ public class Reachability {
         }
     }
 
-    required public init(reachabilityRef: SCNetworkReachability,
+    required init(reachabilityRef: SCNetworkReachability,
                          queueQoS: DispatchQoS = .default,
                          targetQueue: DispatchQueue? = nil,
                          notificationQueue: DispatchQueue? = .main) {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 typealias SS = SpeedySwift
-extension SS{
+public extension SS{
     
     /// 自动消失的提示框，可以自定义文字和图片
     /// - Parameters:

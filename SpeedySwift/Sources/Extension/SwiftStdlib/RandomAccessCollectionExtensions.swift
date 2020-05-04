@@ -1,12 +1,12 @@
 //
-//  RandomAccessCollectionExtensions.swift
+//  RandomAccessCollectionpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 7/13/18.
 //  Copyright © 2018 SpeedySwift
 //
 
-extension RandomAccessCollection where Element: Equatable {
+public extension RandomAccessCollection where Element: Equatable {
 
     /// 指定check的值对应的索引值都有哪些
     ///
@@ -16,7 +16,7 @@ extension RandomAccessCollection where Element: Equatable {
     ///
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
-    public func indices(of item: Element) -> [Index] {
+    func indices(of item: Element) -> [Index] {
         var indices: [Index] = []
         var idx = startIndex
         while idx < endIndex {

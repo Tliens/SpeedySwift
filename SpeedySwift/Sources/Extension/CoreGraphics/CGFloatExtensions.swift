@@ -1,5 +1,5 @@
 //
-//  CGFloatExtensions.swift
+//  CGFloatpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/23/16.
@@ -21,52 +21,52 @@ import Cocoa
 public extension CGFloat {
 
     /// CGFloat 绝对值
-    public var abs: CGFloat {
+    var  abs: CGFloat {
         return Swift.abs(self)
     }
 
     /// CGFloat向上取整
-    public var ceil: CGFloat {
+    var  ceil: CGFloat {
         return Foundation.ceil(self)
     }
 
     /// 度数转 弧度
-    public var degreesToRadians: CGFloat {
+    var  degreesToRadians: CGFloat {
         return .pi * self / 180.0
     }
 
     /// CGFloat向下取整
-    public var floor: CGFloat {
+    var  floor: CGFloat {
         return Foundation.floor(self)
     }
 
     /// 检验是否为正数
-    public var isPositive: Bool {
+    var  isPositive: Bool {
         return self > 0
     }
 
     /// 检查是否为负数
-    public var isNegative: Bool {
+    var  isNegative: Bool {
         return self < 0
     }
 
     /// 强转Int
-    public var int: Int {
+    var  int: Int {
         return Int(self)
     }
 
     /// 强转float
-    public var float: Float {
+    var  float: Float {
         return Float(self)
     }
 
     /// 强转double
-    public var double: Double {
+    var  double: Double {
         return Double(self)
     }
 
     /// 弧度转角度
-    public var radiansToDegrees: CGFloat {
+    var  radiansToDegrees: CGFloat {
         return self * 180 / CGFloat.pi
     }
 

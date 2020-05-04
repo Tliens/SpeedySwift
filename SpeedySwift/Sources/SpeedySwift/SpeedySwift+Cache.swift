@@ -8,9 +8,9 @@
 // MARK: 缓存
 import UIKit
 
-extension SpeedySwift{
+public extension SpeedySwift{
     /// 缓存路径
-    var cachePath:String {
+    var  cachePath:String {
         return SpeedySandbox.shared.cachesDirectory + "/" + "SpeedyCache"
     }
     //MARK: Set 缓存数据
@@ -21,7 +21,7 @@ extension SpeedySwift{
      - parameter subPath:      二级文件夹路径subPath（可设置-可不设置）
      - parameter completed:    异步完成回调(主线程回调)
      */
-    public func asyncSetCache(jsonResponse: AnyObject, URL: String, subPath: String?, completed:@escaping (Bool) -> ()) {
+    func asyncSetCache(jsonResponse: AnyObject, URL: String, subPath: String?, completed:@escaping (Bool) -> ()) {
         DispatchQueue.global().async{
             let result = self.setCache(jsonResponse, URL: URL, subPath: subPath)
             DispatchQueue.main.async(execute: {
@@ -37,7 +37,7 @@ extension SpeedySwift{
      - parameter subPath:      二级文件夹路径subPath（可设置-可不设置）
      - returns: 是否写入成功
      */
-    public func setCache(_ jsonResponse: AnyObject, URL: String, subPath: String?) -> Bool {
+    func setCache(_ jsonResponse: AnyObject, URL: String, subPath: String?) -> Bool {
         lock.wait()
         let data = (jsonResponse as? Dictionary<String, Any>)?.jsonData()
         let atPath = getCacheFilePath(url: URL, subPath: subPath)
@@ -52,7 +52,7 @@ extension SpeedySwift{
      - parameter subPath:      二级文件夹路径subPath（可设置-可不设置）
      - returns: 缓存对象
      */
-    public func getCacheJsonWithURL(_ URL: String, subPath:String = "") -> AnyObject? {
+    func getCacheJsonWithURL(_ URL: String, subPath:String = "") -> AnyObject? {
         
         lock.wait()
         var resultObject: AnyObject?
@@ -100,7 +100,7 @@ extension SpeedySwift{
         }
     }
     ///创建文件夹
-    public static func createBaseDirectoryAtPath(_ path: String) {
+    static func createBaseDirectoryAtPath(_ path: String) {
         do {
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
             self.addDoNotBackupAttribute(path)
@@ -110,7 +110,7 @@ extension SpeedySwift{
         }
     }
     // 设置不备份
-    public static func addDoNotBackupAttribute(_ path: String) {
+    static func addDoNotBackupAttribute(_ path: String) {
         let url: URL = URL(fileURLWithPath: path)
         do {
             try  (url as NSURL).setResourceValue(NSNumber(value: true as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)

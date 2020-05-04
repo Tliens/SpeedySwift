@@ -24,7 +24,7 @@
 
 import Contacts
 
-extension Permission {
+public extension Permission {
     var statusContacts: PermissionStatus {
         guard #available(iOS 9.0, *) else { fatalError() }
 

@@ -1,5 +1,5 @@
 //
-//  UIFontExtensions.swift
+//  UIFontpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 9/16/17.
@@ -13,12 +13,12 @@ import UIKit
 public extension UIFont {
 
     /// 粗体
-    public var bold: UIFont {
+    var  bold: UIFont {
         return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitBold)!, size: 0)
     }
 
     /// 斜体
-    public var italic: UIFont {
+    var  italic: UIFont {
         return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitItalic)!, size: 0)
     }
 
@@ -26,7 +26,7 @@ public extension UIFont {
     ///
     ///     UIFont.preferredFont(forTextStyle: .body).monospaced
     ///
-    public var monospaced: UIFont {
+    var  monospaced: UIFont {
         let settings = [[UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType, UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector]]
 
         let attributes = [UIFontDescriptor.AttributeName.featureSettings: settings]

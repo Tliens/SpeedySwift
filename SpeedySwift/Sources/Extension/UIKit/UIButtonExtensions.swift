@@ -1,5 +1,5 @@
 //
-//  UIButtonExtensions.swift
+//  UIButtonpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/22/16.
@@ -13,7 +13,7 @@ import UIKit
 public extension UIButton {
 
     /// 失效状态下的图片
-    @IBInspectable public var imageForDisabled: UIImage? {
+    @IBInspectable var  imageForDisabled: UIImage? {
         get {
             return image(for: .disabled)
         }
@@ -23,7 +23,7 @@ public extension UIButton {
     }
 
     /// 高亮状态下的图片
-    @IBInspectable public var imageForHighlighted: UIImage? {
+    @IBInspectable var  imageForHighlighted: UIImage? {
         get {
             return image(for: .highlighted)
         }
@@ -33,7 +33,7 @@ public extension UIButton {
     }
 
     /// 正常情况下的图片
-    @IBInspectable public var imageForNormal: UIImage? {
+    @IBInspectable var  imageForNormal: UIImage? {
         get {
             return image(for: .normal)
         }
@@ -43,7 +43,7 @@ public extension UIButton {
     }
 
     /// 选中状态下的图片
-    @IBInspectable public var imageForSelected: UIImage? {
+    @IBInspectable var  imageForSelected: UIImage? {
         get {
             return image(for: .selected)
         }
@@ -53,7 +53,7 @@ public extension UIButton {
     }
 
     /// 失效状态下的文字颜色
-    @IBInspectable public var titleColorForDisabled: UIColor? {
+    @IBInspectable var  titleColorForDisabled: UIColor? {
         get {
             return titleColor(for: .disabled)
         }
@@ -63,7 +63,7 @@ public extension UIButton {
     }
 
     /// 高亮状态下的文字颜色
-    @IBInspectable public var titleColorForHighlighted: UIColor? {
+    @IBInspectable var  titleColorForHighlighted: UIColor? {
         get {
             return titleColor(for: .highlighted)
         }
@@ -73,7 +73,7 @@ public extension UIButton {
     }
 
     /// 正常状态下的文字颜色
-    @IBInspectable public var titleColorForNormal: UIColor? {
+    @IBInspectable var  titleColorForNormal: UIColor? {
         get {
             return titleColor(for: .normal)
         }
@@ -83,7 +83,7 @@ public extension UIButton {
     }
 
     /// 选中状态下的文字颜色
-    @IBInspectable public var titleColorForSelected: UIColor? {
+    @IBInspectable var  titleColorForSelected: UIColor? {
         get {
             return titleColor(for: .selected)
         }
@@ -93,7 +93,7 @@ public extension UIButton {
     }
 
     /// 失效状态下的文字
-    @IBInspectable public var titleForDisabled: String? {
+    @IBInspectable var  titleForDisabled: String? {
         get {
             return title(for: .disabled)
         }
@@ -103,7 +103,7 @@ public extension UIButton {
     }
 
     /// 高亮状态下的文字
-    @IBInspectable public var titleForHighlighted: String? {
+    @IBInspectable var  titleForHighlighted: String? {
         get {
             return title(for: .highlighted)
         }
@@ -113,7 +113,7 @@ public extension UIButton {
     }
 
     /// 正常情况下的文字
-    @IBInspectable public var titleForNormal: String? {
+    @IBInspectable var  titleForNormal: String? {
         get {
             return title(for: .normal)
         }
@@ -123,7 +123,7 @@ public extension UIButton {
     }
 
     /// 选中状态下的文字
-    @IBInspectable public var titleForSelected: String? {
+    @IBInspectable var  titleForSelected: String? {
         get {
             return title(for: .selected)
         }
@@ -144,28 +144,28 @@ public extension UIButton {
     /// 设置所有状态下的图片
     ///
     /// - Parameter image: UIImage.
-    public func setImageForAllStates(_ image: UIImage) {
+    func setImageForAllStates(_ image: UIImage) {
         states.forEach { setImage(image, for: $0) }
     }
 
     /// 设置所有状态下的文字颜色
     ///
     /// - Parameter color: UIColor.
-    public func setTitleColorForAllStates(_ color: UIColor) {
+    func setTitleColorForAllStates(_ color: UIColor) {
         states.forEach { setTitleColor(color, for: $0) }
     }
 
     /// 设置所有状态下的文字
     ///
     /// - Parameter title: title string.
-    public func setTitleForAllStates(_ title: String) {
+    func setTitleForAllStates(_ title: String) {
         states.forEach { setTitle(title, for: $0) }
     }
 
     /// 在UIButton中将标题文本和图像居中对齐
     ///
     /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
-    public func centerTextAndImage(spacing: CGFloat) {
+    func centerTextAndImage(spacing: CGFloat) {
         let insetAmount = spacing / 2
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)

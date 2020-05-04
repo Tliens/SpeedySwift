@@ -44,7 +44,7 @@ extension Permission: CLLocationManagerDelegate {
     }
 }
 
-extension CLLocationManager {
+public extension CLLocationManager {
     func request(_ permission: Permission) {
         delegate = permission
 

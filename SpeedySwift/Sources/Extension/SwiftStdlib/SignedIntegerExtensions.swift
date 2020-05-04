@@ -1,5 +1,5 @@
 //
-//  SignedIntegerExtensions.swift
+//  SignedIntegerpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/15/17.
@@ -13,32 +13,32 @@ import Foundation
 public extension SignedInteger {
 
     /// 绝对值
-    public var abs: Self {
+    var  abs: Self {
         return Swift.abs(self)
     }
 
     /// 是否正数
-    public var isPositive: Bool {
+    var  isPositive: Bool {
         return self > 0
     }
 
     /// 是否负数
-    public var isNegative: Bool {
+    var  isNegative: Bool {
         return self < 0
     }
 
     /// 是否偶数
-    public var isEven: Bool {
+    var  isEven: Bool {
         return (self % 2) == 0
     }
 
     /// 是否奇数
-    public var isOdd: Bool {
+    var  isOdd: Bool {
         return (self % 2) != 0
     }
 
     /// 秒转时分
-    public var timeString: String {
+    var  timeString: String {
         guard self > 0 else {
             return "0 sec"
         }
@@ -67,7 +67,7 @@ public extension SignedInteger {
     ///
     /// - Parameter n: integer value to find gcd with.
     /// - Returns: greatest common divisor of self and n.
-    public func gcd(of n: Self) -> Self {
+    func gcd(of n: Self) -> Self {
         return n == 0 ? self : n.gcd(of: self % n)
     }
 
@@ -76,7 +76,7 @@ public extension SignedInteger {
     ///
     /// - Parameter n: integer value to find lcm with.
     /// - Returns: least common multiple of self and n.
-    public func lcm(of n: Self) -> Self {
+    func lcm(of n: Self) -> Self {
         return (self * n).abs / gcd(of: n)
     }
 
@@ -88,7 +88,7 @@ public extension SignedInteger {
     /// - Parameter locale: locale, default is .current.
     /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".
     @available(iOS 9.0, macOS 10.11, *)
-    public func ordinalString(locale: Locale = .current) -> String? {
+    func ordinalString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
         formatter.locale = locale
         formatter.numberStyle = .ordinal

@@ -8,7 +8,7 @@
 // MARK: 触感反馈
 import UIKit
 
-extension SS{
+public extension SS{
     static func light() {
         SpeedyTapticEngine.impact.feedback(.light)
     }

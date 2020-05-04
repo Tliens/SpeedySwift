@@ -1,5 +1,5 @@
 //
-//  UIControlExtension.swift
+//  UIControlpublic extension.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 2020/5/4.

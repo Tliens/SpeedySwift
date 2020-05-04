@@ -26,49 +26,49 @@ open class Permission: NSObject {
     public typealias Callback = (PermissionStatus) -> Void
 
     /// The permission to access the user's contacts.
-    public static let contacts = Permission(type: .contacts)
+    static let contacts = Permission(type: .contacts)
 
     /// The permission to access the user's location when the app is in background.
-    public static let locationAlways = Permission(type: .locationAlways)
+    static let locationAlways = Permission(type: .locationAlways)
 
     /// The permission to access the user's location when the app is in use.
-    public static let locationWhenInUse = Permission(type: .locationWhenInUse)
+    static let locationWhenInUse = Permission(type: .locationWhenInUse)
 
     /// The permission to access the microphone.
-    public static let microphone = Permission(type: .microphone)
+    static let microphone = Permission(type: .microphone)
 
     /// The permission to access the camera.
-    public static let camera = Permission(type: .camera)
+    static let camera = Permission(type: .camera)
 
     /// The permission to access the user's photos.
-    public static let photos = Permission(type: .photos)
+    static let photos = Permission(type: .photos)
 
     /// The permission to access the user's reminders.
-    public static let reminders = Permission(type: .reminders)
+    static let reminders = Permission(type: .reminders)
 
     /// The permission to access the user's events.
-    public static let events = Permission(type: .events)
+    static let events = Permission(type: .events)
 
     /// The permission to access the user's bluetooth.
-    public static let bluetooth = Permission(type: .bluetooth)
+    static let bluetooth = Permission(type: .bluetooth)
 
     /// The permission to access the user's motion.
-    public static let motion = Permission(type: .motion)
+    static let motion = Permission(type: .motion)
 
     /// The permission to access the user's SpeechRecognizer.
     @available(iOS 10.0, *)
-    public static let speechRecognizer = Permission(type: .speechRecognizer)
+    static let speechRecognizer = Permission(type: .speechRecognizer)
 
     /// The permission to access the user's MediaLibrary.
     @available(iOS 9.3, *)
-    public static let mediaLibrary = Permission(type: .mediaLibrary)
+    static let mediaLibrary = Permission(type: .mediaLibrary)
 
     /// The permission to access the user's Siri.
     @available(iOS 10.0, *)
-    public static let siri = Permission(type: .siri)
+    static let siri = Permission(type: .siri)
 
     /// The permission to send notifications.
-    public static let notifications: Permission = {
+    static let notifications: Permission = {
         let options: UNAuthorizationOptions = [.badge, .sound, .alert]
         return Permission(type: .notifications(options))
     }()
@@ -77,7 +77,7 @@ open class Permission: NSObject {
     private static var _notifications: Permission?
 
     /// The permission to send notifications.
-    public static func notifications(options: UNAuthorizationOptions) -> Permission {
+    static func notifications(options: UNAuthorizationOptions) -> Permission {
         let permission = Permission(type: .notifications(options))
         _notifications = permission
         return permission
@@ -209,14 +209,14 @@ open class Permission: NSObject {
     }
 }
 
-extension Permission {
+public extension Permission {
     /// The textual representation of self.
-    override open var description: String {
+    override var description: String {
         return type.description
     }
 
     /// A textual representation of this instance, suitable for debugging.
-    override open var debugDescription: String {
+    override var debugDescription: String {
         return "\(type): \(status)"
     }
 

@@ -1,5 +1,5 @@
 //
-//  UIViewExtensions.swift
+//  UIViewpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/5/16.
@@ -16,7 +16,7 @@ public extension UIView {
     ///
     /// - horizontal: Shake left and right.
     /// - vertical: Shake up and down.
-    public enum ShakeDirection {
+    enum ShakeDirection {
         /// Shake left and right.
         case horizontal
 
@@ -28,7 +28,7 @@ public extension UIView {
     ///
     /// - degrees: degrees.
     /// - radians: radians.
-    public enum AngleUnit {
+    enum AngleUnit {
         /// degrees.
         case degrees
 
@@ -42,7 +42,7 @@ public extension UIView {
     /// - easeIn: easeIn animation.
     /// - easeOut: easeOut animation.
     /// - easeInOut: easeInOut animation.
-    public enum ShakeAnimationType {
+    enum ShakeAnimationType {
         /// linear animation.
         case linear
 
@@ -62,7 +62,7 @@ public extension UIView {
 public extension UIView {
 
     /// 边框颜色 计算属性
-    @IBInspectable public var borderColor: UIColor? {
+    @IBInspectable var  borderColor: UIColor? {
         get {
             guard let color = layer.borderColor else { return nil }
             return UIColor(cgColor: color)
@@ -79,7 +79,7 @@ public extension UIView {
     }
 
     /// 边框宽度 计算属性
-    @IBInspectable public var borderWidth: CGFloat {
+    @IBInspectable var  borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -89,7 +89,7 @@ public extension UIView {
     }
 
     /// 圆角 计算属性
-    @IBInspectable public var cornerRadius: CGFloat {
+    @IBInspectable var  cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -100,7 +100,7 @@ public extension UIView {
     }
 
     /// 高度 计算属性
-    public var height: CGFloat {
+    var  height: CGFloat {
         get {
             return frame.size.height
         }
@@ -110,7 +110,7 @@ public extension UIView {
     }
 
     /// 左右拉伸
-    public var isRightToLeft: Bool {
+    var  isRightToLeft: Bool {
         if #available(iOS 10.0, *, tvOS 10.0, *) {
             return effectiveUserInterfaceLayoutDirection == .rightToLeft
         } else {
@@ -119,7 +119,7 @@ public extension UIView {
     }
 
     /// 屏幕截图
-    public var screenshot: UIImage? {
+    var  screenshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         defer {
             UIGraphicsEndImageContext()
@@ -130,7 +130,7 @@ public extension UIView {
     }
 
     /// 阴影颜色
-    @IBInspectable public var shadowColor: UIColor? {
+    @IBInspectable var  shadowColor: UIColor? {
         get {
             guard let color = layer.shadowColor else { return nil }
             return UIColor(cgColor: color)
@@ -141,7 +141,7 @@ public extension UIView {
     }
 
     /// 阴影偏移量
-    @IBInspectable public var shadowOffset: CGSize {
+    @IBInspectable var  shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -151,7 +151,7 @@ public extension UIView {
     }
 
     /// 阴影透明度
-    @IBInspectable public var shadowOpacity: Float {
+    @IBInspectable var  shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -161,7 +161,7 @@ public extension UIView {
     }
 
     /// 阴影圆角
-    @IBInspectable public var shadowRadius: CGFloat {
+    @IBInspectable var  shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
@@ -171,7 +171,7 @@ public extension UIView {
     }
 
     /// 视图大小
-    public var size: CGSize {
+    var  size: CGSize {
         get {
             return frame.size
         }
@@ -182,7 +182,7 @@ public extension UIView {
     }
 
     /// 视图所在的UIVIewController
-    public var parentViewController: UIViewController? {
+    var  parentViewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -194,7 +194,7 @@ public extension UIView {
     }
 
     /// 视图宽度
-    public var width: CGFloat {
+    var  width: CGFloat {
         get {
             return frame.size.width
         }
@@ -205,7 +205,7 @@ public extension UIView {
 
     // swiftlint:disable next identifier_name
     /// 起始点 x
-    public var x: CGFloat {
+    var  x: CGFloat {
         get {
             return frame.origin.x
         }
@@ -216,7 +216,7 @@ public extension UIView {
 
     // swiftlint:disable next identifier_name
     /// 起始点y
-    public var y: CGFloat {
+    var  y: CGFloat {
         get {
             return frame.origin.y
         }
@@ -231,7 +231,7 @@ public extension UIView {
 public extension UIView {
 
     /// 递归找到第一响应者
-    public func firstResponder() -> UIView? {
+    func firstResponder() -> UIView? {
         var views = [UIView](arrayLiteral: self)
         var i = 0
         repeat {
@@ -250,7 +250,7 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
-    public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
@@ -268,7 +268,7 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5).
-    public func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -279,7 +279,7 @@ public extension UIView {
     ///添加一组视图
     ///
     /// - Parameter subviews: array of subviews to add to self.
-    public func addSubviews(_ subviews: [UIView]) {
+    func addSubviews(_ subviews: [UIView]) {
         subviews.forEach { addSubview($0) }
     }
 
@@ -288,7 +288,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    public func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -302,7 +302,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    public func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -317,17 +317,17 @@ public extension UIView {
     ///   - name: nib name.
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
-    public class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
+    class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
         return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 
     /// 移除子视图
-    public func removeSubviews() {
+    func removeSubviews() {
         subviews.forEach({ $0.removeFromSuperview() })
     }
 
     /// 移除手势
-    public func removeGestureRecognizers() {
+    func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 
@@ -338,7 +338,7 @@ public extension UIView {
     /// subviews. The view establishes a strong reference to the gesture recognizers.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be added to the view.
-    public func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
+    func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
         for recognizer in gestureRecognizers {
             addGestureRecognizer(recognizer)
         }
@@ -349,7 +349,7 @@ public extension UIView {
     /// This method releases gestureRecognizers in addition to detaching them from the view.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be removed from the view.
-    public func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
+    func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
         for recognizer in gestureRecognizers {
             removeGestureRecognizer(recognizer)
         }
@@ -363,7 +363,7 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is true).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    public func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -379,7 +379,7 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
@@ -394,7 +394,7 @@ public extension UIView {
     ///   - animated: set true to animate scaling (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -412,7 +412,7 @@ public extension UIView {
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+    func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
         CATransaction.begin()
         let animation: CAKeyframeAnimation
         switch direction {
@@ -443,7 +443,7 @@ public extension UIView {
     /// - Parameters:
     ///   - withFormat: visual Format language
     ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
-    @available(iOS 9, *) public func addConstraints(withFormat: String, views: UIView...) {
+    @available(iOS 9, *) func addConstraints(withFormat: String, views: UIView...) {
         // https://videos.letsbuildthatapp.com/
         var viewsDictionary: [String: UIView] = [:]
         for (index, view) in views.enumerated() {
@@ -455,7 +455,7 @@ public extension UIView {
     }
 
     /// 将视图的所有边锚定到它的父视图中 ？？？
-    @available(iOS 9, *) public func fillToSuperview() {
+    @available(iOS 9, *) func fillToSuperview() {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
@@ -481,7 +481,7 @@ public extension UIView {
     ///   - widthConstant: current view's width
     ///   - heightConstant: current view's height
     /// - Returns: array of newly added constraints (if applicable).
-    @available(iOS 9, *) @discardableResult public func anchor(
+    @available(iOS 9, *) @discardableResult func anchor(
         top: NSLayoutYAxisAnchor? = nil,
         left: NSLayoutXAxisAnchor? = nil,
         bottom: NSLayoutYAxisAnchor? = nil,
@@ -529,7 +529,7 @@ public extension UIView {
     /// 锚定中心X到当前视图的父视图具有一个恒定的边缘值。
     ///
     /// - Parameter constant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *) public func anchorCenterXToSuperview(constant: CGFloat = 0) {
+    @available(iOS 9, *) func anchorCenterXToSuperview(constant: CGFloat = 0) {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerXAnchor {
@@ -540,7 +540,7 @@ public extension UIView {
     /// 锚定中心Y到当前视图的父视图与一个恒定的边缘值。
     ///
     /// - Parameter withConstant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *) public func anchorCenterYToSuperview(constant: CGFloat = 0) {
+    @available(iOS 9, *) func anchorCenterYToSuperview(constant: CGFloat = 0) {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerYAnchor {
@@ -549,7 +549,7 @@ public extension UIView {
     }
 
     /// SpeedySwift: Anchor center X and Y into current view's superview
-    @available(iOS 9, *) public func anchorCenterSuperview() {
+    @available(iOS 9, *) func anchorCenterSuperview() {
         // https://videos.letsbuildthatapp.com/
         anchorCenterXToSuperview()
         anchorCenterYToSuperview()
@@ -558,7 +558,7 @@ public extension UIView {
     /// 搜索所有父视图，直到找到具有该条件的视图。
     ///
     /// - Parameter predicate: predicate to evaluate on superviews.
-    public func ancestorView(where predicate: (UIView?) -> Bool) -> UIView? {
+    func ancestorView(where predicate: (UIView?) -> Bool) -> UIView? {
         if predicate(superview) {
             return superview
         }
@@ -568,7 +568,7 @@ public extension UIView {
     /// 搜索所有父视图，直到找到具有此类的视图。
     ///
     /// - Parameter name: class of the view to search.
-    public func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
+    func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
         return ancestorView(where: { $0 is T }) as? T
     }
 

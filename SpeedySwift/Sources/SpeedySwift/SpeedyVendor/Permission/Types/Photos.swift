@@ -24,7 +24,7 @@
 
 import Photos
 
-extension Permission {
+public extension Permission {
     var statusPhotos: PermissionStatus {
         let status = PHPhotoLibrary.authorizationStatus()
 

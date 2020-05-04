@@ -1,5 +1,5 @@
 //
-//  UISwitchExtensions.swift
+//  UISwitchpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 08/12/2016.
@@ -15,7 +15,7 @@ public extension UISwitch {
     /// 切换UISwitch
     ///
     /// - Parameter animated: set true to animate the change (default is true)
-    public func toggle(animated: Bool = true) {
+    func toggle(animated: Bool = true) {
         setOn(!isOn, animated: animated)
     }
 

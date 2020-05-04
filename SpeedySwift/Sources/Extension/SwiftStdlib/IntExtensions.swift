@@ -1,5 +1,5 @@
 //
-//  IntExtensions.swift
+//  Intpublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/6/16.
@@ -14,44 +14,44 @@ import CoreGraphics
 public extension Int {
 
     /// 0..<self 的范围
-    public var countableRange: CountableRange<Int> {
+    var  countableRange: CountableRange<Int> {
         return 0..<self
     }
 
     /// 弧度转角度
-    public var degreesToRadians: Double {
+    var  degreesToRadians: Double {
         return Double.pi * Double(self) / 180.0
     }
 
     /// 角度转弧度
-    public var radiansToDegrees: Double {
+    var  radiansToDegrees: Double {
         return Double(self) * 180 / Double.pi
     }
 
     /// 转UInt
-    public var uInt: UInt {
+    var  uInt: UInt {
         return UInt(self)
     }
 
     /// 转double
-    public var double: Double {
+    var  double: Double {
         return Double(self)
     }
 
     /// 转float
-    public var float: Float {
+    var  float: Float {
         return Float(self)
     }
 
     #if canImport(CoreGraphics)
     /// 转CGFloat
-    public var cgFloat: CGFloat {
+    var  cgFloat: CGFloat {
         return CGFloat(self)
     }
     #endif
 
     /// 以千为单位 比如 1022 ->10k
-    public var kFormatted: String {
+    var  kFormatted: String {
         var sign: String {
             return self >= 0 ? "" : "-"
         }
@@ -67,7 +67,7 @@ public extension Int {
     }
 
     /// 整数转数字 如：103 -> [1,0,3]
-    public var digits: [Int] {
+    var  digits: [Int] {
         guard self != 0 else { return [0] }
         var digits = [Int]()
         var number = abs
@@ -83,7 +83,7 @@ public extension Int {
     }
 
     /// 有几位数字 如1000 一共是4位
-    public var digitsCount: Int {
+    var  digitsCount: Int {
         guard self != 0 else { return 1 }
         let number = Double(abs)
         return Int(log10(number) + 1)
@@ -97,7 +97,7 @@ public extension Int {
     /// 是否为素数。
     /// Warning: Using big numbers can be computationally expensive!
     /// - Returns: true or false depending on prime-ness
-    public func isPrime() -> Bool {
+    func isPrime() -> Bool {
         // To improve speed on latter loop :)
         if self == 2 {
             return true
@@ -122,7 +122,7 @@ public extension Int {
     ///10.romanNumeral() -> "X"
     ///
     /// - Returns: The roman numeral string.
-    public func romanNumeral() -> String? {
+    func romanNumeral() -> String? {
         // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
         guard self > 0 else { // there is no roman numerals for 0 or negative numbers
             return nil
@@ -148,7 +148,7 @@ public extension Int {
 
     // swiftlint:disable next identifier_name
     /// 四舍五入到最接近的n的倍数
-    public func roundToNearest(_ n: Int) -> Int {
+    func roundToNearest(_ n: Int) -> Int {
         return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
     }
 
@@ -164,7 +164,7 @@ infix operator ** : PowerPrecedence
 ///   - lhs: base integer.
 ///   - rhs: exponent integer.
 /// - Returns: exponentiation result (example: 2 ** 3 = 8).
-public func ** (lhs: Int, rhs: Int) -> Double {
+func ** (lhs: Int, rhs: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(Double(lhs), Double(rhs))
 }
@@ -175,7 +175,7 @@ prefix operator √
 ///
 /// - Parameter int: integer value to find square root for
 /// - Returns: square root of given integer.
-public prefix func √ (int: Int) -> Double {
+prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(int))
 }
@@ -188,7 +188,7 @@ infix operator ±
 ///   - lhs: integer number.
 ///   - rhs: integer number.
 /// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
-public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
+func ± (lhs: Int, rhs: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
@@ -199,7 +199,7 @@ prefix operator ±
 ///
 /// - Parameter int: integer number
 /// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).
-public prefix func ± (int: Int) -> (Int, Int) {
+prefix func ± (int: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return 0 ± int
 }

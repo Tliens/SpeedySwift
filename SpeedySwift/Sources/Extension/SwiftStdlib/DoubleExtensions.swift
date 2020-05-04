@@ -1,5 +1,5 @@
 //
-//  DoubleExtensions.swift
+//  Doublepublic extensions.swift
 //  SpeedySwift
 //
 //  Created by Quinn Von on 8/6/16.
@@ -14,18 +14,18 @@ import CoreGraphics
 public extension Double {
 
     ///转int
-    public var int: Int {
+    var  int: Int {
         return Int(self)
     }
 
     /// 转float
-    public var float: Float {
+    var  float: Float {
         return Float(self)
     }
 
     #if canImport(CoreGraphics)
     /// 转CGFloat
-    public var cgFloat: CGFloat {
+    var  cgFloat: CGFloat {
         return CGFloat(self)
     }
     #endif
@@ -42,7 +42,7 @@ infix operator ** : PowerPrecedence
 ///   - lhs: base double.
 ///   - rhs: exponent double.
 /// - Returns: exponentiation result (example: 4.4 ** 0.5 = 2.0976176963).
-public func ** (lhs: Double, rhs: Double) -> Double {
+func ** (lhs: Double, rhs: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(lhs, rhs)
 }
@@ -53,7 +53,7 @@ prefix operator √
 ///
 /// - Parameter double: double value to find square root for.
 /// - Returns: square root of given double.
-public prefix func √ (double: Double) -> Double {
+prefix func √ (double: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(double)
 }
