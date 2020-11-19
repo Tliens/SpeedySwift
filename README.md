@@ -40,6 +40,65 @@ let height = App.safeBottomHeight
 ```
 let layout = AppCollectionViewLayout(longitude: 0, latitude: 10.scale, itemSize: CGSize(width: 130.scale, height: 139.scale), sectionInset: .init(top: 10.scale, left: 20.scale, bottom: 0, right: 20.scale), direction: .vertical)
 ```
+- 属性包裹器
+```
+/// codable👍
+@Default<String.defalut> var name:String
+
+/// 数据持久化👍
+@UserDefault("had_shown_guide_view", defaultValue: false)
+static var hadShownGuideView: Bool
+
+```
+- 系统页跳转
+```
+/// 跳转到系统页面
+    /// - Parameter type： 类型
+    /// - Parameter completionHandler：  block回调，bool表示是否成功
+    static func systemJump(completionHandler completion: ((AppJumpStatus) -> Void)? = nil){
+        let urlString = UIApplication.openSettingsURLString
+        if let url: URL = URL(string: urlString) {
+            App.jump(url: url, completionHandler: completion)
+        }else{
+            completion?(.fail)
+        }
+    }
+```
+- 其他
+```
+/// app版本号
+    static var version: String? {
+        return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    /// 设备名称
+    static var deviceName: String {
+        return UIDevice.current.localizedModel
+    }
+    /// 设备方向
+    static var deviceOrientation: UIDeviceOrientation {
+        return UIDevice.current.orientation
+    }
+    /// 主窗口
+    static var keyWindow: UIView? {
+        return UIApplication.shared.keyWindow
+    }
+    /// 当前系统版本
+    static var systemVersion: String {
+        return UIDevice.current.systemVersion
+    }
+    /// 判断设备是不是iPhoneX
+    static var isX : Bool {
+        var isX = false
+        if #available(iOS 11.0, *) {
+            let bottom : CGFloat = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
+            isX = bottom > 0.0
+        }
+        return isX
+    }
+```
+
+等你发现更多······
+
 欢迎使用，喜欢请star✨
 
 ## 结构介绍
