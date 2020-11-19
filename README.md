@@ -1,4 +1,11 @@
+
 # SpeedySwift
+
+[![Build Status](https://travis-ci.org/ios_base_foundation/SnapKit.svg)](https://travis-ci.org/ios_base_foundation/ios_base_foundation)
+[![Sponsors](https://opencollective.com/ios_base_foundation/sponsors/badge.svg)](https://opencollective.com/ios_base_foundation/sponsors/badge.svg)
+[![LICENSE](https://img.shields.io/cocoapods/l/ios_base_foundation.svg)](https://img.shields.io/cocoapods/l/ios_base_foundation.svg)
+[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-11.4-blue.svg)](https://developer.apple.com/xcode)
 
 > 这是一个app开发的加速库，我的几款app都是基于这个加速库完成的《今日计划》《今日扫雷》《喝酒游戏》《神盾局》等。
 
