@@ -1,4 +1,5 @@
 # SpeedySwift
+
 > 这是一个app开发的加速库，我的几款app都是基于这个加速库完成的《今日计划》《今日扫雷》《喝酒游戏》《神盾局》等。
 
 尽量保持开发的原汁原味，欢迎使用，喜欢star✨
@@ -18,9 +19,9 @@
 
 ## 如何使用
 
-下载最新代码后，将AppSpeedy拖入到工程中，暂不支持pod
+下载最新代码后，将`AppSpeedy`拖入到工程中，暂不支持pod
 
-要求：Swift5.0及以上
+要求：`Swift5.0`及以上
 
 ## 代码演示
 
@@ -104,24 +105,24 @@ static var hadShownGuideView: Bool
 ## 结构介绍
 
 我根据使用频率以及层次结构分为了：
-- O1_Base
-- O2_Core
-- O3_Foundation
-- O4_UI
-- O5_Vendor
-- O6_Resource
+- `O1_Base`
+- `O2_Core`
+- `O3_Foundation`
+- `O4_UI`
+- `O5_Vendor`
+- `O6_Resource`
 
-O1_Base 文件夹下包含 app跳转、沙盒使用、AppCollectionViewLayout、Viewcontrolle、NavigationController、TabbarController 基础封装
+`O1_Base` 文件夹下包含 app跳转、沙盒使用、`AppCollectionViewLayout`、`Viewcontrolle`、`NavigationController`、`TabbarController` 基础封装
 
-O2_Core 属性包裹器、Debug、Random
+`O2_Core` 属性包裹器、`Debug`、`Random`
 
-O3_Foundation Foundation框架的常用扩展
+`O3_Foundation` `Foundation`框架的常用扩展
 
-O4_UI UIKit框架的常用扩展
+`O4_UI UIKit`框架的常用扩展
 
-O5_Vendor 强大的CPCollectionViewKit、震动反馈、Snapkit、Toast
+`O5_Vendor` 强大的CPCollectionViewKit、震动反馈、Snapkit、Toast
 
-O6_Resource 资源文件
+`O6_Resource` 资源文件
 
 欢迎使用，喜欢请star✨
 
