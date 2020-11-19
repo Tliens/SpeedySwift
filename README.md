@@ -13,6 +13,7 @@
 
 我想目前Swift中没有比这个更合适的加速开发app的框架了，如果有请告诉我。
 
+![img](https://github.com/Tliens/SpeedySwift/blob/master/icon.png)
 ## 特色：
 
 - 属性包裹器，包含 [喵神 的使用 Property Wrapper 为 Codable 解码设定默认值](https://mp.weixin.qq.com/s/jOyHRS2Wx6MJpuYuENhVgg)
