@@ -112,6 +112,7 @@ static var hadShownGuideView: Bool
 
 ## 结构介绍
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/floder.png)
+
 我根据使用频率以及层次结构分为了：
 - `O1_Base`
 - `O2_Core`
