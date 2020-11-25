@@ -1,21 +1,21 @@
 //
 //  UIViewController+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
-enum UINavigationBarButtonType {
+public enum UINavigationBarButtonType {
     case left
     case right
 }
 
-var closePopGestureRecognizerKey = "closePopGestureRecognizer"
+public var closePopGestureRecognizerKey = "closePopGestureRecognizer"
 
 extension UIViewController {
     
-    var closePopGestureRecognizer: Bool {
+    public var closePopGestureRecognizer: Bool {
         set {
             objc_setAssociatedObject(self, &closePopGestureRecognizerKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_ASSIGN)
         }
@@ -27,7 +27,7 @@ extension UIViewController {
         }
     }
     
-    var navBar: UINavigationBar? {
+    public var navBar: UINavigationBar? {
         var bar : UINavigationBar?
         if self.isKind(of: UINavigationController.self) {
             let navController = self as! UINavigationController
@@ -38,7 +38,7 @@ extension UIViewController {
         return bar
     }
     
-    var navTitleColor : UIColor? {
+    public var navTitleColor : UIColor? {
         set {
             var attributes = self.navBar?.titleTextAttributes
             if attributes == nil {
@@ -54,7 +54,7 @@ extension UIViewController {
         }
     }
     
-    var navTitleFont : UIFont? {
+    public var navTitleFont : UIFont? {
         set {
             var attributes = self.navBar?.titleTextAttributes
             if attributes == nil {
@@ -78,7 +78,7 @@ extension UIViewController {
 extension UIViewController {
     
     /// 通过UIStoryboard创建UIViewController
-    class func storyboard<T: UIViewController>(storyboardName: String, classType: T.Type, identifier: String = T.named) -> T? {
+    public class func storyboard<T: UIViewController>(storyboardName: String, classType: T.Type, identifier: String = T.named) -> T? {
         if identifier.count == 0 {
             return nil
         }
@@ -87,7 +87,7 @@ extension UIViewController {
     }
     
     /// 前进到下一页面
-    func go(_ viewController: UIViewController, animated: Bool = true) {
+    public func go(_ viewController: UIViewController, animated: Bool = true) {
         if let nav = self.navigationController {
             nav.pushViewController(viewController, animated: animated)
         } else {
@@ -96,7 +96,7 @@ extension UIViewController {
     }
     
     /// 返回到下一页面
-    func back(isPopToRoot: Bool? = false, animated: Bool = true) {
+    public func back(isPopToRoot: Bool? = false, animated: Bool = true) {
         if let nav = self.navigationController {
             if nav.viewControllers.count == 1 && nav.viewControllers.first == self, nav.presentingViewController != nil {
                 nav.dismiss(animated: true, completion: nil)
@@ -113,7 +113,7 @@ extension UIViewController {
     }
     
     /// 返回到指定的页面 special
-    func back(svc: UIViewController.Type) -> Bool {
+    public func back(svc: UIViewController.Type) -> Bool {
         var isSuccess = false
         if let nav = self.navigationController {
             for vc in nav.viewControllers {
@@ -128,7 +128,7 @@ extension UIViewController {
     }
     
     // MARK: - 跳转到指定的VC
-    func jump(_ jvc: UIViewController.Type) {
+    public func jump(_ jvc: UIViewController.Type) {
         
         // 就在当前界面
         if self.isKind(of: jvc) {
@@ -178,7 +178,7 @@ extension UIViewController {
     }
     
     /// 从导航栈中移除指定类型的VC
-    func navRemove(_ vc: UIViewController.Type) {
+    public func navRemove(_ vc: UIViewController.Type) {
         if let nav = self.navigationController {
             let originVCs = nav.viewControllers
             var newVCs:[UIViewController] = []
@@ -191,7 +191,7 @@ extension UIViewController {
         }
     }
     /// 从导航栈中移除指定类型的[VC]
-    func navRemove(_ vcs: [UIViewController.Type]) {
+    public func navRemove(_ vcs: [UIViewController.Type]) {
         if let nav = self.navigationController {
             let originVCs = nav.viewControllers
             var newVCs:[UIViewController] = []
@@ -216,7 +216,7 @@ extension UIViewController {
 extension UIViewController{
     /// 显示Sheet
     @discardableResult
-    func showActionSheet(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+    public func showActionSheet(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
         let allButtons = buttonTitles ?? [String]()
         

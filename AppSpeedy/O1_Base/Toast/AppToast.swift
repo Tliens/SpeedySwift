@@ -7,14 +7,14 @@
 
 import UIKit
 
-class ToastConfigure{
+public class ToastConfigure{
     static let shared = ToastConfigure()
     private init(){}
     
-    var backgroundColor:UIColor = .black
-    var textColor:UIColor = .white
+    public var backgroundColor:UIColor = .black
+    public var textColor:UIColor = .white
     
-    var style:ToastStyle{
+    public var style:ToastStyle{
         var style = ToastStyle()
         style.backgroundColor = ToastConfigure.shared.backgroundColor
         style.titleColor = ToastConfigure.shared.textColor
@@ -26,7 +26,7 @@ class ToastConfigure{
         return style
     }
 }
-extension UIView{
+public extension UIView{
     func toast(message:String){
         
         self.makeToast(message, duration: 1, point: self.center, title: nil, image: nil, style: ToastConfigure.shared.style, completion: nil)
@@ -37,7 +37,7 @@ extension UIView{
         }
     }
 }
-extension UIViewController{
+public extension UIViewController{
     func toast(message:String){
         self.view.toast(message: message)
     }

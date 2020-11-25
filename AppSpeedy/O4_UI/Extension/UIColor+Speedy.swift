@@ -1,8 +1,8 @@
 //
 //  UIColor+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import Foundation
@@ -10,20 +10,15 @@ import UIKit
 extension UIColor {
     
     /// hex 色值
-    class func hex(_ hex: String, alpha: CGFloat = 1.0) -> UIColor{
+    public class func hex(_ hex: String, alpha: CGFloat = 1.0) -> UIColor{
         let tempStr = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         let hexint = intFromHexString(tempStr)
         let color = UIColor(red: ((CGFloat) ((hexint & 0xFF0000) >> 16))/255, green: ((CGFloat) ((hexint & 0xFF00) >> 8))/255, blue: ((CGFloat) (hexint & 0xFF))/255, alpha: alpha)
         return color
     }
-    
-    /// 通过rgb设置颜色
-    class func rbga(_ r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) -> UIColor {
-        return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
-    }
-    
+
     /// UIColor -> Hex String
-    var hex: String? {
+    public var hex: String? {
         var red: CGFloat = 0
         var green: CGFloat = 0
         var blue: CGFloat = 0
@@ -55,7 +50,7 @@ extension UIColor {
     }
     
     /// 左右渐变色
-    static func gradient(left:UIColor,right:UIColor,rect:CGRect)->CAGradientLayer{
+    public static func gradient(left:UIColor,right:UIColor,rect:CGRect)->CAGradientLayer{
         func gradientLayer(rect:CGRect)->CAGradientLayer{
             let colorLayer = CAGradientLayer()
             colorLayer.frame = rect
@@ -68,7 +63,7 @@ extension UIColor {
     }
     
     /// 随机颜色
-    class func randrom() -> UIColor {
+    public class func randrom() -> UIColor {
         let r = CGFloat(arc4random()%256)/255.0
         let g = CGFloat(arc4random()%256)/255.0
         let b = CGFloat(arc4random()%256)/255.0

@@ -1,83 +1,87 @@
 //
 //  AppViewController.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import Foundation
 import UIKit
 
-class AppFullViewControllerV: AppViewController{
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+public class AppFullViewControllerV: AppViewController{
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         modalPresentationStyle = .overFullScreen
     }
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         modalPresentationStyle = .overFullScreen
     }
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .clear
     }
 }
-class AppViewController: UIViewController{
+public class AppViewController: UIViewController{
     
-    var navigationBar:AppNavigationBar?
+    public var fakeNavBar:AppNavigationBar?
     
     deinit {
         // 移除通知监听者
         removeNotifacationObserver()
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = UIColor.white
 
     }
     // 状态栏
-    override var prefersStatusBarHidden: Bool {
+    public override var prefersStatusBarHidden: Bool {
         return false
     }
     
     // MARK: - 导航条上左右按钮的点击时间
-    func handleNavigationBarButton(buttonType : UINavigationBarButtonType) {
+    public func handleNavigationBarButton(buttonType : UINavigationBarButtonType) {
         if buttonType == .left {
             self.back()
         }
     }
-    func removeNotifacationObserver(){
+    public func removeNotifacationObserver(){
         NotificationCenter.default.removeObserver(self)
     }
-    func hiddenNavBar(){
+    public func hiddenNavBar(){
         self.navigationController?.isNavigationBarHidden = true
     }
-    func showNavBar(){
+    public func showNavBar(){
         self.hiddenFakeNavBar()
         self.navigationController?.isNavigationBarHidden = false
     }
-    func showFakeNavBar(){
+    public func showFakeNavBar(){
         self.hiddenNavBar()
-        self.navigationBar?.isHidden = false
-        navigationBar = AppNavigationBar()
-        view.addSubview(navigationBar!)
+        self.fakeNavBar?.isHidden = false
+        fakeNavBar = AppNavigationBar()
+        view.addSubview(fakeNavBar!)
+        fakeNavBar?.snp.makeConstraints({ (maker) in
+            maker.left.right.top.equalToSuperview()
+            maker.height.equalTo(App.statusWithNavBarHeight)
+        })
     }
-    func hiddenFakeNavBar(){
-        self.navigationBar?.isHidden = true
+    public func hiddenFakeNavBar(){
+        self.fakeNavBar?.isHidden = true
     }
     
-    func blackStateBar(){
+    public func blackStateBar(){
         UIApplication.shared.statusBarStyle = .default
     }
-    func whiteStateBar(){
+    public func whiteStateBar(){
         UIApplication.shared.statusBarStyle = .lightContent
     }
-    func hiddenStateBar(){
+    public func hiddenStateBar(){
         UIApplication.shared.isStatusBarHidden = true
     }
-    func showStateBar(){
+    public func showStateBar(){
         UIApplication.shared.isStatusBarHidden = false
     }
 

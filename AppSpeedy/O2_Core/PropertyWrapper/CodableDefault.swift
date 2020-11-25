@@ -2,17 +2,17 @@
 //  AppCodableDefault.swift
 //  BeerGame
 //
-//  Created by 2020 on 2020/11/19.
+//  Created by Quinn on 2020/11/19.
 //
 
 import Foundation
 @propertyWrapper
 struct Default<T: DefaultValue> {
-    var wrappedValue: T.defalut
+    public var wrappedValue: T.defalut
 }
 
 extension Default: Codable {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         wrappedValue = (try? container.decode(T.defalut.self)) ?? T.defaultValue
     }
@@ -36,26 +36,26 @@ extension KeyedEncodingContainer{
         try encode(type, forKey: key)
     }
 }
-protocol DefaultValue {
+public protocol DefaultValue {
     associatedtype defalut: Codable
     static var defaultValue: defalut { get }
 }
 
 // MARK:基础数据类型 遵守DefaultValue
 extension Bool: DefaultValue {
-    static let defaultValue = false
+    public static let defaultValue = false
 }
 extension String: DefaultValue {
-    static let defaultValue = ""
+    public static let defaultValue = ""
 }
 extension Double: DefaultValue {
-    static let defaultValue = -1
+    public static let defaultValue = -1
 }
 extension Int: DefaultValue {
-    static let defaultValue = -1
+    public static let defaultValue = -1
 }
 extension Float: DefaultValue {
-    static let defaultValue = -1
+    public static let defaultValue = -1
 }
 
 //MARK:Test

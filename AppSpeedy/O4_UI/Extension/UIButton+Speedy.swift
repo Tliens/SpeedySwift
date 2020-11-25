@@ -1,62 +1,50 @@
 //
 //  UIButton+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
 extension UIButton {
     
-    var btnImage : UIImage? {
+    public var image : UIImage? {
         set {
             self.setImage(newValue, for: .normal)
-            self.setImage(newValue, for: .selected)
-            self.setImage(newValue, for: .highlighted)
         }
-        
         get {
             return self.image(for: .normal)!
         }
     }
     
-    var btnBackgroundImage : UIImage? {
+    public var backgroundImage : UIImage? {
         set {
             self.setBackgroundImage(newValue, for: .normal)
-            self.setBackgroundImage(newValue, for: .selected)
-            self.setBackgroundImage(newValue, for: .highlighted)
         }
-        
         get {
             return self.backgroundImage(for: .normal)!
         }
     }
     
-    var btnTitle : String? {
+    public var title : String? {
         set {
             self.setTitle(newValue, for: .normal)
-            self.setTitle(newValue, for: .selected)
-            self.setTitle(newValue, for: .highlighted)
         }
-        
         get {
             return self.title(for: .normal) ?? ""
         }
     }
     
-    var btnTitleColor : UIColor? {
+    public var titleColor : UIColor? {
         set {
             self.setTitleColor(newValue, for: .normal)
-            self.setTitleColor(newValue, for: .selected)
-            self.setTitleColor(newValue, for: .highlighted)
         }
-        
         get {
             return self.titleColor(for: .normal)!
         }
     }
     
-    var btnTitleFont : UIFont? {
+    public var titleFont : UIFont? {
         set {
             self.titleLabel?.font = newValue
         }
@@ -69,23 +57,23 @@ extension UIButton {
     
 }
 extension UIButton{
-    convenience init(title: String?, titleColor: UIColor?, titleFont: UIFont?, backgroundColor: UIColor = UIColor.clear, cornerRadius: CGFloat = 0) {
+    public convenience init(title: String?, titleColor: UIColor?, titleFont: UIFont?, backgroundColor: UIColor = UIColor.clear, cornerRadius: CGFloat = 0) {
         self.init()
-        self.btnTitle = title
-        self.btnTitleColor = titleColor
-        self.btnTitleFont = titleFont
+        self.title = title
+        self.titleColor = titleColor
+        self.titleFont = titleFont
         self.backgroundColor = backgroundColor
         if cornerRadius > 0 {
             self.cornerRadius = cornerRadius
         }
     }
     
-    convenience init(imageName: String) {
+    public convenience init(imageName: String) {
         self.init()
-        self.btnImage = UIImage(named: imageName)
+        self.image = UIImage(named: imageName)
     }
     
-    convenience init(normalImageName: String, selectImageName: String) {
+    public convenience init(normalImageName: String, selectImageName: String) {
         self.init()
         self.setImage(UIImage(named: normalImageName), for: .normal)
         self.setImage(UIImage(named: selectImageName), for: .selected)

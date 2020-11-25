@@ -1,8 +1,8 @@
 //
 //  String+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 import Foundation
 import UIKit

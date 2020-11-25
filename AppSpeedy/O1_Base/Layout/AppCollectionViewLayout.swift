@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppCollectionViewLayout: UICollectionViewFlowLayout {
+public class AppCollectionViewLayout: UICollectionViewFlowLayout {
     /// longitude 竖向间隔  latitude横向间隔
     init(longitude:CGFloat,latitude:CGFloat,itemSize:CGSize,sectionInset:UIEdgeInsets,direction:UICollectionView.ScrollDirection) {
         super.init()

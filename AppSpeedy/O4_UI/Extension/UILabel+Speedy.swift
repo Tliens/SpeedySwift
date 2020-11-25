@@ -1,14 +1,14 @@
 //
 //  UILabel+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
 extension UILabel {
     
-    convenience init(text : String?, textColor : UIColor?, textFont : UIFont?, textAlignment: NSTextAlignment = .left, numberLines: Int = 1) {
+    public convenience init(text : String?, textColor : UIColor?, textFont : UIFont?, textAlignment: NSTextAlignment = .left, numberLines: Int = 1) {
         self.init()
         self.text = text
         self.textColor = textColor ?? UIColor.black
@@ -19,7 +19,7 @@ extension UILabel {
     }
 
     /// 预计高度
-    func pre_h(maxWidth: CGFloat,maxLine:Int = 0) -> CGFloat {
+    public func pre_h(maxWidth: CGFloat,maxLine:Int = 0) -> CGFloat {
         let label = UILabel(frame: CGRect(
             x: 0,
             y: 0,
@@ -38,7 +38,7 @@ extension UILabel {
         return label.frame.height
     }
     // 预计宽度
-    func pre_w(maxHeight: CGFloat,maxLine:Int = 0) -> CGFloat {
+    public func pre_w(maxHeight: CGFloat,maxLine:Int = 0) -> CGFloat {
         let label = UILabel(frame: CGRect(
             x: 0,
             y: 0,

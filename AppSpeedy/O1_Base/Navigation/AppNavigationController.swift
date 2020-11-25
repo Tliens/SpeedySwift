@@ -1,19 +1,19 @@
 //
 //  Navigation.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import Foundation
 import UIKit
-typealias AppViewControllerAnimationBlock = (_ operation: UINavigationController.Operation, _ fromVC: UIViewController, _ toVC: UIViewController) -> UIViewControllerAnimatedTransitioning
-
-class AppNavigationController: UINavigationController {
+public typealias AppViewControllerAnimationBlock = (_ operation: UINavigationController.Operation, _ fromVC: UIViewController, _ toVC: UIViewController) -> UIViewControllerAnimatedTransitioning
+ 
+public class AppNavigationController: UINavigationController {
     
     var animationBlock : AppViewControllerAnimationBlock?
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white;
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) {
@@ -22,7 +22,7 @@ class AppNavigationController: UINavigationController {
         }
     }
     
-    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+    public override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) && animated == true {
             self.interactivePopGestureRecognizer?.isEnabled = false
         }
@@ -32,14 +32,14 @@ class AppNavigationController: UINavigationController {
         super.pushViewController(viewController, animated: animated)
     }
     
-    override func popToRootViewController(animated: Bool) -> [UIViewController]? {
+    public override func popToRootViewController(animated: Bool) -> [UIViewController]? {
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) && animated == true {
             self.interactivePopGestureRecognizer?.isEnabled = false
         }
         return super.popToRootViewController(animated: animated)
     }
     
-    override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
+    public override func popToViewController(_ viewController: UIViewController, animated: Bool) -> [UIViewController]? {
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) && animated == true {
             self.interactivePopGestureRecognizer?.isEnabled = false
         }
@@ -50,20 +50,20 @@ class AppNavigationController: UINavigationController {
 
 // MARK: - UINavigationControllerDelegate
 extension AppNavigationController : UIGestureRecognizerDelegate, UINavigationControllerDelegate {
-    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    public func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         if self.responds(to: #selector(getter: interactivePopGestureRecognizer)) {
             self.interactivePopGestureRecognizer?.isEnabled = viewController.closePopGestureRecognizer ? false : true
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self.animationBlock != nil {
             return self.animationBlock!(operation, fromVC, toVC)
         }
         return nil
     }
     
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if interactivePopGestureRecognizer?.isEnabled == false{
             return false
         }

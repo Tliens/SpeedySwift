@@ -1,12 +1,12 @@
 //
 //  AppNavigationBar.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
-class AppNavigationBar: UIView {
+public class AppNavigationBar: UIView {
     var leftButton : UIButton?
     var titleLabel : UILabel?
     var rightButton : UIButton?
@@ -15,6 +15,7 @@ class AppNavigationBar: UIView {
     var rightButtonHandler : (() -> ())?
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         buildUI()
     }
     required init?(coder aDecoder: NSCoder) {
@@ -23,11 +24,11 @@ class AppNavigationBar: UIView {
     private func buildUI() {
         buildLeftBtn()
         buildTitleLabel()
-        buildRightLabel()
+        buildRightButton()
     }
     private func buildLeftBtn(){
         leftButton = UIButton.init()
-        leftButton?.btnImage = UIImage.init(named: "app_nav_back_black")
+        leftButton?.image = UIImage.init(named: "app_nav_back_black")
         self.addSubview(leftButton!)
         leftButton?.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         
@@ -38,7 +39,7 @@ class AppNavigationBar: UIView {
         })
     }
     private func buildTitleLabel(){
-        titleLabel = UILabel(text: "", textColor: .hex("#222222"), textFont: .sc_medium(size: 18),textAlignment:.left)
+        titleLabel = UILabel(text: "", textColor: .hex("#222222"), textFont: .sc_medium(size: 18),textAlignment:.center)
         self.addSubview(titleLabel!)
         titleLabel?.snp.makeConstraints({ (make) in
             make.left.equalTo(44)
@@ -47,7 +48,7 @@ class AppNavigationBar: UIView {
             make.bottom.equalTo(-11.0)
         })
     }
-    private func buildRightLabel(){
+    private func buildRightButton(){
         rightButton = UIButton(title: "", titleColor: UIColor.black, titleFont: UIFont.systemFont(ofSize: 16))
         rightButton?.addTarget(self, action: #selector(rightButtonAction), for: .touchUpInside)
         self.addSubview(rightButton!)

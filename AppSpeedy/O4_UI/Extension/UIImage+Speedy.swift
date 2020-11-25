@@ -1,8 +1,8 @@
 //
 //  UIImage+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import Foundation
@@ -27,7 +27,7 @@ extension UIImage{
     }
     
     /// 质量压缩
-    @objc func compress(maxSize: Int) -> Data? {
+    public func compress(maxSize: Int) -> Data? {
         var compression: CGFloat = 1
         guard var data = self.jpegData(compressionQuality: 1) else { return nil }
         if data.count < maxSize {
@@ -50,7 +50,7 @@ extension UIImage{
     }
     
     /// 尺寸压缩
-    @objc public func compress(maxLength: CGFloat) -> UIImage? {
+    public func compress(maxLength: CGFloat) -> UIImage? {
         
         if maxLength <= 0 {
             return self

@@ -1,22 +1,22 @@
 //
 //  UIView+Speedy.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
-// 线的位置
-enum LinePosition: Int {
+/// 线的位置
+public enum LinePosition: Int {
     case top = 0
     case bottom = 1
     case center = 2
 }
 
-// MARK: UIView的构造和函数
+/// UIView的构造和函数
 extension UIView {
     
-    convenience init(backgroundColor: UIColor = UIColor.white, cornerRadius: CGFloat? = nil) {
+    public convenience init(backgroundColor: UIColor = UIColor.white, cornerRadius: CGFloat? = nil) {
         self.init()
         self.backgroundColor = backgroundColor
         
@@ -26,7 +26,7 @@ extension UIView {
     }
     
     /// 从nib初始化一个View
-    static func nib<T>(bundle: Bundle? = nil) -> T {
+    public static func nib<T>(bundle: Bundle? = nil) -> T {
         return UINib(nibName: self.named, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as! T
     }
     
@@ -56,7 +56,7 @@ extension UIView {
     
     /// 添加细线 ply线高
     @discardableResult
-    func line(position : LinePosition, color : UIColor, ply : CGFloat, leftPadding : CGFloat, rightPadding : CGFloat) -> UIView {
+    public func line(position : LinePosition, color : UIColor, ply : CGFloat, leftPadding : CGFloat, rightPadding : CGFloat) -> UIView {
         let line = UIView.init()
         line.backgroundColor = color;
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -78,7 +78,7 @@ extension UIView {
     
     /// 添加点击手势
     @discardableResult
-    func tapGestureRecognizer(target : Any?, action : Selector?, numberOfTapsRequired: Int = 1, numberOfTouchesRequired: Int = 1) -> UITapGestureRecognizer {
+    public func tapGestureRecognizer(target : Any?, action : Selector?, numberOfTapsRequired: Int = 1, numberOfTouchesRequired: Int = 1) -> UITapGestureRecognizer {
         
         let tapGesture = UITapGestureRecognizer.init(target: target, action: action)
         tapGesture.numberOfTapsRequired    = numberOfTapsRequired;
@@ -98,7 +98,7 @@ extension UIView {
     ///   - action: 事件
     /// - Returns:
     @discardableResult
-    func addLongPressGestureRecognizer(target : Any?, action : Selector?, pressDuration: Double = 1) -> UILongPressGestureRecognizer {
+    public func addLongPressGestureRecognizer(target : Any?, action : Selector?, pressDuration: Double = 1) -> UILongPressGestureRecognizer {
         
         let longPressGesture = UILongPressGestureRecognizer.init(target: target, action: action)
         longPressGesture.minimumPressDuration    = pressDuration;
@@ -108,7 +108,7 @@ extension UIView {
     }
     
     /// 获取view的UIViewController
-    func parentViewController()->UIViewController?{
+    public func parentViewController()->UIViewController?{
         for view in sequence(first: self.superview, next: {$0?.superview}){
             if let responder = view?.next{
                 if responder.isKind(of: UIViewController.self){
@@ -124,7 +124,7 @@ extension UIView {
     }
     
     // 使用贝塞尔曲线设置圆角
-    func bezierCornerRadius(position: UIRectCorner, cornerRadius: CGFloat, roundedRect: CGRect) {
+    public func bezierCornerRadius(position: UIRectCorner, cornerRadius: CGFloat, roundedRect: CGRect) {
         let path = UIBezierPath(roundedRect:roundedRect, byRoundingCorners: position, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         let layer = CAShapeLayer()
         layer.frame = roundedRect
@@ -136,7 +136,7 @@ extension UIView {
 
 extension UIView {
     /// 设置圆角
-    var cornerRadius: CGFloat {
+    public var cornerRadius: CGFloat {
         set {
             self.layer.masksToBounds = true
             self.layer.cornerRadius = newValue
@@ -146,13 +146,13 @@ extension UIView {
         }
     }
     /// 设置边框线颜色
-    func border(color: UIColor, width: CGFloat = 1.0) {
+    public func border(color: UIColor, width: CGFloat = 1.0) {
         self.layer.masksToBounds = true
         self.layer.borderColor = color.cgColor
         self.layer.borderWidth = width
     }
     ///将当前视图转为UIImage
-    func screenshots() -> UIImage? {
+    public func screenshots() -> UIImage? {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { (rendererContext) in
             layer.render(in: rendererContext.cgContext)
@@ -174,7 +174,7 @@ extension UIView {
             if let blurView = objc_getAssociatedObject(
                 self,
                 &BlurAssociatedKeys.descriptiveName
-                ) as? BlurView {
+            ) as? BlurView {
                 return blurView
             }
             self.blur = BlurView(to: self)
@@ -189,109 +189,15 @@ extension UIView {
             )
         }
     }
-    
-    class BlurView {
-        
-        private var superview: UIView
-        private var blur: UIVisualEffectView?
-        private var editing: Bool = false
-        private (set) var blurContentView: UIView?
-        private (set) var vibrancyContentView: UIView?
-        
-        var animationDuration: TimeInterval = 0.1
-        
-        /**
-         * Blur style. After it is changed all subviews on
-         * blurContentView & vibrancyContentView will be deleted.
-         */
-        var style: UIBlurEffect.Style = .light {
-            didSet {
-                guard oldValue != style,
-                    !editing else { return }
-                applyBlurEffect()
-            }
-        }
-        /**
-         * Alpha component of view. It can be changed freely.
-         */
-        var alpha: CGFloat = 0 {
-            didSet {
-                guard !editing else { return }
-                if blur == nil {
-                    applyBlurEffect()
-                }
-                let alpha = self.alpha
-                UIView.animate(withDuration: animationDuration) {
-                    self.blur?.alpha = alpha
-                }
-            }
-        }
-        
-        init(to view: UIView) {
-            self.superview = view
-        }
-        
-        func setup(style: UIBlurEffect.Style, alpha: CGFloat) -> Self {
-            self.editing = true
-            
-            self.style = style
-            self.alpha = alpha
-            
-            self.editing = false
-            
-            return self
-        }
-        
-        func enable(isHidden: Bool = false) {
-            if blur == nil {
-                applyBlurEffect()
-            }
-            
-            self.blur?.isHidden = isHidden
-        }
-        
-        private func applyBlurEffect() {
-            blur?.removeFromSuperview()
-            
-            applyBlurEffect(
-                style: style,
-                blurAlpha: alpha
-            )
-        }
-        
-        private func applyBlurEffect(style: UIBlurEffect.Style,
-                                     blurAlpha: CGFloat) {
-            superview.backgroundColor = UIColor.clear
-            
-            let blurEffect = UIBlurEffect(style: style)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-            let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
-            blurEffectView.contentView.addSubview(vibrancyView)
-            
-            blurEffectView.alpha = blurAlpha
-            
-            superview.insertSubview(blurEffectView, at: 0)
-            
-            blurEffectView.addAlignedConstrains()
-            vibrancyView.addAlignedConstrains()
-            
-            self.blur = blurEffectView
-            self.blurContentView = blurEffectView.contentView
-            self.vibrancyContentView = vibrancyView.contentView
-        }
-    }
-    
-    private func addAlignedConstrains() {
+    func addAlignedConstrains() {
         translatesAutoresizingMaskIntoConstraints = false
         addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.top)
         addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.leading)
         addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.trailing)
         addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.bottom)
     }
-    
-    private func addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute) {
+
+    func addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute) {
         superview?.addConstraint(
             NSLayoutConstraint(
                 item: self,
@@ -304,4 +210,99 @@ extension UIView {
             )
         )
     }
+
 }
+/// 高斯模糊
+class BlurView {
+    
+    private var superview: UIView
+    private var blur: UIVisualEffectView?
+    private var editing: Bool = false
+    private (set) var blurContentView: UIView?
+    private (set) var vibrancyContentView: UIView?
+    
+    var animationDuration: TimeInterval = 0.1
+    
+    /**
+     * Blur style. After it is changed all subviews on
+     * blurContentView & vibrancyContentView will be deleted.
+     */
+    var style: UIBlurEffect.Style = .light {
+        didSet {
+            guard oldValue != style,
+                  !editing else { return }
+            applyBlurEffect()
+        }
+    }
+    /**
+     * Alpha component of view. It can be changed freely.
+     */
+    var alpha: CGFloat = 0 {
+        didSet {
+            guard !editing else { return }
+            if blur == nil {
+                applyBlurEffect()
+            }
+            let alpha = self.alpha
+            UIView.animate(withDuration: animationDuration) {
+                self.blur?.alpha = alpha
+            }
+        }
+    }
+    
+    init(to view: UIView) {
+        self.superview = view
+    }
+    
+    func setup(style: UIBlurEffect.Style, alpha: CGFloat) -> Self {
+        self.editing = true
+        
+        self.style = style
+        self.alpha = alpha
+        
+        self.editing = false
+        
+        return self
+    }
+    
+    func enable(isHidden: Bool = false) {
+        if blur == nil {
+            applyBlurEffect()
+        }
+        
+        self.blur?.isHidden = isHidden
+    }
+    
+    private func applyBlurEffect() {
+        blur?.removeFromSuperview()
+        
+        applyBlurEffect(
+            style: style,
+            blurAlpha: alpha
+        )
+    }
+    
+    private func applyBlurEffect(style: UIBlurEffect.Style,
+                                 blurAlpha: CGFloat) {
+        superview.backgroundColor = UIColor.clear
+        
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
+        blurEffectView.contentView.addSubview(vibrancyView)
+        
+        blurEffectView.alpha = blurAlpha
+        
+        superview.insertSubview(blurEffectView, at: 0)
+        
+        blurEffectView.addAlignedConstrains()
+        vibrancyView.addAlignedConstrains()
+        
+        self.blur = blurEffectView
+        self.blurContentView = blurEffectView.contentView
+        self.vibrancyContentView = vibrancyView.contentView
+    }
+}
+

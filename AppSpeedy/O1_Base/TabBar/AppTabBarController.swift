@@ -1,27 +1,27 @@
 //
 //  AppTabBarController.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
 
-class AppTabBarController: UITabBarController {
+public class AppTabBarController: UITabBarController {
     
     var lastTabBarTime:[Int:TimeInterval] = [:]
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        initialize()
+        
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
-    func initialize() {
+    public func initialize() {
         self.tabBar.backgroundImage = UIImage()
         let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: App.w, height: App.safeBottomHeight + 49))
         backgroundImgView.image = UIImage.init(color: UIColor.white)
@@ -30,13 +30,13 @@ class AppTabBarController: UITabBarController {
         delegate = self
     }
     //去掉顶部黑线
-    func deleteBlackLine(){
+    public func deleteBlackLine(){
         tabBar.barStyle = .black
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
     }
     // 添加子vc
-    func addChildViewController(_ childController: UIViewController, title: String, imageName: String,selectedImageName:String,index:Int,normal:UIColor = .hex("#888888", alpha: 0.24),selected:UIColor = .hex("#222222", alpha: 1)) {
+    public func addChildViewController(_ childController: UIViewController, title: String, imageName: String,selectedImageName:String,index:Int,normal:UIColor = .hex("#888888", alpha: 0.24),selected:UIColor = .hex("#222222", alpha: 1)) {
         childController.title = title
         childController.closePopGestureRecognizer = true
         if imageName.count > 0{
@@ -51,7 +51,7 @@ class AppTabBarController: UITabBarController {
         addChild(nav)
     }
     
-    func selectedTab(at index: Int,isDouble:Bool) {
+    public func selectedTab(at index: Int,isDouble:Bool) {
         
     }
     
@@ -59,7 +59,7 @@ class AppTabBarController: UITabBarController {
 
 
 extension AppTabBarController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         var isDouble: Bool = false
         let now = Date().timeIntervalSince1970
         if let last = lastTabBarTime[viewController.tabBarItem.tag],(now - last < 0.5) {

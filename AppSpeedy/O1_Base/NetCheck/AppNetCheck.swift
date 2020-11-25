@@ -77,24 +77,11 @@ public class AppNetCheck {
     public var whenReachable: NetworkReachable?
     public var whenUnreachable: NetworkUnreachable?
 
-    @available(*, deprecated, renamed: "allowsCellularConnection")
-    public let reachableOnWWAN: Bool = true
-
     /// Set to `false` to force Reachability.connection to .none when on cellular connection (default value `true`)
     public var allowsCellularConnection: Bool
 
     // The notification center on which "reachability changed" events are being posted
     public var notificationCenter: NotificationCenter = NotificationCenter.default
-
-    @available(*, deprecated, renamed: "connection.description")
-    public var currentReachabilityString: String {
-        return "\(connection)"
-    }
-
-    @available(*, unavailable, renamed: "connection")
-    public var currentReachabilityStatus: Connection {
-        return connection
-    }
 
     public var connection: Connection {
         if flags == nil {

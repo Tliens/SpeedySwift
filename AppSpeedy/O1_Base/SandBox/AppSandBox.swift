@@ -7,7 +7,7 @@
 //
 // MARK: 沙盒
 import UIKit
-class AppSandbox: NSObject {
+public class AppSandbox: NSObject {
     
     static let shared = AppSandbox()
     
@@ -61,7 +61,7 @@ class AppSandbox: NSObject {
     }
 }
 
-extension App{
+public extension App{
     /// 缓存路径
     var  cachePath:String {
         return AppSandbox.shared.cachesDirectory + "/" + "AppSpeedyCache"

@@ -1,8 +1,8 @@
 //
 //  Screen.swift
-//  WorldClock
+//  AppSpeedy
 //
-//  Created by 2020 on 2020/10/20.
+//  Created by Quinn on 2020/10/20.
 //
 
 import UIKit
@@ -16,7 +16,7 @@ import UIKit
  八小种、五大种
  */
 typealias App = AppSpeedy
-class AppSpeedy {
+public class AppSpeedy {
     
     let lock = DispatchSemaphore(value: 1)
     
@@ -95,18 +95,18 @@ class AppSpeedy {
         let heigth = statusBarHeight + navBarHeight
         return heigth
     }
-    class func scaleW(_ width: CGFloat,fit:CGFloat = 414.0) -> CGFloat {
+    static func scaleW(_ width: CGFloat,fit:CGFloat = 375.0) -> CGFloat {
         return w / fit * width
     }
      
-    class func scaleH(_ height: CGFloat,fit:CGFloat = 667.0) -> CGFloat {
+    static func scaleH(_ height: CGFloat,fit:CGFloat = 812.0) -> CGFloat {
         return h / fit * height
     }
-    class func scale(_ value: CGFloat) -> CGFloat {
+    static func scale(_ value: CGFloat) -> CGFloat {
         return scaleW(value)
     }
     /// 根据控制器获取 顶层控制器
-    class func topVC(_ viewController: UIViewController?) -> UIViewController? {
+    static func topVC(_ viewController: UIViewController?) -> UIViewController? {
         guard let currentVC = viewController else {
             return nil
         }
@@ -125,7 +125,7 @@ class AppSpeedy {
         }
     }
     /// 顶层控制器的navigationController
-    class var topNavVC: UINavigationController? {
+    static var topNavVC: UINavigationController? {
         if let topVC = self.topVC() {
             if let nav = topVC.navigationController {
                 return nav
@@ -136,7 +136,7 @@ class AppSpeedy {
         return nil
     }
     /// 获取顶层控制器 根据window
-    class func topVC() -> UIViewController? {
+    static func topVC() -> UIViewController? {
         var window = UIApplication.shared.keyWindow
         //是否为当前显示的window
         if window?.windowLevel != UIWindow.Level.normal{
@@ -152,13 +152,13 @@ class AppSpeedy {
         return topVC(vc)
     }
     /// 全场toast
-    class func toast(message:String){
+    static func toast(message:String){
         if let view = UIApplication.shared.keyWindow{
             view.toast(message: message)
         }
     }
     /// 当用户截屏时的监听
-    class func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
+    static func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
         // http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot
         _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification,
                                                    object: nil,

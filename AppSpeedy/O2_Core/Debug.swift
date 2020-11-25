@@ -6,8 +6,8 @@
 //
 
 import Foundation
-extension App{
-    static func log(_ items: Any...,
+public extension App{
+    public static func log(_ items: Any...,
                     separator: String = " ",
                     terminator: String = "\n",
                     file: String = #file,

@@ -9,7 +9,7 @@
 import UIKit
 
 /// 跳转到具体的App，常用软件
-enum AppJumpAppType:String{
+public enum AppJumpAppType:String{
     /// 微信
     case wechat = "weixin://"
     /// QQ
@@ -18,7 +18,7 @@ enum AppJumpAppType:String{
     case phone = "mobilephone://"
 }
 /// 跳转状态 是否成功
-enum AppJumpStatus: String {
+public enum AppJumpStatus: String {
     case success    = "success"
     case fail        = "fail"
     init?(string: String?) {
@@ -33,7 +33,7 @@ extension AppJumpStatus: CustomStringConvertible {
     }
 }
 
-extension App{
+public extension App{
     /// 跳转到系统页面
     /// - Parameter type： 类型
     /// - Parameter completionHandler：  block回调，bool表示是否成功
