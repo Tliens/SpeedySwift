@@ -50,7 +50,9 @@ extension UIView {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = false
         layer.backgroundColor = UIColor.white.cgColor
+//        self.layer.insertSublayer(layer, at: 0)
         self.layer.addSublayer(layer)
+
     }
 
     
@@ -93,10 +95,6 @@ extension UIView {
         return tapGesture
     }
     /// 添加长按手势
-    /// - Parameters:
-    ///   - target: 事件响应者
-    ///   - action: 事件
-    /// - Returns:
     @discardableResult
     public func addLongPressGestureRecognizer(target : Any?, action : Selector?, pressDuration: Double = 1) -> UILongPressGestureRecognizer {
         
@@ -119,19 +117,19 @@ extension UIView {
         return nil
     }
     /// 添加顶部mask
-    public func topMask(rect:CGRect,Radii:CGFloat,roundedRect:CGRect){
-        bezierCornerRadius(position: [.topLeft, .topRight], cornerRadius: Radii, roundedRect:roundedRect)
+    public func topCornerRadius(rect:CGRect,radius:CGFloat){
+        cornerRadius(position: [.topLeft, .topRight], cornerRadius: radius, roundedRect:rect)
     }
     
-    // 使用贝塞尔曲线设置圆角
-    public func bezierCornerRadius(position: UIRectCorner, cornerRadius: CGFloat, roundedRect: CGRect) {
+    /// 使用贝塞尔曲线设置圆角
+    public func cornerRadius(position: UIRectCorner, cornerRadius: CGFloat, roundedRect: CGRect) {
         let path = UIBezierPath(roundedRect:roundedRect, byRoundingCorners: position, cornerRadii: CGSize(width: cornerRadius, height: cornerRadius))
         let layer = CAShapeLayer()
         layer.frame = roundedRect
         layer.path = path.cgPath
         self.layer.mask = layer
     }
-    
+
 }
 
 extension UIView {

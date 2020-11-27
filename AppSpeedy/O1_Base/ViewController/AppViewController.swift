@@ -35,7 +35,12 @@ public class AppViewController: UIViewController{
         super.viewDidLoad()
         self.view.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
+        self.edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        if #available(iOS 11.0, *) {
+            extendedLayoutIncludesOpaqueBars = true
+        }else{
+            automaticallyAdjustsScrollViewInsets = false
+        }
     }
     // 状态栏
     public override var prefersStatusBarHidden: Bool {
@@ -51,15 +56,15 @@ public class AppViewController: UIViewController{
     public func removeNotifacationObserver(){
         NotificationCenter.default.removeObserver(self)
     }
-    public func hiddenNavBar(){
+    public func hideNavBar(){
         self.navigationController?.isNavigationBarHidden = true
     }
     public func showNavBar(){
-        self.hiddenFakeNavBar()
+        self.hideFakeNavBar()
         self.navigationController?.isNavigationBarHidden = false
     }
     public func showFakeNavBar(){
-        self.hiddenNavBar()
+        self.hideNavBar()
         self.fakeNavBar?.isHidden = false
         fakeNavBar = AppNavigationBar()
         view.addSubview(fakeNavBar!)
@@ -68,7 +73,7 @@ public class AppViewController: UIViewController{
             maker.height.equalTo(App.statusWithNavBarHeight)
         })
     }
-    public func hiddenFakeNavBar(){
+    public func hideFakeNavBar(){
         self.fakeNavBar?.isHidden = true
     }
     

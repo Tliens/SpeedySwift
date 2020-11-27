@@ -10,4 +10,7 @@ extension Double{
     var int:Int{
         return Int(self)
     }
+    var abs:Double{
+        return Swift.abs(self)
+    }
 }
