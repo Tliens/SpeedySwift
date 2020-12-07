@@ -21,11 +21,18 @@ public class AppBubbleTabBar: UITabBar {
             centerBtn?.image = buttonImage
         }
     }
-    
-    public init(frame: CGRect,bgImageName: String, centerBtnImageName:String) {
+    private var centerBtnHeight: CGFloat = 59.0
+    private var centerBtnOffSetY: CGFloat = 28
+    public init(frame: CGRect,
+                bgImageName: String,
+                centerBtnImageName:String,
+                centerBtnHeight:CGFloat,
+                centerBtnOffSetY:CGFloat) {
         super.init(frame: frame)
         self.bgImageName = bgImageName
         self.centerBtnImageName = centerBtnImageName
+        self.centerBtnHeight = centerBtnHeight
+        self.centerBtnOffSetY = centerBtnOffSetY
         buildUI()
     }
     public override init(frame: CGRect) {
@@ -49,8 +56,6 @@ public class AppBubbleTabBar: UITabBar {
         addSubview(bgImageView)
         // 中间按钮
         let button_w: CGFloat = App.w/3
-        let centerBtnHeight: CGFloat = 59.0
-        let centerBtnOffSetY: CGFloat = 28
         let button = UIButton(frame: CGRect(x: button_w, y: -centerBtnOffSetY, width: button_w, height: centerBtnHeight))
         centerBtn = button
         buttonImage = UIImage(named: centerBtnImageName)
