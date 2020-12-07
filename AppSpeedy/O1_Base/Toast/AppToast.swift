@@ -12,7 +12,7 @@ public class ToastConfigure{
     private init(){}
     
     public var backgroundColor:UIColor = .black
-    public var textColor:UIColor = .white
+    public var textColor:UIColor = T.color
     
     public var style:ToastStyle{
         var style = ToastStyle()

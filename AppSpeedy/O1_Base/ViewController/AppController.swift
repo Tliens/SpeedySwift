@@ -11,5 +11,6 @@ open class AppController:NSObject{
     init(view:UIView) {
         super.init()
         self.view = view
+        self.view.backgroundColor = T.color
     }
 }

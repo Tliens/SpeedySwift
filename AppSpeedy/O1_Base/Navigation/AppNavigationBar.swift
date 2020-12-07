@@ -15,7 +15,7 @@ public class AppNavigationBar: UIView {
     var rightButtonHandler : (() -> ())?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = T.color
         buildUI()
     }
     required init?(coder aDecoder: NSCoder) {
