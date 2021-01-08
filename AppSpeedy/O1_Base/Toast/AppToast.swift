@@ -11,7 +11,7 @@ public class ToastConfigure{
     static let shared = ToastConfigure()
     private init(){}
     
-    public var backgroundColor:UIColor = .black
+    public var backgroundColor:UIColor = ThemeMode == .day ? UIColor.black : UIColor.white
     public var textColor:UIColor = T.color
     
     public var style:ToastStyle{
@@ -27,7 +27,7 @@ public class ToastConfigure{
     }
 }
 public extension UIView{
-    func toast(message:String){
+    func toast(message:String,duration: TimeInterval  = 1){
         
         self.makeToast(message, duration: 1, point: self.center, title: nil, image: nil, style: ToastConfigure.shared.style, completion: nil)
     }
@@ -38,8 +38,8 @@ public extension UIView{
     }
 }
 public extension UIViewController{
-    func toast(message:String){
-        self.view.toast(message: message)
+    func toast(message:String,duration: TimeInterval  = 1){
+        self.view.toast(message: message,duration: duration)
     }
     func globalToast(message:String){
         if let view = UIApplication.shared.keyWindow{
