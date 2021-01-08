@@ -10,4 +10,8 @@ extension Int{
     var string:String{
         return "\(self)"
     }
+    
+    var random:Int{
+        return Int(arc4random())%self
+    }
 }
