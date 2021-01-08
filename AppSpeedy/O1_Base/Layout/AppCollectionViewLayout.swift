@@ -9,7 +9,7 @@ import UIKit
 
 public class AppCollectionViewLayout: UICollectionViewFlowLayout {
     /// longitude 竖向间隔  latitude横向间隔
-    init(longitude:CGFloat,latitude:CGFloat,itemSize:CGSize,sectionInset:UIEdgeInsets,direction:UICollectionView.ScrollDirection) {
+    init(longitude:CGFloat,latitude:CGFloat,itemSize:CGSize? = nil,sectionInset:UIEdgeInsets,direction:UICollectionView.ScrollDirection) {
         super.init()
         scrollDirection = direction
         if direction == .horizontal{
@@ -19,7 +19,9 @@ public class AppCollectionViewLayout: UICollectionViewFlowLayout {
             minimumLineSpacing = latitude
             minimumInteritemSpacing = longitude
         }
-        self.itemSize = itemSize
+        if let _itemSize = itemSize{
+            self.itemSize = _itemSize
+        }
         self.sectionInset = sectionInset
     }
     
