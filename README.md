@@ -14,6 +14,17 @@
 我想目前Swift中没有比这个更合适的加速开发app的框架了，如果有请告诉我。
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
+
+## 2020-01-08 更新
+
+- 新增本地通知库 （方便本地通知，定时通知，取消通知，`DLLocalNotification`取消时会崩溃，已修复放在`O5_Vendor`中）
+- 扩展添加show alert的快捷方法
+- 增加通过cell上的控件获取cell、index（十分有用）
+- 增加random（让`swift`中的r`andom`变得更加好用）
+- 暗黑模式主题适配  `color(day:UIColor,night:UIColor)->UIColor`
+- 增加textiew+placeholder
+- AppViewController内增加避免scrollview可能出现的offset问题
+
 ## 特色：
 
 - 属性包裹器，包含 [喵神 的使用 Property Wrapper 为 Codable 解码设定默认值](https://mp.weixin.qq.com/s/jOyHRS2Wx6MJpuYuENhVgg)
@@ -72,6 +83,23 @@ static var hadShownGuideView: Bool
             completion?(.fail)
         }
     }
+```
+- 增加通过cell上的控件获取cell、index
+```
+    /// 获取indexpath
+    func indexPath(by child:UIView)->IndexPath?{
+        let point = child.convert(CGPoint.zero, to: self)
+        return self.indexPathForRow(at: point)
+    }
+    /// 获取cell
+    func cell(by child:UIView)->UITableViewCell?{
+        let point = child.convert(CGPoint.zero, to: self)
+        if let indexPath = self.indexPathForRow(at: point){
+            return self.cellForRow(at: indexPath)
+        }
+        return nil
+    }
+
 ```
 - 其他
 ```
