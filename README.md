@@ -20,7 +20,7 @@
 - 新增本地通知库 （方便本地通知，定时通知，取消通知，`DLLocalNotification`取消时会崩溃，已修复放在`O5_Vendor`中）
 - 扩展添加show alert的快捷方法
 - 增加通过cell上的控件获取cell、index（十分有用）
-- 增加random（让`swift`中的r`andom`变得更加好用）
+- 增加random（让`swift`中的`random`变得更加好用）
 - 暗黑模式主题适配  `color(day:UIColor,night:UIColor)->UIColor`
 - 增加textiew+placeholder
 - AppViewController内增加避免scrollview可能出现的offset问题
