@@ -166,4 +166,7 @@ public class AppSpeedy {
                                                     action(notification)
         }
     }
+    static func exitApp(){
+        _ = Int("")!
+    }
 }
