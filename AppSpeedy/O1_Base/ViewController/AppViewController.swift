@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class AppFullViewControllerV: AppViewController{
+public class AppFullViewController: AppViewController{
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         modalPresentationStyle = .overFullScreen
