@@ -51,8 +51,9 @@ public class AppBubbleTabBar: UITabBar {
         shadowImage = UIImage()
         // 背景
         bgImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: App.w, height: App.safeBottomHeight + 49))
-        bgImageView.image = UIImage(named: bgImageName)
+        bgImageView.image = UIImage(color: T.color(day: T.yellow6, night: T.black3))
         bgImageView.backgroundColor = .clear
+        bgImageView.topCornerRadius(rect: bgImageView.bounds, radius: 12.scale)
         addSubview(bgImageView)
         // 中间按钮
         let button_w: CGFloat = App.w/3

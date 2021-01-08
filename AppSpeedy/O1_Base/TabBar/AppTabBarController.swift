@@ -13,7 +13,8 @@ public class AppTabBarController: UITabBarController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        
+        delegate = self
+
     }
     
     public override func viewWillDisappear(_ animated: Bool) {
@@ -27,7 +28,6 @@ public class AppTabBarController: UITabBarController {
         backgroundImgView.image = UIImage.init(color: UIColor.white)
         self.tabBar.addSubview(backgroundImgView)
         self.tabBar.tintColor = UIColor.hex("#FF7B86")
-        delegate = self
     }
     //去掉顶部黑线
     public func deleteBlackLine(){
