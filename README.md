@@ -7,7 +7,10 @@
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-11.4-blue.svg)](https://developer.apple.com/xcode)
 
-这是一个app开发的加速库，我的几款app都是基于这个加速库完成的《今日计划》《喝酒游戏》《神盾局》等。
+这是一个app开发的加速库，我的几款app都是基于这个加速库完成的
+
+-《今日计划》https://apps.apple.com/cn/app/id1505020317
+-《imi-成就》https://apps.apple.com/cn/app/id1543829703
 
 尽量保持开发的原汁原味，欢迎使用，喜欢star✨
 
