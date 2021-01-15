@@ -22,6 +22,8 @@
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
 
+### 微信公众号：独立开发者基地 
+
 ## 2021-01-08 更新
 
 - 新增本地通知库 （方便本地通知，定时通知，取消通知，`DLLocalNotification`取消时会崩溃，已修复放在`O5_Vendor`中）
