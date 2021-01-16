@@ -11,6 +11,9 @@ open class AppController:NSObject{
     init(view:UIView) {
         super.init()
         self.view = view
-        self.view.backgroundColor = T.color
+        self.view.backgroundColor = T.mainColor()
+    }
+    func reloadTheme(){
+        self.view.backgroundColor = T.mainColor()
     }
 }

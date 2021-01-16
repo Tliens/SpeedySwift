@@ -18,14 +18,18 @@ class Theme{
     static func changeThemeMode(){
         if ThemeMode == .day{
             UD.themeMode = TMode.night.rawValue
+            ThemeMode = .night
         }else{
             UD.themeMode = TMode.day.rawValue
+            ThemeMode = .day
         }
     }
     static let colors = [yellow3,yellow6,yellow9,blue6,blue3,black2]
     
     
-    static let color = ThemeMode == .day ? T.white1 : T.black1
+    static func mainColor()->UIColor{
+        return ThemeMode == .day ? T.white1 : T.black1
+    }
     
     /// 容器圆角大小
     static let cornerRadius32 = 32.scale
@@ -61,7 +65,7 @@ class Theme{
     /// 333333
     static let black3 = UIColor.hex("#333333")
     /// 666666
-    static let black6 = UIColor.hex("#666666")
+    static let black6 = UIColor.hex("#646464")
     /// 999999
     static let black9 = UIColor.hex("#999999")
     /// F7F7F7
@@ -85,8 +89,9 @@ class Theme{
     
     
     /// shadow
-    static let shadowOpacity:Float = ThemeMode == .day ? 0.2 : 0.6
-
+    static func shadowOpacity()->Float{
+        return ThemeMode == .day ? 0.2 : 0.6
+    }
 
     static func color(day:UIColor,night:UIColor)->UIColor{
         if ThemeMode == .day{

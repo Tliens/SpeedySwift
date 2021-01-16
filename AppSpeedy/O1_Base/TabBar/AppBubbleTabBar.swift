@@ -43,14 +43,22 @@ public class AppBubbleTabBar: UITabBar {
     public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+    func reloadTheme(){
+        bgImageView.image = UIImage(color: T.color(day: T.yellow6, night: T.black3))
+    }
     private func buildUI() {
         // 去掉系统tabBar的顶部细线
         barStyle = .black
         backgroundImage = UIImage()
         shadowImage = UIImage()
         // 背景
-        bgImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: App.w, height: App.safeBottomHeight + 49))
+        var my_size:CGSize = .zero
+        if !App.isX{
+            my_size = CGSize(width: App.w, height: App.safeBottomHeight + 60)
+        }else{
+            my_size = CGSize(width: App.w, height: App.safeBottomHeight + 49)
+        }
+        bgImageView = UIImageView(frame: CGRect(origin: .zero, size: my_size))
         bgImageView.image = UIImage(color: T.color(day: T.yellow6, night: T.black3))
         bgImageView.backgroundColor = .clear
         bgImageView.topCornerRadius(rect: bgImageView.bounds, radius: 12.scale)
@@ -84,5 +92,13 @@ public class AppBubbleTabBar: UITabBar {
             }
         }
         return super.hitTest(point, with: event)
+    }
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+        if !App.isX{
+            return CGSize(width: App.w, height: App.safeBottomHeight + 60)
+        }else{
+            return CGSize(width: App.w, height: App.safeBottomHeight + 49)
+        }
+        
     }
 }

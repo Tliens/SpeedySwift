@@ -554,12 +554,12 @@ public struct ToastStyle {
     /**
      The title color. Default is `UIColorT.defaultColorColor()`.
     */
-    public var titleColor: UIColor = T.color
+    public var titleColor: UIColor = T.mainColor()
     
     /**
      The message color. Default is `T.defaultColor`.
     */
-    public var messageColor: UIColor = T.color
+    public var messageColor: UIColor = T.mainColor()
     
     /**
      A percentage value from 0.0 to 1.0, representing the maximum width of the toast
@@ -681,7 +681,7 @@ public struct ToastStyle {
     /**
      Activity indicator color. Default is `T.defaultColor`.
      */
-    public var activityIndicatorColor: UIColor = T.color
+    public var activityIndicatorColor: UIColor = T.mainColor()
     
     /**
      Activity background color. Default is `.black` at 80% opacity.
