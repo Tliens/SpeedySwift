@@ -22,9 +22,6 @@
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
 
-### 微信公众号：独立开发者基地 
-
-> 分享我的独立开发的故事，经验； Share stories and experiences of independent development.
 
 ## 2021-01-08 更新
 
@@ -175,5 +172,11 @@ static var hadShownGuideView: Bool
 欢迎使用，喜欢请star✨
 
 
+### 微信公众号：独立开发者基地 
 
+> 分享我的独立开发的故事，经验； Share stories and experiences of independent development.
+
+<div  align="center">    
+<img src="https://github.com/Tliens/SpeedySwift/blob/master/WechatIMG58.jpeg" width = "300" height = "200" alt="图片名称" align=center />
+</div>
 
