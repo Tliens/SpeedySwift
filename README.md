@@ -177,6 +177,6 @@ static var hadShownGuideView: Bool
 > 分享我的独立开发的故事，经验； Share stories and experiences of independent development.
 
 <div  align="center">    
-<img src="https://github.com/Tliens/SpeedySwift/blob/master/WechatIMG58.jpeg" width = "300" height = "200" alt="图片名称" align=center />
+<img src="https://github.com/Tliens/SpeedySwift/blob/master/WechatIMG58.jpeg" width = "335" height = "388" alt="公众号" align=center />
 </div>
 
