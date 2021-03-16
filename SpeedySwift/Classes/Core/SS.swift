@@ -7,13 +7,12 @@
 
 import UIKit
 /*
- 到 2020 年的现在这个时间点，iPhone 的逻辑分辨率宽度进化到了
- 320pt（非全面屏、全面屏）、
- 375pt（非全面屏、全面屏）、
+ 到 2021 年的现在这个时间点，iPhone 的逻辑分辨率宽度进化到了
+ 320pt（非全面屏）、
+ 375pt（非全面屏）、
  414pt（非全面屏、全面屏）、
  390pt（全面屏）、
  428pt（全面屏）
- 八小种、五大种
  */
 public typealias SS = SpeedySwift
 @objcMembers
@@ -167,6 +166,7 @@ public class SpeedySwift:NSObject {
                                                     action(notification)
         }
     }
+    /// 主动崩溃
     public static func exitApp(){
         _ = Int("")!
     }
