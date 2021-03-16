@@ -18,7 +18,7 @@ public typealias SS = SpeedySwift
 @objcMembers
 public class SpeedySwift:NSObject {
     
-    public let lock = DispatchSemaphore(value: 1)
+    public static let lock = DispatchSemaphore(value: 1)
     
     public static let w = UIScreen.main.bounds.width
     public static let h = UIScreen.main.bounds.height

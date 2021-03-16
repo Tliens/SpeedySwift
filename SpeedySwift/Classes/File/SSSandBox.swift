@@ -7,9 +7,10 @@
 //
 // MARK: 沙盒
 import UIKit
-public class SSSandbox: NSObject {
+@objcMembers
+open class SSSandbox: NSObject {
     
-    static let shared = SSSandbox()
+    public static let shared = SSSandbox()
     
     /// 禁止外部调用init初始化方法
     private override init(){
@@ -17,13 +18,13 @@ public class SSSandbox: NSObject {
     }
     
     /// 获取程序的Home目录
-    var homeDirectory: String {
+    public var homeDirectory: String {
         let path = NSHomeDirectory()
         return path
     }
     
     /// Documents 目录：您应该将所有的应用程序数据文件写入到这个目录下。这个目录用于存储用户数据。该路径可通过配置实现iTunes共享文件。可被iTunes备份。
-    var documentDirectory: String {
+    public var documentDirectory: String {
         
         guard let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first else {
             return ""
@@ -38,7 +39,7 @@ public class SSSandbox: NSObject {
      * Caches 目录：用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息。
      * 可创建子文件夹。可以用来放置您希望被备份但不希望被用户看到的数据。该路径下的文件夹，除Caches以外，都会被iTunes备份。
      */
-    var libraryDirectory: String {
+    public var libraryDirectory: String {
         guard let path = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first else {
             return ""
         }
@@ -46,7 +47,7 @@ public class SSSandbox: NSObject {
     }
     
     /// Caches 目录：用于存放应用程序专用的支持文件，保存应用程序再次启动过程中需要的信息。
-    var cachesDirectory: String {
+    public var cachesDirectory: String {
         guard let path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).first else {
             return ""
         }
@@ -54,7 +55,7 @@ public class SSSandbox: NSObject {
     }
     
     /// tmp目录：这个目录用于存放临时文件，保存应用程序再次启动过程中不需要的信息。该路径下的文件不会被iTunes备份。
-    var tmpDirectory: String {
+    public var tmpDirectory: String {
         
         let path = NSTemporaryDirectory()
         return path
@@ -63,11 +64,11 @@ public class SSSandbox: NSObject {
 
 public extension SS{
     /// 缓存路径
-    var  cachePath:String {
+    static var cachePath:String {
         return SSSandbox.shared.cachesDirectory + "/" + "SSCache"
     }
     /// Set 缓存数据
-    func asyncSetCache(jsonResponse: AnyObject, URL: String, subPath: String?, completed:@escaping (Bool) -> ()) {
+    static func asyncSetCache(jsonResponse: AnyObject, URL: String, subPath: String?, completed:@escaping (Bool) -> ()) {
         DispatchQueue.global().async{
             let result = self.setCache(jsonResponse, URL: URL, subPath: subPath)
             DispatchQueue.main.async(execute: {
@@ -77,16 +78,16 @@ public extension SS{
     }
     
     /// 写入/更新缓存(同步) [按APP版本号缓存,不同版本APP,同一接口缓存数据互不干扰]
-    func setCache(_ jsonResponse: AnyObject, URL: String, subPath: String?) -> Bool {
+    static func setCache(_ jsonResponse: AnyObject, URL: String, subPath: String?) -> Bool {
         lock.wait()
-        let data = (jsonResponse as? Dictionary<String, Any>)?.jsonData()
+        let data = (jsonResponse as? Dictionary<String, Any>)?.toData()
         let atPath = getCacheFilePath(url: URL, subPath: subPath)
         let isSuccess = FileManager.default.createFile(atPath:atPath, contents: data, attributes: nil)
         lock.signal()
         return isSuccess
     }
     /// Get  获取数据
-    func getCacheJsonWithURL(_ URL: String, subPath:String = "") -> AnyObject? {
+    static func getCacheJsonWithURL(_ URL: String, subPath:String = "") -> AnyObject? {
         lock.wait()
         var resultObject: AnyObject?
         let path = getCacheFilePath(url: URL, subPath: subPath)
@@ -100,7 +101,7 @@ public extension SS{
     }
     
     /// 获取缓存文件路径
-    fileprivate func getCacheFilePath(url: String, subPath:String?) -> String {
+    fileprivate static func getCacheFilePath(url: String, subPath:String?) -> String {
         var newPath: String = self.cachePath
         
         if let tempSubPath = subPath, tempSubPath.count > 0 {
@@ -115,7 +116,7 @@ public extension SS{
         return newPath
     }
     /// 检查文件夹
-    fileprivate func checkDirectory(_ path: String) {
+    fileprivate static func checkDirectory(_ path: String) {
         let fileManager: FileManager = FileManager.default
         
         var isDir = ObjCBool(false) //isDir判断是否为文件夹

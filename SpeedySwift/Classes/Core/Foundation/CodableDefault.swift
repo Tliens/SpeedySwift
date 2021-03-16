@@ -58,7 +58,7 @@ extension Float: DefaultValue {
     public static let defaultValue = -1
 }
 
-//MARK:Test
+//MARK:Demo
 //class Member:Codable {
 //    @Default<Bool.defalut> var isOk:Bool
 //    @Default<String.defalut> var name:String

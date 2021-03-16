@@ -21,7 +21,7 @@ public enum SSJumpAppType:String{
 public enum SSJumpStatus: String {
     case success    = "success"
     case fail        = "fail"
-    init?(string: String?) {
+    public init?(string: String?) {
         guard let string = string else { return nil }
         self.init(rawValue: string)
     }

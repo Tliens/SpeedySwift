@@ -7,10 +7,7 @@
 
 import Foundation
 import UIKit
-
-
 // MARK: - Properties
-
 public extension NSAttributedString {
     /// 粗体
     var bolded: NSAttributedString {

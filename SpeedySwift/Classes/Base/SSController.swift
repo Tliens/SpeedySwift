@@ -8,8 +8,7 @@
 import UIKit
 open class SSController:NSObject{
     var view:UIView!
-    init(view:UIView) {
-        super.init()
+    public init(view:UIView) {
         self.view = view
     }
 

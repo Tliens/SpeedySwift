@@ -6,7 +6,7 @@
 //
 
 import Foundation
-extension Int{
+public extension Int{
     var string:String{
         return "\(self)"
     }

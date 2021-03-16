@@ -9,13 +9,13 @@ import UIKit
 import WebKit
 open class SSWebViewController: SSViewController {
     
-    public var linkUrl: String?
+    open var linkUrl: String?
     public let scriptMessageName = "your script"
     
-    public var webView : WKWebView?
-    public var progressView : UIProgressView?
+    open var webView : WKWebView?
+    open var progressView : UIProgressView?
     
-    public var parameters:[String: Any]?
+    open var parameters:[String: Any]?
     
     deinit {
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: scriptMessageName)
@@ -35,12 +35,12 @@ open class SSWebViewController: SSViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         self.fakeNav.isHidden = false
         self.fakeNav.titleLabel.text = self.title
@@ -52,7 +52,7 @@ open class SSWebViewController: SSViewController {
     }
     
     // 加载网页
-    public func loadPage() {
+    open func loadPage() {
         if let url = URL(string: linkUrl ?? "") {
             let request = URLRequest(url: url)
             webView?.load(request)
@@ -146,7 +146,7 @@ open class SSWebViewController: SSViewController {
         webView?.removeObserver(self, forKeyPath:"title")
     }
     
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if keyPath == "estimatedProgress" {
             self.progressView?.progress = Float(webView?.estimatedProgress ?? 0.0)
@@ -172,7 +172,7 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
     // MARK: - WKScriptMessageHandler
     //被自定义的WKScriptMessageHandler在回调方法里通过代理回调回来，绕了一圈就是为了解决内存不释放的问题
     //通过接收JS传出消息的name进行捕捉的回调方法
-    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == "Speedy" {
             if let _ = message.body as? Dictionary<String, Any>{
                 /// TODO
@@ -186,12 +186,12 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
      WKNavigationDelegate主要处理一些跳转、加载处理操作，WKUIDelegate主要处理JS脚本，确认框，警告框等
      */
     // 页面开始加载
-    public func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
     }
     
     // 页面加载失败时调用
-    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+    open func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         
         self.progressView?.setProgress(0.0, animated: false)
         
@@ -204,29 +204,29 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
     }
     
     // 当内容开始返回时调用，已开始加载页面，可以在这一步向view中添加一个过渡动画
-    public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         
     }
     
     // 页面已全部加载，可以在这一步把过渡动画去掉
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let webTitle = webView.title, !webTitle.isEmpty {
             self.title = webTitle
         }
     }
     
     //提交发生错误时调用
-    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    open func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         self.progressView?.setProgress(0.0, animated: false)
     }
     
     // 接收到服务器跳转请求即服务重定向时之后调用
-    public func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
         
     }
     
     // 根据WebView对于即将跳转的HTTP请求头信息和相关信息来决定是否跳转
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    open func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
        
         // 在这里添加您的逻辑代码
         let url = navigationAction.request.url
@@ -241,13 +241,13 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
     }
     
     // 根据客户端受到的服务器响应头以及response相关信息来决定是否可以跳转
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+    open func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
         decisionHandler(.allow);
     }
     
     //进程被终止时调用
-    public func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
+    open func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
         SS.log("webViewWebContentProcessDidTerminate")
         webView.reload()
     }
@@ -261,14 +261,14 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
      *  @param message           警告框中的内容
      *  @param completionHandler 警告框消失调用
      */
-    public func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         
         showAlert(title: nil, message: message)
     }
     
     // 确认框
     //JavaScript调用confirm方法后回调的方法 confirm是js中的确定框，需要在block中把用户选择的情况传递进去
-    public func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         
         //  js 里面的alert实现，如果不实现，网页的alert函数无效
         showAlert(title: nil, message: message)
@@ -278,7 +278,7 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
     
     // 输入框
     //JavaScript调用prompt方法后回调的方法 prompt是js中的输入框 需要在block中把用户输入的信息传入
-    public func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+    open func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         
         // 客户端不处理程序
         completionHandler("Client Not handler");
@@ -297,7 +297,7 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
 open class WeakWebViewScriptMessageDelegate: NSObject, WKScriptMessageHandler {
     
     //WKScriptMessageHandler 这个协议类专门用来处理JavaScript调用原生OC的方法
-    public weak var scriptDelegate : AnyObject?
+    open weak var scriptDelegate : AnyObject?
     
     deinit {
         SS.log()
@@ -312,7 +312,7 @@ open class WeakWebViewScriptMessageDelegate: NSObject, WKScriptMessageHandler {
     // MARK: - WKScriptMessageHandler
     //遵循WKScriptMessageHandler协议，必须实现如下方法，然后把方法向外传递
     //通过接收JS传出消息的name进行捕捉的回调方法
-    public func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    open func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         
         if let delegate = self.scriptDelegate, delegate.responds(to: #selector(userContentController(_:didReceive:)))  {
             delegate.userContentController(userContentController, didReceive: message)

@@ -9,42 +9,40 @@ import UIKit
 
 open class SSTabBarController: UITabBarController {
     
-    public var lastTabBarTime:[Int:TimeInterval] = [:]
+    open var lastTabBarTime:[Int:TimeInterval] = [:]
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
 
     }
     
-    public override func viewWillDisappear(_ animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
     }
     
-    public func initialize() {
+    open func initialize(color:String) {
         self.tabBar.backgroundImage = UIImage()
         let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: SS.w, height: SS.safeBottomHeight + 49))
-        backgroundImgView.image = UIImage.init(color: UIColor.white)
+        backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
         self.tabBar.addSubview(backgroundImgView)
-        self.tabBar.tintColor = UIColor.hex("#FF7B86")
+        self.tabBar.tintColor = UIColor.hex(color)
     }
     //去掉顶部黑线
-    public func deleteBlackLine(){
+    open func deleteBlackLine(){
         tabBar.barStyle = .black
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
     }
     // 添加子vc
-    public func addChildViewController(_ childController: UIViewController,
+    open func addChildViewController(_ childController: UIViewController,
                                        title: String,
                                        imageName: String,
                                        selectedImageName:String,
                                        index:Int,
-                                       normal:UIColor = .hex("#888888",
-                                                             alpha: 0.24),
-                                       selected:UIColor = .hex("#222222",
-                                                               alpha: 1)) {
+                                       normal:UIColor,
+                                       selected:UIColor) {
         childController.title = title
         childController.closePopGestureRecognizer = true
         if imageName.count > 0{
@@ -59,7 +57,7 @@ open class SSTabBarController: UITabBarController {
         addChild(nav)
     }
     
-    public func selectedTab(at index: Int,isDouble:Bool) {
+    open func selectedTab(at index: Int,isDouble:Bool) {
         
     }
     
@@ -67,7 +65,7 @@ open class SSTabBarController: UITabBarController {
 
 
 extension SSTabBarController: UITabBarControllerDelegate {
-    public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    open func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         var isDouble: Bool = false
         let now = Date().timeIntervalSince1970
         if let last = lastTabBarTime[viewController.tabBarItem.tag],(now - last < 0.5) {

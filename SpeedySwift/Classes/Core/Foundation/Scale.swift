@@ -6,18 +6,18 @@
 //
 
 import UIKit
-extension CGFloat{
+public extension CGFloat{
     var scale:CGFloat{
         return SS.scale(self)
     }
 }
 
-extension Int{
+public extension Int{
     var scale:CGFloat{
         return SS.scale(CGFloat(self))
     }
 }
-extension Double{
+public extension Double{
     var scale:CGFloat{
         return SS.scale(CGFloat(self))
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 public extension CGFloat{
-    var abs:CGFloat{
-        return Swift.abs(self)
+    var ss_abs:CGFloat{
+        return abs(self)
     }
 }

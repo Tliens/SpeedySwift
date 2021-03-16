@@ -50,7 +50,7 @@ extension UIView {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = false
         layer.backgroundColor = UIColor.white.cgColor
-//        self.layer.insertSublayer(layer, at: 0)
+        self.layer.insertSublayer(layer, at: 0)
         self.layer.addSublayer(layer)
 
     }

@@ -6,11 +6,11 @@
 //
 
 import Foundation
-extension Double{
+public extension Double{
     var int:Int{
         return Int(self)
     }
-    var abs:Double{
-        return Swift.abs(self)
+    var ss_abs:Double{
+        return abs(self)
     }
 }
