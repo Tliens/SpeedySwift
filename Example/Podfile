@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '12.0'
+
+target 'SpeedySwift_Example' do
+  pod 'SpeedySwift', :path => '../'
+
+  target 'SpeedySwift_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
