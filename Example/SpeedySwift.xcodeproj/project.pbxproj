@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A0AF043075035B4C928C04A /* Pods_SpeedySwift_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A092CA2894B7A6F44D1DBB51 /* Pods_SpeedySwift_Example.framework */; };
+		442225A42601ACE300A4D4AE /* SSCodableDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 442225A32601ACE300A4D4AE /* SSCodableDefault.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		14D2F28F00C22D20763A62EE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		193771DE29439E32CE2CABB6 /* Pods-SpeedySwift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedySwift_Tests.release.xcconfig"; path = "Target Support Files/Pods-SpeedySwift_Tests/Pods-SpeedySwift_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		332099D0BE4D1DC59A4ED2F3 /* SpeedySwift.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SpeedySwift.podspec; path = ../SpeedySwift.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		442225A32601ACE300A4D4AE /* SSCodableDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCodableDefault.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SpeedySwift_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedySwift_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				442225A32601ACE300A4D4AE /* SSCodableDefault.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -336,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				442225A42601ACE300A4D4AE /* SSCodableDefault.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

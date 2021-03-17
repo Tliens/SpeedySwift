@@ -8,6 +8,14 @@
 
 import UIKit
 import SpeedySwift
+
+
+class Member:Codable {
+    @SSCBD<Bool.defalut> var isOk:Bool
+    @SSCBD<String.defalut> var name:String
+    @SSCBD<Int.defalut> var age:Int
+}
+
 class ViewController: SSViewController {
 
     override func viewDidLoad() {
@@ -84,3 +92,5 @@ class MyNavigationBar:SSNavigationBar{
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
