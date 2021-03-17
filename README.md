@@ -1,6 +1,5 @@
-
 # SpeedySwift
-
+[![Pods](https://img.shields.io/cocoapods/v/SpeedySwift.svg)](https://cocoapods.org/pods/SpeedySwift)
 [![Build Status](https://travis-ci.org/ios_base_foundation/SnapKit.svg)](https://travis-ci.org/ios_base_foundation/ios_base_foundation)
 [![Sponsors](https://opencollective.com/ios_base_foundation/sponsors/badge.svg)](https://opencollective.com/ios_base_foundation/sponsors/badge.svg)
 [![LICENSE](https://img.shields.io/cocoapods/l/ios_base_foundation.svg)](https://img.shields.io/cocoapods/l/ios_base_foundation.svg)
@@ -22,16 +21,14 @@
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
 
+## 2021-03-17 更新
 
-## 2021-01-08 更新
+- 支持cocoapods
+- 完善类、方法权限关键字
+- 去除不合适的第三方库
+- 修改文件结构
+- 增加使用示例
 
-- 新增本地通知库 （方便本地通知，定时通知，取消通知，`DLLocalNotification`取消时会崩溃，已修复放在`O5_Vendor`中）
-- 扩展添加show alert的快捷方法
-- 增加通过cell上的控件获取cell、index（十分有用）
-- 增加random（让`swift`中的`random`变得更加好用）
-- 暗黑模式主题适配  `color(day:UIColor,night:UIColor)->UIColor`
-- 增加textiew+placeholder
-- AppViewController内增加避免scrollview可能出现的offset问题
 
 ## 特色：
 
@@ -46,7 +43,10 @@
 
 ## 如何使用
 
-下载最新代码后，将`AppSpeedy`拖入到工程中，暂不支持pod
+## Pod导入
+```
+pod 'SpeedySwift'
+```
 
 要求：`Swift5.0`及以上
 
@@ -58,15 +58,11 @@ UIColor.hex("#22023b")
 ```
 - 底部安全区高度
 ```
-let height = App.safeBottomHeight
+let height = SS.safeBottomHeight
 ```
-- 字符串提取
+- 不用关心方向的 SSCollectionViewLayout
 ```
-"Hello World!"[safe: 3] -> "l"
-```
-- 不用关心方向的 AppCollectionViewLayout
-```
-let layout = AppCollectionViewLayout(longitude: 0, latitude: 10.scale, itemSize: CGSize(width: 130.scale, height: 139.scale), sectionInset: .init(top: 10.scale, left: 20.scale, bottom: 0, right: 20.scale), direction: .vertical)
+let layout = SSCollectionViewLayout(longitude: 0, latitude: 10.scale, itemSize: CGSize(width: 130.scale, height: 139.scale), sectionInset: .init(top: 10.scale, left: 20.scale, bottom: 0, right: 20.scale), direction: .vertical)
 ```
 - 属性包裹器
 ```
@@ -81,16 +77,14 @@ static var hadShownGuideView: Bool
 - 系统页跳转
 ```
 /// 跳转到系统页面
-    /// - Parameter type： 类型
-    /// - Parameter completionHandler：  block回调，bool表示是否成功
-    static func systemJump(completionHandler completion: ((AppJumpStatus) -> Void)? = nil){
-        let urlString = UIApplication.openSettingsURLString
-        if let url: URL = URL(string: urlString) {
-            App.jump(url: url, completionHandler: completion)
-        }else{
-            completion?(.fail)
-        }
+static func systemJump(completionHandler completion: ((AppJumpStatus) -> Void)? = nil){
+    let urlString = UIApplication.openSettingsURLString
+    if let url: URL = URL(string: urlString) {
+        App.jump(url: url, completionHandler: completion)
+    }else{
+        completion?(.fail)
     }
+}
 ```
 - 增加通过cell上的控件获取cell、index
 ```
@@ -111,7 +105,7 @@ static var hadShownGuideView: Bool
 ```
 - 其他
 ```
-/// app版本号
+	/// app版本号
     static var version: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
@@ -146,30 +140,21 @@ static var hadShownGuideView: Bool
 
 欢迎使用，喜欢请star✨
 
-## 结构介绍
-![img](https://github.com/Tliens/SpeedySwift/blob/master/floder.png)
-
-我根据使用频率以及层次结构分为了：
-- `O1_Base`
-- `O2_Core`
-- `O3_Foundation`
-- `O4_UI`
-- `O5_Vendor`
-- `O6_Resource`
-
-`O1_Base` 文件夹下包含 app跳转、沙盒使用、`AppCollectionViewLayout`、`Viewcontrolle`、`NavigationController`、`TabbarController` 基础封装
-
-`O2_Core` 属性包裹器、`Debug`、`Random`
-
-`O3_Foundation` `Foundation`框架的常用扩展
-
-`O4_UI UIKit`框架的常用扩展
-
-`O5_Vendor` 强大的CPCollectionViewKit、震动反馈、Snapkit、Toast
-
-`O6_Resource` 资源文件
-
-欢迎使用，喜欢请star✨
+## 目录
+- Base：此文件夹中是基础类
+- Core：此文件夹中是UIKit+Foundation的扩展，建议你自己维护一套
+- SS.swift 是比较核心的类，为其增加了很多extension，方便快速使用，如：SS.log、SS.bundleID、SS.safeBottomHeight、SS.toast、SS.between...
+- SSDefault 属性包裹器的具体分装
+- SSCodableDefault 因为 权限问题没能解决，无法放到pod中，如果你有办法可以提交代码。
+```
+class Member:Codable {
+    @SSCBD<Bool.defalut> var isOk:Bool
+    @SSCBD<String.defalut> var name:String
+    @SSCBD<Int.defalut> var age:Int
+}
+```
+- SSSandBox 沙盒相关操作
+- Tools 此文件夹中，包含：app之间跳转、网络检查、弹窗、震动反馈
 
 
 ### 微信公众号：独立开发者基地 
