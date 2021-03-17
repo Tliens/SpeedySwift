@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SpeedySwift'
-  s.version          = '0.2.4'
+  s.version          = '0.2.5'
   s.summary          = '这是一个app开发的加速库。This is an accelerated library for app'
   s.description      = <<-DESC
 这是一个app开发的加速库。This is an accelerated library for app.
