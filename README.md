@@ -156,6 +156,9 @@ class Member:Codable {
 - SSSandBox 沙盒相关操作
 - Tools 此文件夹中，包含：app之间跳转、网络检查、弹窗、震动反馈
 
+### KillBug
+
+[通过runtime记录用户日志，获取复现步骤的工具 KillBug](https://github.com/Tliens/KillBug)
 
 ### 微信公众号：独立开发者基地 
 
