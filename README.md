@@ -156,11 +156,19 @@ class Member:Codable {
 - SSSandBox 沙盒相关操作
 - Tools 此文件夹中，包含：app之间跳转、网络检查、弹窗、震动反馈
 
-### KillBug
+## 我的其他开源框架
 
-[通过runtime记录用户日志，获取复现步骤的工具 KillBug](https://github.com/Tliens/KillBug)
+- [KillBug  通过runtime记录用户日志，获取复现步骤的工具 KillBug](https://github.com/Tliens/KillBug)
 
-### 微信公众号：独立开发者基地 
+- [CTNet 这是一个可以指定缓存、重试、优先级的轻量级网络库](https://github.com/ours-curiosity/CTNet)
+
+- [Localizable 国际化方案](https://github.com/Tliens/Localizable)
+
+- [SpeedyMetal Metal 加速框架，GPUImage3的尝试演化](https://github.com/Tliens/SpeedyMetal)
+
+- [GPUImageByMetal  GPUImage 3 中文注释版](https://github.com/Tliens/GPUImageByMetal)
+
+## 微信公众号：独立开发者基地 
 
 > 分享我的独立开发的故事，经验； Share stories and experiences of independent development.
 
