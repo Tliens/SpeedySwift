@@ -109,3 +109,21 @@ extension SSViewController {
         
     }
 }
+extension SSViewController{
+    /// nav pop
+    open func pop(animated:Bool = true){
+        self.navigationController?.popViewController(animated: animated)
+    }
+    /// nav push
+    open func push(_ vc:UIViewController,animated:Bool = true){
+        self.navigationController?.pushViewController(vc, animated: animated)
+    }
+    /// modal 弹出
+    open func show(_ vc:UIViewController,animated:Bool = true,completion: (() -> Void)? = nil){
+        present(vc, animated: animated, completion: completion)
+    }
+    /// modal 消失
+    open func miss(animated:Bool = true,completion: (() -> Void)? = nil){
+        dismiss(animated: animated, completion: completion)
+    }
+}
