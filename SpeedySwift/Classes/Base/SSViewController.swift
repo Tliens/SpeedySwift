@@ -17,7 +17,15 @@ open class SSViewController: UIViewController{
         // 移除通知监听者
         removeNotifacationObserver()
     }
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        modalPresentationStyle = .fullScreen
+    }
     
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        modalPresentationStyle = .fullScreen
+    }
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
