@@ -6,7 +6,10 @@
 //  Copyright © 2020 Better. All rights reserved.
 //
 /// 振动反馈
-public class TapBuzz{
+public extension SS{
+    static let buzz = SSTapBuzz.self
+}
+public class SSTapBuzz{
     public static func light() {
         TapticEngine.impact.feedback(.light)
     }
