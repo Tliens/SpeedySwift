@@ -116,7 +116,7 @@ public extension SS{
         return newPath
     }
     /// 检查文件夹
-    fileprivate static func checkDirectory(_ path: String) {
+    static func checkDirectory(_ path: String) {
         let fileManager: FileManager = FileManager.default
         
         var isDir = ObjCBool(false) //isDir判断是否为文件夹
