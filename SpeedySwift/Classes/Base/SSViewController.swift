@@ -84,6 +84,9 @@ open class SSViewController: UIViewController{
         UIApplication.shared.isStatusBarHidden = false
     }
 
+    open func addSubview(_ view:UIView){
+        self.view.addSubview(view)
+    }
 }
 
 // 通知相关
