@@ -7,9 +7,9 @@
 
 import UIKit
 /// 不响应事件
-public class SSContentView: UIView {
+open class SSContentView: UIView {
 
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let view = super.hitTest(point, with: event);
         if (view == self) {
             return nil
