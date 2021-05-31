@@ -5,9 +5,6 @@
 //  Created by Quinn on 2020/3/21.
 //  Copyright © 2020 Better. All rights reserved.
 //
-extension SS{
-    public static let buzz = TapBuzz.self
-}
 /// 振动反馈
 public extension SS{
     static let buzz = SSTapBuzz.self
