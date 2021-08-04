@@ -8,8 +8,13 @@
 import UIKit
 /// 防止按钮连击
 @objcMembers
-open class SSButton: UIButton {
-    
+public class SSButton: UIButton {
+    /// 有点单例的意思
+    public static let open: Bool = {
+        SSButton.initializeMethod()
+        return true
+    }()
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
