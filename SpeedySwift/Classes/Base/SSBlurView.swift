@@ -83,8 +83,12 @@ open class SSBlurView {
         
         superview.insertSubview(blurEffectView, at: 0)
         
-        blurEffectView.addAlignedConstrains()
-        vibrancyView.addAlignedConstrains()
+        blurEffectView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
+        vibrancyView.snp.makeConstraints { maker in
+            maker.edges.equalToSuperview()
+        }
         
         self.blur = blurEffectView
         self.blurContentView = blurEffectView.contentView

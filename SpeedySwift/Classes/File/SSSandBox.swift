@@ -94,7 +94,7 @@ public extension SS{
         let fileManager: FileManager = FileManager.default
         if fileManager.fileExists(atPath: path, isDirectory: nil) == true {
             let data: Data = fileManager.contents(atPath: path)!
-            resultObject = try? data.jsonObject() as AnyObject
+            resultObject = try? data.toObject() as AnyObject
         }
         lock.signal()
         return resultObject

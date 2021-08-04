@@ -18,5 +18,9 @@ public extension Data {
     func toBytes()->[UInt8]{
         return [UInt8](self)
     }
+    /// 从给定的JSON数据返回一个基础对象。
+    func toObject(options: JSONSerialization.ReadingOptions = []) throws -> Any {
+        return try JSONSerialization.jsonObject(with: self, options: options)
+    }
 }
 
