@@ -49,19 +49,6 @@ extension UIColor {
         }
     }
     
-    /// 左右渐变色
-    public static func gradient(left:UIColor,right:UIColor,rect:CGRect)->CAGradientLayer{
-        func gradientLayer(rect:CGRect)->CAGradientLayer{
-            let colorLayer = CAGradientLayer()
-            colorLayer.frame = rect
-            colorLayer.colors = [left.cgColor,right.cgColor]
-            colorLayer.startPoint = CGPoint(x: 0, y: 0.5)
-            colorLayer.endPoint = CGPoint(x: 1, y: 0.5)
-            return colorLayer
-        }
-        return gradientLayer(rect: rect)
-    }
-    
     /// 随机颜色
     public class func randrom() -> UIColor {
         let r = CGFloat(arc4random()%256)/255.0

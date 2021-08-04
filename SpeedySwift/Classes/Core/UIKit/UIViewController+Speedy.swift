@@ -6,12 +6,12 @@
 //
 
 import UIKit
-public enum UINavigationBarButtonType {
+public enum SSUINavigationBarButtonType {
     case left
     case right
 }
 
-public var closePopGestureRecognizerKey = "closePopGestureRecognizer"
+var closePopGestureRecognizerKey = "closePopGestureRecognizer"
 
 extension UIViewController {
     

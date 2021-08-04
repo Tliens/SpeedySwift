@@ -56,6 +56,11 @@ public extension NSAttributedString {
 // MARK: - Methods
 
 public extension NSAttributedString {
+    /// 添加字体颜色
+    func colored(with color: UIColor) -> NSAttributedString {
+        return applying(attributes: [.foregroundColor: color])
+    }
+    
     /// 添加富文本属性
     func applying(attributes: [Key: Any]) -> NSAttributedString {
         guard !string.isEmpty else { return self }
@@ -63,11 +68,6 @@ public extension NSAttributedString {
         let copy = NSMutableAttributedString(attributedString: self)
         copy.addAttributes(attributes, range: NSRange(0..<length))
         return copy
-    }
-    
-    /// 添加字体颜色
-    func colored(with color: UIColor) -> NSAttributedString {
-        return applying(attributes: [.foregroundColor: color])
     }
 }
 

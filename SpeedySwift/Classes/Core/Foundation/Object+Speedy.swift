@@ -9,17 +9,11 @@ import Foundation
 public extension NSObject{
     class var named: String {
         let array = NSStringFromClass(self).components(separatedBy: ".")
-        if let name =  array.last {
-            return name
-        }
-        return ""
+        return array.last ?? ""
     }
     
     var named: String {
         let array = NSStringFromClass(type(of: self)).components(separatedBy: ".")
-        if let name =  array.last {
-            return name
-        }
-        return ""
+        return array.last ?? ""
     }
 }

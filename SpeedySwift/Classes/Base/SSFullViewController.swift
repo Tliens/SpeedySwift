@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// 全屏显示
 open class SSFullViewController: SSViewController{
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -17,6 +18,7 @@ open class SSFullViewController: SSViewController{
         modalPresentationStyle = .fullScreen
     }
 }
+/// 在当前界面上之上显示，当前ViewController依旧存在，注意生命周期
 open class SSOverFullViewController: SSViewController{
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

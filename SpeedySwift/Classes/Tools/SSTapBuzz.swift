@@ -1,5 +1,5 @@
 //
-//  TapBuzz.swift
+//  SSTapBuzz.swift
 //  SpeedySwift
 //
 //  Created by Quinn on 2020/3/21.
@@ -11,31 +11,31 @@ public extension SS{
 }
 public class SSTapBuzz{
     public static func light() {
-        TapticEngine.impact.feedback(.light)
+        SSTapticEngine.impact.feedback(.light)
     }
 
     public static func medium() {
-        TapticEngine.impact.feedback(.medium)
+        SSTapticEngine.impact.feedback(.medium)
     }
 
     public static func heavy() {
-        TapticEngine.impact.feedback(.heavy)
+        SSTapticEngine.impact.feedback(.heavy)
     }
 
     public static func selection() {
-        TapticEngine.selection.feedback()
+        SSTapticEngine.selection.feedback()
     }
 
     public static func success() {
-        TapticEngine.notification.feedback(.success)
+        SSTapticEngine.notification.feedback(.success)
     }
 
     public static func warning() {
-        TapticEngine.notification.feedback(.warning)
+        SSTapticEngine.notification.feedback(.warning)
     }
 
     public static func error() {
-        TapticEngine.notification.feedback(.error)
+        SSTapticEngine.notification.feedback(.error)
     }
 }
 

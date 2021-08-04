@@ -56,7 +56,7 @@ open class SSTabBarController: UITabBarController {
         let nav = SSNavigationController(rootViewController: childController)
         addChild(nav)
     }
-    
+    /// 点击tabbar
     open func selectedTab(at index: Int,isDouble:Bool) {
         
     }

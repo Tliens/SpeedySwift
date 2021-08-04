@@ -25,12 +25,11 @@ public extension String {
     }
     /// base64 编码
     var base64Encoded: String? {
-        // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
         let plainData = data(using: .utf8)
         return plainData?.base64EncodedString()
     }
     /// md5
-    var  md5:String{
+    var md5:String{
         let str = self.cString(using: String.Encoding.utf8)
         let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
@@ -47,11 +46,7 @@ public extension String {
     }
     
     /// 是否包含emoji
-    ///
-    ///        "Hello 😀".containEmoji -> true
-    ///
     var isContainEmoji: Bool {
-        // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         for scalar in unicodeScalars {
             return self.containEmoji(scalar)
         }
@@ -82,11 +77,6 @@ public extension String {
     }
 
     /// 是否是有效的电子邮件格式
-    ///
-    /// - Note: Note that this property does not validate the email address against an email server. It merely attempts to determine whether its format is suitable for an email address.
-    ///
-    ///        "john@doe.com".isValidEmail -> true
-    ///
     var isValidEmail: Bool {
         // http://emailregex.com/
         let regex =
@@ -97,10 +87,11 @@ public extension String {
     var int: Int? {
         return Int(self)
     }
-    
+    /// 转网络URL
     var netUrl: URL? {
         return URL(string: self)
     }
+    /// 转本地URL
     var localURL:URL?{
         return URL(fileURLWithPath: self, isDirectory: true)
     }
@@ -109,7 +100,7 @@ public extension String {
 // MARK: - Methods
 public extension String {
     /// 复制到剪贴板
-    func copyToPasteboard() {
+    func copy() {
         UIPasteboard.general.string = self
     }
     
@@ -126,7 +117,6 @@ public extension String {
     }
 }
 
-// MARK: - 计算个数，判空
 public extension String {
     /// 移除表情
     func removeEmoji() -> String {
@@ -153,7 +143,7 @@ public extension String {
     }
     
     /// 根据字符个数返回从指定位置向后截取的字符串（英文 = 1，数字 = 1，汉语 = 2）
-    func subString(to index: Int) -> String {
+    func sub(from index: Int) -> String {
         if self.count == 0 {
             return ""
         }

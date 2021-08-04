@@ -1,15 +1,15 @@
 //
-//  TapticEngine.swift
-//  TapticEngine
+//  SSTapticEngine.swift
+//  SSTapticEngine
 //
-//  Created by Keisuke Shoji on 2017/04/09.
-//  Copyright © 2017年 Keisuke Shoji. All rights reserved.
+//  Created by Quinn Von on 2020/5/4.
+//  Copyright © 2020 Quinn Von. All rights reserved.
 //
 
 import UIKit
 
 /// Generates iOS Device vibrations by UIFeedbackGenerator.
-class TapticEngine {
+class SSTapticEngine {
     public static let impact: Impact = .init()
     public static let selection: Selection = .init()
     public static let notification: Notification = .init()

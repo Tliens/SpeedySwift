@@ -6,6 +6,7 @@
 //
 
 import UIKit
+/// 应对复杂场景使用的控制器
 open class SSController:NSObject{
     var view:UIView!
     public init(view:UIView) {

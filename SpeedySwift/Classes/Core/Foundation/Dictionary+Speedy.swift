@@ -15,18 +15,10 @@ public extension Dictionary {
     func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
-
     /// 移除key对应的value
     mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         keys.forEach { removeValue(forKey: $0) }
     }
-
-    /// 从字典中移除一个随意的key
-    @discardableResult mutating func removeValueForRandomKey() -> Value? {
-        guard let randomKey = keys.randomElement() else { return nil }
-        return removeValue(forKey: randomKey)
-    }
-
     /// 字典转Data
     func toData(prettify: Bool = false) -> Data? {
         guard JSONSerialization.isValidJSONObject(self) else {
@@ -35,7 +27,6 @@ public extension Dictionary {
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
         return try? JSONSerialization.data(withJSONObject: self, options: options)
     }
-
     /// 字典转json
     func toJson(prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else { return nil }

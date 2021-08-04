@@ -7,13 +7,14 @@
 
 import UIKit
 import SnapKit
+/// 导航栏
 open class SSNavigationBar: UIView {
     open var leftButton = UIButton()
     open var titleLabel = UILabel(text: "", textColor: .hex("#222222"), textFont: .sc_medium(size: 18),textAlignment:.center)
     open var rightButton = UIButton()
     
-    open var leftButtonHandler : (() -> ())?
-    open var rightButtonHandler : (() -> ())?
+    open var leftButtonHandler: (() -> ())?
+    open var rightButtonHandler: (() -> ())?
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,7 +27,7 @@ open class SSNavigationBar: UIView {
     private func buildUI() {
         buildLeftBtn()
         buildTitleLabel()
-        buildRightButton()
+        buildRightBtn()
     }
     private func buildLeftBtn(){
         self.addSubview(leftButton)
@@ -46,7 +47,7 @@ open class SSNavigationBar: UIView {
             make.bottom.equalTo(-11.0)
         })
     }
-    private func buildRightButton(){
+    private func buildRightBtn(){
         rightButton = UIButton(title: "", titleColor: UIColor.black, titleFont: UIFont.systemFont(ofSize: 16))
         rightButton.addTarget(self, action: #selector(rightButtonAction), for: .touchUpInside)
         self.addSubview(rightButton)

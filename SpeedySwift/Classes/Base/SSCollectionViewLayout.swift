@@ -9,11 +9,11 @@ import UIKit
 /// 此 layout 自动根据 direction 分配LineSpacing、InteritemSpacing
 open class SSCollectionViewLayout: UICollectionViewFlowLayout {
     /// longitude 竖向间隔  latitude横向间隔
-    public init(longitude:CGFloat,
-         latitude:CGFloat,
+    public init(longitude:CGFloat = 4,
+         latitude:CGFloat = 4,
          itemSize:CGSize? = nil,
-         sectionInset:UIEdgeInsets,
-         direction:UICollectionView.ScrollDirection) {
+         sectionInset:UIEdgeInsets = .zero,
+         direction:UICollectionView.ScrollDirection = .vertical) {
         
         super.init()
         scrollDirection = direction

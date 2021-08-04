@@ -95,13 +95,15 @@ public class SpeedySwift:NSObject {
         let heigth = statusBarHeight + navBarHeight
         return heigth
     }
+    /// 根据宽度缩放
     public static func scaleW(_ width: CGFloat,fit:CGFloat = 375.0) -> CGFloat {
         return w / fit * width
     }
-     
+    /// 根据高度缩放
     public static func scaleH(_ height: CGFloat,fit:CGFloat = 812.0) -> CGFloat {
         return h / fit * height
     }
+    /// 默认根据宽度缩放
     public static func scale(_ value: CGFloat) -> CGFloat {
         return scaleW(value)
     }
@@ -151,7 +153,7 @@ public class SpeedySwift:NSObject {
         let vc = window?.rootViewController
         return topVC(vc)
     }
-    /// 全场toast
+    /// window 的 toast
     public static func toast(message:String){
         if let view = UIApplication.shared.keyWindow{
             view.toast(message: message)
@@ -168,6 +170,7 @@ public class SpeedySwift:NSObject {
     }
     /// 主动崩溃
     public static func exitApp(){
-        _ = Int("")!
+        /// 这是默认的程序结束函数,
+        abort()
     }
 }

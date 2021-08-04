@@ -6,7 +6,7 @@
 //
 
 import UIKit
-/// 不响应事件
+/// 不响应事件视图
 open class SSContentView: UIView {
 
     open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

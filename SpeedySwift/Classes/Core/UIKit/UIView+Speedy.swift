@@ -7,7 +7,7 @@
 
 import UIKit
 /// 线的位置
-public enum LinePosition: Int {
+public enum SSLinePosition: Int {
     case top = 0
     case bottom = 1
     case center = 2
@@ -52,28 +52,41 @@ extension UIView {
         layer.backgroundColor = UIColor.white.cgColor
         self.layer.insertSublayer(layer, at: 0)
         self.layer.addSublayer(layer)
-
     }
-
     
     /// 添加细线 ply线高
     @discardableResult
-    public func line(position : LinePosition, color : UIColor, ply : CGFloat, leftPadding : CGFloat, rightPadding : CGFloat) -> UIView {
+    public func line(position : SSLinePosition,
+                     color : UIColor,
+                     height : CGFloat,
+                     leftPadding : CGFloat,
+                     rightPadding : CGFloat) -> UIView {
         let line = UIView.init()
         line.backgroundColor = color;
-        line.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(line)
-        line.leftAnchor.constraint(equalTo: leftAnchor, constant: leftPadding).isActive = true
-        line.rightAnchor.constraint(equalTo: leftAnchor, constant: rightPadding).isActive = true
-        line.heightAnchor.constraint(equalToConstant: ply).isActive = true
+        
         switch position {
         case .top:
-            line.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            line.snp.makeConstraints { maker in
+                maker.top.equalToSuperview()
+                maker.left.equalTo(leftPadding)
+                maker.right.equalTo(-rightPadding)
+                maker.height.equalTo(height)
+            }
         case .bottom:
-            line.bottomAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            line.snp.makeConstraints { maker in
+                maker.bottom.equalToSuperview().offset(-height)
+                maker.left.equalTo(leftPadding)
+                maker.right.equalTo(-rightPadding)
+                maker.height.equalTo(height)
+            }
         case .center:
-            line.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
-            line.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0).isActive = true
+            line.snp.makeConstraints { maker in
+                maker.centerY.equalToSuperview()
+                maker.left.equalTo(leftPadding)
+                maker.right.equalTo(-rightPadding)
+                maker.height.equalTo(height)
+            }
         }
         return line
     }
@@ -161,21 +174,21 @@ extension UIView {
 
 // MARK: - view + BlurView
 
-extension UIView {
+public extension UIView {
     
     private struct BlurAssociatedKeys {
         static var descriptiveName = "AssociatedKeys.DescriptiveName.blurView"
     }
     
-    private (set) var blur: BlurView {
+    var blur: SSBlurView {
         get {
             if let blurView = objc_getAssociatedObject(
                 self,
                 &BlurAssociatedKeys.descriptiveName
-            ) as? BlurView {
+            ) as? SSBlurView {
                 return blurView
             }
-            self.blur = BlurView(to: self)
+            self.blur = SSBlurView(to: self)
             return self.blur
         }
         set(blurView) {
@@ -187,120 +200,4 @@ extension UIView {
             )
         }
     }
-    func addAlignedConstrains() {
-        translatesAutoresizingMaskIntoConstraints = false
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.top)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.leading)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.trailing)
-        addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute.bottom)
-    }
-
-    func addAlignConstraintToSuperview(attribute: NSLayoutConstraint.Attribute) {
-        superview?.addConstraint(
-            NSLayoutConstraint(
-                item: self,
-                attribute: attribute,
-                relatedBy: NSLayoutConstraint.Relation.equal,
-                toItem: superview,
-                attribute: attribute,
-                multiplier: 1,
-                constant: 0
-            )
-        )
-    }
-
 }
-/// 高斯模糊
-class BlurView {
-    
-    private var superview: UIView
-    private var blur: UIVisualEffectView?
-    private var editing: Bool = false
-    private (set) var blurContentView: UIView?
-    private (set) var vibrancyContentView: UIView?
-    
-    var animationDuration: TimeInterval = 0.1
-    
-    /**
-     * Blur style. After it is changed all subviews on
-     * blurContentView & vibrancyContentView will be deleted.
-     */
-    var style: UIBlurEffect.Style = .light {
-        didSet {
-            guard oldValue != style,
-                  !editing else { return }
-            applyBlurEffect()
-        }
-    }
-    /**
-     * Alpha component of view. It can be changed freely.
-     */
-    var alpha: CGFloat = 0 {
-        didSet {
-            guard !editing else { return }
-            if blur == nil {
-                applyBlurEffect()
-            }
-            let alpha = self.alpha
-            UIView.animate(withDuration: animationDuration) {
-                self.blur?.alpha = alpha
-            }
-        }
-    }
-    
-    init(to view: UIView) {
-        self.superview = view
-    }
-    
-    func setup(style: UIBlurEffect.Style, alpha: CGFloat) -> Self {
-        self.editing = true
-        
-        self.style = style
-        self.alpha = alpha
-        
-        self.editing = false
-        
-        return self
-    }
-    
-    func enable(isHidden: Bool = false) {
-        if blur == nil {
-            applyBlurEffect()
-        }
-        
-        self.blur?.isHidden = isHidden
-    }
-    
-    private func applyBlurEffect() {
-        blur?.removeFromSuperview()
-        
-        applyBlurEffect(
-            style: style,
-            blurAlpha: alpha
-        )
-    }
-    
-    private func applyBlurEffect(style: UIBlurEffect.Style,
-                                 blurAlpha: CGFloat) {
-        superview.backgroundColor = UIColor.clear
-        
-        let blurEffect = UIBlurEffect(style: style)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        
-        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
-        let vibrancyView = UIVisualEffectView(effect: vibrancyEffect)
-        blurEffectView.contentView.addSubview(vibrancyView)
-        
-        blurEffectView.alpha = blurAlpha
-        
-        superview.insertSubview(blurEffectView, at: 0)
-        
-        blurEffectView.addAlignedConstrains()
-        vibrancyView.addAlignedConstrains()
-        
-        self.blur = blurEffectView
-        self.blurContentView = blurEffectView.contentView
-        self.vibrancyContentView = vibrancyView.contentView
-    }
-}
-

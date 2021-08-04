@@ -43,7 +43,7 @@ open class SSViewController: UIViewController{
     }
     
     // MARK: - 导航条上左右按钮的点击时间
-    open func handleNavigationBarButton(buttonType : UINavigationBarButtonType) {
+    open func handleNavigationBarButton(buttonType : SSUINavigationBarButtonType) {
         if buttonType == .left {
             self.back()
         }
