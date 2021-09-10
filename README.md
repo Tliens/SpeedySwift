@@ -20,6 +20,8 @@
 它也是进阶Swift的非常好的代码参考，如果你是独立开发者，那一定会让你惊喜的。
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
+## 示例
+- 13种振动模式 https://github.com/Tliens/ShakeDemo
 
 ## 2021-03-17 更新
 
