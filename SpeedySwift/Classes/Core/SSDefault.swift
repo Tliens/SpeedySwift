@@ -12,7 +12,7 @@ public struct SSDefault<T> {
     public let key: String
     public let defaultValue: T
 
-    init(_ key: String, defaultValue: T) {
+    public init(_ key: String, defaultValue: T) {
         self.key = key
         self.defaultValue = defaultValue
     }
