@@ -20,6 +20,8 @@
 它也是进阶Swift的非常好的代码参考，如果你是独立开发者，那一定会让你惊喜的。
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
+## 示例
+- 13种振动模式 https://github.com/Tliens/ShakeDemo
 
 ## 2021-03-17 更新
 
@@ -43,14 +45,14 @@
 
 ## 如何使用
 
-## Pod导入
+### Pod导入
 ```
 pod 'SpeedySwift'
 ```
 
 要求：`Swift5.0`及以上
 
-## 代码演示
+### 代码演示
 
 - 颜色
 ```
@@ -155,6 +157,8 @@ class Member:Codable {
 ```
 - SSSandBox 沙盒相关操作
 - Tools 此文件夹中，包含：app之间跳转、网络检查、弹窗、震动反馈
+
+![img](https://github.com/Tliens/SpeedySwift/blob/master/SpeedySwiftMind.png)
 
 ## 我的其他开源框架
 
