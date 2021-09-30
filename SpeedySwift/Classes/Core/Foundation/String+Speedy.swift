@@ -9,6 +9,11 @@ import UIKit
 import CoreGraphics
 import CommonCrypto
 public extension String {
+    static var identifier:String{
+        let uuidMd5 = UUID().uuidString.md5
+        return uuidMd5
+    }
+    
     /// base64 解码
     var base64Decoded: String? {
         let remainder = count % 4
