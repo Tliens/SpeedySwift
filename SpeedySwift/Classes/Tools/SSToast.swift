@@ -19,8 +19,8 @@ public class SSToastConfigure{
         style.backgroundColor = SSToastConfigure.shared.backgroundColor
         style.titleColor = SSToastConfigure.shared.textColor
         style.messageColor = SSToastConfigure.shared.textColor
-        style.titleFont = UIFont.sc_semibold(size: 20)
-        style.messageFont = UIFont.sc_semibold(size: 20)
+        style.titleFont = UIFont.sc_semibold(size: 16)
+        style.messageFont = UIFont.sc_medium(size: 14)
         style.titleAlignment = .center
         style.messageAlignment = .center
         return style
