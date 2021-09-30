@@ -241,7 +241,7 @@ extension UIViewController{
         return alertController
     }
     @discardableResult
-    func showAlert(
+    public func showAlert(
         title: String?,
         message: String?,
         buttonTitles: [String]? = nil,
