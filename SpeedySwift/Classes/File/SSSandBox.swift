@@ -128,7 +128,7 @@ public extension SS{
                     try fileManager.removeItem(atPath: path)
                     SS.createBaseDirectoryAtPath(path)
                 } catch let error as NSError {
-                    SS.log("创建缓存文件夹失败，error - [\(error)]")
+                    SS.log(false,items:"创建缓存文件夹失败，error - [\(error)]")
                 }
             }
         }
@@ -140,7 +140,7 @@ public extension SS{
             self.addDoNotBackupAttribute(path)
         }
         catch let error as NSError {
-            SS.log("创建文件夹失败！error[\(error)]")
+            SS.log(false,items:"创建文件夹失败！error[\(error)]")
         }
     }
     /// 设置不备份
@@ -150,7 +150,7 @@ public extension SS{
             try  (url as NSURL).setResourceValue(NSNumber(value: true as Bool), forKey: URLResourceKey.isExcludedFromBackupKey)
         }
         catch let error as NSError {
-            SS.log("设置不备份失败,error[\(error)]")
+            SS.log(false,items:"设置不备份失败,error[\(error)]")
         }
     }
 }

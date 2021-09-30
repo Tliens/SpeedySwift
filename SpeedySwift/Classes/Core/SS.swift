@@ -18,12 +18,17 @@ public typealias SS = SpeedySwift
 @objcMembers
 public class SpeedySwift:NSObject {
     
+    public static let shared = SpeedySwift()
     public static let lock = DispatchSemaphore(value: 1)
     
     public static let w = UIScreen.main.bounds.width
     public static let h = UIScreen.main.bounds.height
     public static let bounds = UIScreen.main.bounds
-
+    
+    public let openLog = false
+    
+    private override init() {}
+    
     /// app 显示名称
     public static var displayName: String {
         // http://stackoverflow.com/questions/28254377/get-app-name-in-swift

@@ -21,7 +21,7 @@ open class SSWebViewController: SSViewController {
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: scriptMessageName)
         removeObservers()
         clearWKWebView()
-        SS.log("[\(#file)]")
+        SS.log(false,items:"[\(#file)]")
     }
     
     public init(urlString: String, parameters: [String: Any]? = nil) {
@@ -248,7 +248,7 @@ extension SSWebViewController :  WKUIDelegate, WKNavigationDelegate, WKScriptMes
     
     //进程被终止时调用
     open func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-        SS.log("webViewWebContentProcessDidTerminate")
+        SS.log(false,items:"webViewWebContentProcessDidTerminate")
         webView.reload()
     }
     
@@ -300,7 +300,7 @@ open class WeakWebViewScriptMessageDelegate: NSObject, WKScriptMessageHandler {
     open weak var scriptDelegate : AnyObject?
     
     deinit {
-        SS.log()
+        SS.log(false)
     }
     
     public init(scriptDelegate : AnyObject) {
