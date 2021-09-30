@@ -56,11 +56,26 @@ public extension NSAttributedString {
 // MARK: - Methods
 
 public extension NSAttributedString {
-    /// 添加字体颜色
+    /// 字体
+    func font(_ font:UIFont) -> NSAttributedString {
+        return applying(attributes: [.font: font])
+    }
+    /// 字体颜色
     func colored(with color: UIColor) -> NSAttributedString {
         return applying(attributes: [.foregroundColor: color])
     }
     
+    /// 行间距
+    func lineSpaceing(_ lineSpaceing: CGFloat) -> NSAttributedString {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = lineSpaceing
+        return applying(attributes: [.paragraphStyle: wordSpaceing])
+    }
+    
+    /// 字间距
+    func wordSpaceing(_ wordSpaceing: CGFloat) -> NSAttributedString {
+        return applying(attributes: [.kern: wordSpaceing])
+    }
     /// 添加富文本属性
     func applying(attributes: [Key: Any]) -> NSAttributedString {
         guard !string.isEmpty else { return self }
