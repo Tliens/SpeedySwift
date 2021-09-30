@@ -18,6 +18,7 @@ class Member:Codable {
 
 class ViewController: SSViewController {
 
+    var imgV = SSImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,6 +34,13 @@ class ViewController: SSViewController {
         let x:CGFloat = 3.scale
         x.ss_abs
         
+        imgV.url = "https://avatars.githubusercontent.com/u/7347118?s=64&v=4"
+        
+        self.view.addSubview(imgV)
+        imgV.snp.makeConstraints { maker in
+            maker.center.equalToSuperview()
+            maker.width.height.equalTo(200)
+        }
 //        SSSandbox.shared.homeDirectory
 //        SS.cachePath
 //        SSJumpAppType.phone
