@@ -27,7 +27,6 @@ open class SSTabBarController: UITabBarController {
         let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: SS.w, height: SS.safeBottomHeight + 49))
         backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
         self.tabBar.addSubview(backgroundImgView)
-        self.tabBar.tintColor = UIColor.hex(color)
     }
     //去掉顶部黑线
     open func deleteBlackLine(){
@@ -53,6 +52,10 @@ open class SSTabBarController: UITabBarController {
             childController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:normal], for: .normal)
             childController.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:selected], for: .selected)
         }
+        // iOS13以上系统
+        self.tabBar.tintColor = selected
+        self.tabBar.unselectedItemTintColor = normal
+        
         let nav = SSNavigationController(rootViewController: childController)
         addChild(nav)
     }
