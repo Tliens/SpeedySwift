@@ -21,6 +21,7 @@
 
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/icon_0.png)
 ## 示例
+- 今日计划 上架app ：https://github.com/Tliens/SSPlan
 - 13种振动模式 https://github.com/Tliens/ShakeDemo
 
 ## 2021-03-17 更新
