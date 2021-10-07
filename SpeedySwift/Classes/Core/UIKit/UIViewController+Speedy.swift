@@ -113,6 +113,7 @@ extension UIViewController {
     }
     
     /// 返回到指定的页面 special
+    @discardableResult
     public func back(svc: UIViewController.Type) -> Bool {
         var isSuccess = false
         if let nav = self.navigationController {

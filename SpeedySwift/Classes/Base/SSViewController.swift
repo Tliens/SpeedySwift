@@ -36,6 +36,12 @@ open class SSViewController: UIViewController{
         }else{
             automaticallyAdjustsScrollViewInsets = false
         }
+        fakeNav.leftButtonHandler = {[weak self] in
+            self?.handleNavigationBarButton(buttonType: .left)
+        }
+        fakeNav.rightButtonHandler = {[weak self] in
+            self?.handleNavigationBarButton(buttonType: .right)
+        }
     }
     // 状态栏
     open override var prefersStatusBarHidden: Bool {

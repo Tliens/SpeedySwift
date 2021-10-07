@@ -10,7 +10,7 @@ import SnapKit
 /// 导航栏
 open class SSNavigationBar: UIView {
     open var leftButton = UIButton()
-    open var titleLabel = UILabel(text: "", textColor: .hex("#222222"), textFont: .sc_medium(size: 18),textAlignment:.center)
+    open var titleLabel = UILabel(text: "", textColor: .hex("#222222"), textFont: .sc_medium(size: 16),textAlignment:.center)
     open var rightButton = UIButton()
     
     open var leftButtonHandler: (() -> ())?
