@@ -25,7 +25,7 @@ public class SpeedySwift:NSObject {
     public static let h = UIScreen.main.bounds.height
     public static let bounds = UIScreen.main.bounds
     
-    public let openLog = false
+    public var openLog = false
     
     private override init() {}
     
