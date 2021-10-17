@@ -19,8 +19,13 @@ public extension Data {
         return [UInt8](self)
     }
     /// 从给定的JSON数据返回一个基础对象。
-    func toObject(options: JSONSerialization.ReadingOptions = []) throws -> Any {
-        return try JSONSerialization.jsonObject(with: self, options: options)
+    func toModel<T>(_ type:T.Type) -> T? where T:Decodable {
+        do {
+            return try JSONDecoder().decode(type, from: self)
+        } catch  {
+            SS.log(false,items: "data to model error")
+            return nil
+        }
     }
 }
 

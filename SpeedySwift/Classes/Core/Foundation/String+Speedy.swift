@@ -183,3 +183,11 @@ public extension String {
         self.init(str)
     }
 }
+
+public extension String {
+    /// 初始化 base64
+    func toModel<T>(_ type: T.Type) -> T? where T: Decodable {
+       return self.data(using: .utf8)?.toModel(type)
+    }
+}
+

@@ -34,4 +34,8 @@ public extension Dictionary {
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
         return String(data: jsonData, encoding: .utf8)
     }
+    
+    func toModel<T>(_ type: T.Type) -> T? where T: Decodable {
+        return self.toData()?.toModel(T.self)
+    }
 }
