@@ -1,0 +1,27 @@
+PODS:
+  - SnapKit (5.0.1)
+  - SpeedySwift (0.2.5):
+    - SnapKit
+    - Toast-Swift
+  - Toast-Swift (5.0.1)
+
+DEPENDENCIES:
+  - SpeedySwift (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+    - Toast-Swift
+
+EXTERNAL SOURCES:
+  SpeedySwift:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SpeedySwift: 2e527be71af250e6a9d55fe2e936f48a54806a0e
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+
+PODFILE CHECKSUM: ebca053ed6dd1d8161e5b83aed0e0fb9bd22331c
+
+COCOAPODS: 1.10.0

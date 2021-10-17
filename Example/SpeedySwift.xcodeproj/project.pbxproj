@@ -16,6 +16,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		745DCE406A6D25CA74370ED7 /* Pods_SpeedySwift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA4C422061211F7B62E044B0 /* Pods_SpeedySwift_Tests.framework */; };
+		E420F458271BF0F200DCF7C9 /* JSON2ModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E420F457271BF0F200DCF7C9 /* JSON2ModelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		BF3CF9F62DED7CC8655913CB /* Pods-SpeedySwift_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedySwift_Example.debug.xcconfig"; path = "Target Support Files/Pods-SpeedySwift_Example/Pods-SpeedySwift_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		CA4C422061211F7B62E044B0 /* Pods_SpeedySwift_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeedySwift_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BA993BE7906F1593CB87E5 /* Pods-SpeedySwift_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedySwift_Example.release.xcconfig"; path = "Target Support Files/Pods-SpeedySwift_Example/Pods-SpeedySwift_Example.release.xcconfig"; sourceTree = "<group>"; };
+		E420F457271BF0F200DCF7C9 /* JSON2ModelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON2ModelViewController.swift; sourceTree = "<group>"; };
 		F279B0230E1A84379B1AAF4E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				E420F457271BF0F200DCF7C9 /* JSON2ModelViewController.swift */,
 				442225A32601ACE300A4D4AE /* SSCodableDefault.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				442225A42601ACE300A4D4AE /* SSCodableDefault.swift in Sources */,
+				E420F458271BF0F200DCF7C9 /* JSON2ModelViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
