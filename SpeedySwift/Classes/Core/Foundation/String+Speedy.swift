@@ -92,6 +92,10 @@ public extension String {
     var int: Int? {
         return Int(self)
     }
+    /// 转int
+    var double: Double? {
+        return Double(self)
+    }
     /// 转网络URL
     var netUrl: URL? {
         return URL(string: self)

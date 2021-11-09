@@ -51,6 +51,11 @@ public extension Date{
         let x = NSCalendar.current.component(.year, from: self)
         return "\(x)"
     }
+    /// 增加几周
+    mutating func addWeek(n: Int = 1){
+        let cal = NSCalendar.current
+        self = cal.date(byAdding: .day, value: n * 7, to: self)!
+    }
     /// 增加几个月
     mutating func addMonth(n: Int = 1){
         let cal = NSCalendar.current
