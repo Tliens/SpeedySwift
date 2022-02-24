@@ -14,4 +14,8 @@ public extension Int{
     var random:Int{
         return Int(arc4random())%self
     }
+    
+    func toDate()->Date{
+        return Date(timeIntervalSince1970: TimeInterval(self))
+    }
 }

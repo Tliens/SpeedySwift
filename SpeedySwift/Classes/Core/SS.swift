@@ -95,6 +95,11 @@ public class SpeedySwift:NSObject {
         return 44.0
     }
     
+    /// tabbar的高度
+    public static var tabBarHeight: CGFloat {
+        return 49.0
+    }
+    
     /// 状态栏和导航栏的高度
     public static var statusWithNavBarHeight : CGFloat {
         let heigth = statusBarHeight + navBarHeight

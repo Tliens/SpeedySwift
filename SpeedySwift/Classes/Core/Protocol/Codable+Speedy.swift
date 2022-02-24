@@ -10,6 +10,7 @@ import Foundation
 public protocol SSCoadble: Codable{
     func toDict()->Dictionary<String, Any>?
     func toData()->Data?
+    func toString()->String?
 }
 
 public extension SSCoadble{
@@ -28,6 +29,13 @@ public extension SSCoadble{
             }
         }else{
             debugPrint("model to data error")
+            return nil
+        }
+    }
+    func toString()->String?{
+        if let data = try? JSONEncoder().encode(self),let x = String.init(data: data, encoding: .utf8){
+            return x
+        }else{
             return nil
         }
     }

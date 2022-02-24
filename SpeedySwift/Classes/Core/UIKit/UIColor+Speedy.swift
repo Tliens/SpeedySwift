@@ -73,3 +73,18 @@ extension UIColor {
         return result
     }
 }
+// MARK: - Gradient
+
+public extension Array where Element : UIColor {
+  
+  func gradient(_ transform: ((_ gradient: inout CAGradientLayer) -> CAGradientLayer)? = nil) -> CAGradientLayer {
+    var gradient = CAGradientLayer()
+    gradient.colors = self.map { $0.cgColor }
+    
+    if let transform = transform {
+      gradient = transform(&gradient)
+    }
+    
+    return gradient
+  }
+}

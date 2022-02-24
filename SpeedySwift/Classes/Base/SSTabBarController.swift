@@ -11,6 +11,8 @@ open class SSTabBarController: UITabBarController {
     
     open var lastTabBarTime:[Int:TimeInterval] = [:]
     
+    var backgroundImgView = UIImageView()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
@@ -22,11 +24,16 @@ open class SSTabBarController: UITabBarController {
         
     }
     
-    open func initialize(color:String) {
+    open func initialize(color:String,radius:CGFloat) {
         self.tabBar.backgroundImage = UIImage()
         let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: SS.w, height: SS.safeBottomHeight + 49))
         backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
+        self.backgroundImgView = backgroundImgView
+        backgroundImgView.topCornerRadius(rect: backgroundImgView.frame, radius: radius)
         self.tabBar.addSubview(backgroundImgView)
+    }
+    open func changeTabbarColor(color:String){
+        backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
     }
     //去掉顶部黑线
     open func deleteBlackLine(){
