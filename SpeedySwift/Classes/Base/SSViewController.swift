@@ -118,14 +118,23 @@ extension SSViewController {
         
     }
 }
-extension SSViewController{
+extension UIViewController{
     /// nav pop
     open func pop(animated:Bool = true){
-        self.navigationController?.popViewController(animated: animated)
+        if let nav = self as? UINavigationController{
+            nav.popViewController(animated: animated)
+        }else{
+            self.navigationController?.popViewController(animated: animated)
+        }
     }
     /// nav push
     open func push(_ vc:UIViewController,animated:Bool = true){
-        self.navigationController?.pushViewController(vc, animated: animated)
+        if let nav = self as? UINavigationController{
+            nav.pushViewController(vc, animated: animated)
+        }else{
+            self.navigationController?.pushViewController(vc, animated: animated)
+
+        }
     }
     /// modal 弹出
     open func show(_ vc:UIViewController,animated:Bool = true,completion: (() -> Void)? = nil){
