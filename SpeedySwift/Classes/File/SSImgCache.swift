@@ -13,27 +13,33 @@ public extension SS{
         let name = url.md5
         let path = SSSandbox.cacheImgPath + name
         
-        DispatchQueue.main.async {
-            if let localURL = path.localURL{
-                if !SSSandbox.checPathExists(path){
+        if let localURL = path.localURL{
+            if !SSSandbox.checPathExists(path){
+                DispatchQueue.global().async {
                     if let netURL = url.netUrl{
                         if let data = try? Data(contentsOf: netURL){
-                            callback(data)
-                            try? data.write(to: localURL)
+                            DispatchQueue.main.async {
+                                try? data.write(to: localURL)
+                                callback(data)
+                            }
                         }
                     }else{
-                        callback(nil)
+                        DispatchQueue.main.async {
+                            callback(nil)
+                        }
                     }
-                }else{
+                }
+            }else{
+                DispatchQueue.main.async {
                     if let data = try? Data(contentsOf: localURL){
                         callback(data)
                     }else{
                         callback(nil)
                     }
                 }
-            }else{
-                callback(nil)
             }
+        }else{
+            callback(nil)
         }
     }
 }
