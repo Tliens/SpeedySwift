@@ -269,3 +269,26 @@ extension UIViewController{
         return alertController
     }
 }
+
+public extension UIViewController{
+    
+    /// SwifterSwift: Helper method to add a UIViewController as a childViewController.
+    ///
+    /// - Parameters:
+    ///   - child: the view controller to add as a child.
+    ///   - containerView: the containerView for the child viewController's root view.
+    func addChildViewController(_ child: UIViewController, toContainerView containerView: UIView) {
+        addChild(child)
+        containerView.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+
+    /// SwifterSwift: Helper method to remove a UIViewController from its parent.
+    func removeViewAndControllerFromParentViewController() {
+        guard parent != nil else { return }
+
+        willMove(toParent: nil)
+        removeFromParent()
+        view.removeFromSuperview()
+    }
+}

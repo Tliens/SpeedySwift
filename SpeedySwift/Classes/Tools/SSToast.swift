@@ -29,7 +29,7 @@ public class SSToastConfigure{
 public extension UIView{
     func toast(message:String,duration: TimeInterval  = 1){
         
-        self.makeToast(message, duration: 1, point: self.center, title: nil, image: nil, style: SSToastConfigure.shared.style, completion: nil)
+        self.makeToast(message, duration: duration, point: self.center, title: nil, image: nil, style: SSToastConfigure.shared.style, completion: nil)
     }
     func globalToast(message:String){
         if let view = UIApplication.shared.keyWindow{

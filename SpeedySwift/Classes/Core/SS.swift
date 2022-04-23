@@ -13,6 +13,9 @@ import UIKit
  414pt（非全面屏、全面屏）、
  390pt（全面屏）、
  428pt（全面屏）
+ 
+ 对于手机来讲，非全面的手机高度一定小于 736，全面屏的一定大于780
+ 参考：https://juejin.cn/post/6968336931776102414
  */
 public typealias SS = SpeedySwift
 @objcMembers
@@ -21,9 +24,9 @@ public class SpeedySwift:NSObject {
     public static let shared = SpeedySwift()
     public static let lock = DispatchSemaphore(value: 1)
     
-    public static let w = UIScreen.main.bounds.width
-    public static let h = UIScreen.main.bounds.height
-    public static let bounds = UIScreen.main.bounds
+    public let w = UIScreen.main.bounds.width
+    public let h = UIScreen.main.bounds.height
+    public let bounds = UIScreen.main.bounds
     
     public var openLog = false
     
@@ -66,16 +69,11 @@ public class SpeedySwift:NSObject {
         return UIDevice.current.systemVersion
     }
     /// 判断设备是不是iPhoneX
-    public static var isX : Bool {
-        var isX = false
-        if #available(iOS 11.0, *) {
-            let bottom : CGFloat = UIApplication.shared.delegate?.window??.safeAreaInsets.bottom ?? 0
-            isX = bottom > 0.0
-        }
-        return isX
+    public var isX : Bool {
+        return SS.shared.h > 750
     }
     /// TableBar距底部区域高度
-    public static var safeBottomHeight : CGFloat {
+    public var safeBottomHeight : CGFloat {
         var bottomH : CGFloat = 0.0
         if isX {
             bottomH = 34.0
@@ -84,7 +82,7 @@ public class SpeedySwift:NSObject {
     }
     
     /// 状态栏的高度
-    public static var statusBarHeight : CGFloat {
+    public var statusBarHeight : CGFloat {
         var height = UIApplication.shared.statusBarFrame.size.height
         height = height < 20 ? (safeBottomHeight > 0 ? 44 : 20) : height
         return height
@@ -102,16 +100,16 @@ public class SpeedySwift:NSObject {
     
     /// 状态栏和导航栏的高度
     public static var statusWithNavBarHeight : CGFloat {
-        let heigth = statusBarHeight + navBarHeight
+        let heigth = SS.shared.statusBarHeight + navBarHeight
         return heigth
     }
     /// 根据宽度缩放
     public static func scaleW(_ width: CGFloat,fit:CGFloat = 375.0) -> CGFloat {
-        return w / fit * width
+        return SS.shared.w / fit * width
     }
     /// 根据高度缩放
     public static func scaleH(_ height: CGFloat,fit:CGFloat = 812.0) -> CGFloat {
-        return h / fit * height
+        return SS.shared.h / fit * height
     }
     /// 默认根据宽度缩放
     public static func scale(_ value: CGFloat) -> CGFloat {
@@ -164,9 +162,9 @@ public class SpeedySwift:NSObject {
         return topVC(vc)
     }
     /// window 的 toast
-    public static func toast(message:String){
+    public static func toast(message:String,duration: TimeInterval  = 1){
         if let view = UIApplication.shared.keyWindow{
-            view.toast(message: message)
+            view.toast(message: message,duration: duration)
         }
     }
     /// 当用户截屏时的监听

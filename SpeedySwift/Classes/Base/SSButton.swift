@@ -20,7 +20,7 @@ public class SSButton: UIButton {
     }
     
     public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
     ///如果不重写这个那么不管是否继承该类，所有的UIButton都将会交换方法
     open override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {

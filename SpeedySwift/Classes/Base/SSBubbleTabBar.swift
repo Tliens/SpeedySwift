@@ -51,10 +51,10 @@ open class SSBubbleTabBar: UITabBar {
         shadowImage = UIImage()
         // 背景
         var my_size:CGSize = .zero
-        if !SS.isX{
-            my_size = CGSize(width: SS.w, height: SS.safeBottomHeight + 60)
+        if !SS.shared.isX{
+            my_size = CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 60)
         }else{
-            my_size = CGSize(width: SS.w, height: SS.safeBottomHeight + 49)
+            my_size = CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 49)
         }
         bgImageView = UIImageView(frame: CGRect(origin: .zero, size: my_size))
         bgImageView.image = UIImage(color: .yellow)
@@ -62,7 +62,7 @@ open class SSBubbleTabBar: UITabBar {
         bgImageView.topCornerRadius(rect: bgImageView.bounds, radius: 12.scale)
         addSubview(bgImageView)
         // 中间按钮
-        let button_w: CGFloat = SS.w/3
+        let button_w: CGFloat = SS.shared.w/3
         let button = UIButton(frame: CGRect(x: button_w, y: -centerBtnOffSetY, width: button_w, height: centerBtnHeight))
         centerBtn = button
         buttonImage = UIImage(named: centerBtnImageName)
@@ -92,10 +92,10 @@ open class SSBubbleTabBar: UITabBar {
         return super.hitTest(point, with: event)
     }
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        if !SS.isX{
-            return CGSize(width: SS.w, height: SS.safeBottomHeight + 60)
+        if !SS.shared.isX{
+            return CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 60)
         }else{
-            return CGSize(width: SS.w, height: SS.safeBottomHeight + 49)
+            return CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 49)
         }
         
     }
