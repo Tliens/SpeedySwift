@@ -49,7 +49,7 @@ public extension SS{
     /// 跳转到App
     /// - Parameter type： 类型
     /// - Parameter completionHandler：  block回调，bool表示是否成功
-    static func jumpApp(type:SSJumpStatus, completionHandler completion: ((SSJumpStatus) -> Void)? = nil){
+    static func jumpApp(type:SSJumpAppType, completionHandler completion: ((SSJumpStatus) -> Void)? = nil){
         if let url: URL = URL(string: type.rawValue) {
             SS.jump(url: url, completionHandler: completion)
         }else{
