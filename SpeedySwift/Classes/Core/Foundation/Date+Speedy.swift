@@ -11,12 +11,17 @@ public extension Date{
     /// 日期 -> 字符串
     func toString(dateFormat:String = "yyyy-MM-dd") -> String {
         let formatter = DateFormatter()
-        formatter.locale = Locale.init(identifier: "zh_CN")
+        formatter.locale = Locale.current
         formatter.dateFormat = dateFormat
         let date = formatter.string(from: self)
         return date
     }
-    
+    /// 获取当前 毫秒级 时间戳 - 13位
+    var milliStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let millisecond = CLongLong(round(timeInterval*1000))
+        return "\(millisecond)"
+    }
     /// 根据date获取当前月一共有多少天
     func daysOfMonth()->Int{
         let calendar = Calendar.current
