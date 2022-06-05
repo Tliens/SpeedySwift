@@ -93,12 +93,20 @@ extension SSViewController {
     
     /// 添加公共通知，默认没调用
     open func addPublicNotification() {
-        // app进入前台
+        // app进入活跃态，启动时、前后台切换会调用
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didBecomeActive),
                                                name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
+        
+        // app进入前台，启动时不会调用
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didBecomeActive),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
         // app进入后台
+       
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(didEnterBackGround),
                                                name: UIApplication.didEnterBackgroundNotification,
@@ -106,12 +114,17 @@ extension SSViewController {
     }
     
     //MARK: - 以下通知方法只在调用 ‘addPublicNotification()’方法后生效
-    /// 进入前台
+    /// app进入活跃态，启动时、前后台切换会调用
     @objc open func didBecomeActive() {
         // should overwrite
         
     }
     
+    @objc open func willEnterForeground() {
+        // should overwrite
+        
+    }
+
     /// 进入后台
     @objc open func didEnterBackGround() {
         // should overwrite
