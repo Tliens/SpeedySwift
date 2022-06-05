@@ -27,7 +27,7 @@ public class SSToastConfigure{
     }
 }
 public extension UIView{
-    func toast(message:String,duration: TimeInterval  = 1){
+    func toast(message:String,duration: TimeInterval  = 2){
         
         self.makeToast(message, duration: duration, point: self.center, title: nil, image: nil, style: SSToastConfigure.shared.style, completion: nil)
     }
@@ -38,7 +38,7 @@ public extension UIView{
     }
 }
 public extension UIViewController{
-    func toast(message:String,duration: TimeInterval  = 1){
+    func toast(message:String,duration: TimeInterval  = 2){
         self.view.toast(message: message,duration: duration)
     }
     func globalToast(message:String){
