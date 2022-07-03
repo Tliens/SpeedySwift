@@ -32,6 +32,9 @@ public class SpeedySwift:NSObject {
     
     private override init() {}
     
+    
+    public static var w = UIScreen.main.bounds.width
+    public static var h = UIScreen.main.bounds.height
     /// app 显示名称
     public static var displayName: String {
         // http://stackoverflow.com/questions/28254377/get-app-name-in-swift
@@ -56,9 +59,21 @@ public class SpeedySwift:NSObject {
     public static var deviceName: String {
         return UIDevice.current.localizedModel
     }
-    /// 设备方向
+    /// 设备方向 有时会取到未知unknown
     public static var deviceOrientation: UIDeviceOrientation {
         return UIDevice.current.orientation
+    }
+    
+    public static var isLandscape: Bool {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.windows
+                .first?
+                .windowScene?
+                .interfaceOrientation
+                .isLandscape ?? false
+        } else {
+            return UIApplication.shared.statusBarOrientation.isLandscape
+        }
     }
     /// 主窗口
     public static var keyWindow: UIView? {

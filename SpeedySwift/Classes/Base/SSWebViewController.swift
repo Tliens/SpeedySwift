@@ -7,7 +7,7 @@
 
 import UIKit
 import WebKit
-open class SSWebViewController: SSViewController {
+open class SSWebViewController: SSFullViewController {
     
     open var linkUrl: String?
     public let scriptMessageName = "your script"

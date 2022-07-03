@@ -30,6 +30,7 @@ open class SSTabBarController: UITabBarController {
         backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
         self.backgroundImgView = backgroundImgView
         backgroundImgView.topCornerRadius(rect: backgroundImgView.frame, radius: radius)
+        self.tabBar.shadow()
         self.tabBar.addSubview(backgroundImgView)
     }
     open func changeTabbarColor(color:String){
