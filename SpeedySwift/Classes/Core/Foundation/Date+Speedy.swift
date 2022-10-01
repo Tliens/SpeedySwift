@@ -44,6 +44,22 @@ public extension Date{
         return rs
     }
     
+    /// 日期当天的起始
+    func todayAtStart()->Date{
+        let year = Calendar.current.component(.year, from: self)
+        let month = Calendar.current.component(.month, from: self)
+        let day = Calendar.current.component(.day, from: self)
+        let newdate = Calendar.current.date(from: DateComponents(year: year, month: month, day: day,hour:0,minute: 0,second: 0))
+        return newdate!
+    }
+    /// 日期当天的结束
+    func todayAtEnd()->Date{
+        let year = Calendar.current.component(.year, from: self)
+        let month = Calendar.current.component(.month, from: self)
+        let day = Calendar.current.component(.day, from: self)
+        let newdate = Calendar.current.date(from: DateComponents(year: year, month: month, day: day,hour:23,minute: 59,second: 59))
+        return newdate!
+    }
     func day()->String{
         let x = NSCalendar.current.component(.day, from: self)
         return "\(x)"

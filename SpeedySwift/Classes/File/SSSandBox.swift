@@ -15,8 +15,16 @@ open class SSSandbox: NSObject {
     /// 禁止外部调用init初始化方法
     private override init(){
         super.init()
+        
     }
-    
+    /// 检查是否存在路径
+    public func checkDir(path:String){
+        var isDir: ObjCBool = true
+        let isExists = FileManager.default.fileExists(atPath: path, isDirectory: &isDir)
+        if !isExists {
+            try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+        }
+    }
     /// 获取程序的Home目录
     public var homeDirectory: String {
         let path = NSHomeDirectory()

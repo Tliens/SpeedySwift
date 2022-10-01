@@ -170,6 +170,16 @@ extension UIView {
         }
     }
     
+    /// 带有高斯模糊的截屏
+    public func screenshotsdrawH() -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, 0)
+        self.drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
 }
 
 // MARK: - view + BlurView
