@@ -49,6 +49,10 @@
 ## 如何使用
 
 ### Pod导入
+
+> pod 很久没更新了，建议使用本地pod的形式引入，指定path
+
+### Pod导入
 ```
 pod 'SpeedySwift'
 ```
