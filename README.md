@@ -8,9 +8,11 @@
 
 这是一个app开发的加速库，我的几款app都是基于这个加速库完成的
 
- - 《imi-成就》https://apps.apple.com/cn/app/id1543829703
+ - 《NOTO-极简任务清单》https://apps.apple.com/cn/app/id6443862267
 
  - 《今日计划》https://apps.apple.com/cn/app/id1505020317
+
+[《NOTO-极简任务清单》](https://apps.apple.com/cn/app/id6443862267)从开发到上线用时不到一天，也正是因为SpeedSwift，让我复用了绝大部分代码。
 
 
 尽量保持开发的原汁原味，欢迎使用，喜欢star✨
@@ -45,6 +47,10 @@
 - 7种震动反馈
 
 ## 如何使用
+
+### Pod导入
+
+> pod 很久没更新了，建议使用本地pod的形式引入，指定path
 
 ### Pod导入
 ```
