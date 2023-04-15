@@ -52,9 +52,9 @@ open class SSBubbleTabBar: UITabBar {
         // 背景
         var my_size:CGSize = .zero
         if !SS.shared.isX{
-            my_size = CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 60)
+            my_size = CGSize(width: SS.shared.w, height: SS.shared.bottomSafeAreaHeight + 60)
         }else{
-            my_size = CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 49)
+            my_size = CGSize(width: SS.shared.w, height: SS.shared.bottomSafeAreaHeight + 49)
         }
         bgImageView = UIImageView(frame: CGRect(origin: .zero, size: my_size))
         bgImageView.image = UIImage(color: .yellow)
@@ -93,9 +93,9 @@ open class SSBubbleTabBar: UITabBar {
     }
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         if !SS.shared.isX{
-            return CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 60)
+            return CGSize(width: SS.shared.w, height: SS.shared.bottomSafeAreaHeight + 60)
         }else{
-            return CGSize(width: SS.shared.w, height: SS.shared.safeBottomHeight + 49)
+            return CGSize(width: SS.shared.w, height: SS.shared.bottomSafeAreaHeight + 49)
         }
         
     }

@@ -26,7 +26,7 @@ open class SSTabBarController: UITabBarController {
     
     open func initialize(color:String,radius:CGFloat) {
         self.tabBar.backgroundImage = UIImage()
-        let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: SS.shared.w, height: SS.shared.safeBottomHeight + 49))
+        let backgroundImgView = UIImageView.init(frame: CGRect.init(x: 0, y: 0, width: SS.shared.w, height: SS.shared.bottomSafeAreaHeight + 49))
         backgroundImgView.image = UIImage.init(color: UIColor.hex(color))
         self.backgroundImgView = backgroundImgView
         backgroundImgView.topCornerRadius(rect: backgroundImgView.frame, radius: radius)

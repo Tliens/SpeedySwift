@@ -77,7 +77,7 @@ public class SpeedySwift:NSObject {
     }
     /// 主窗口
     public static var keyWindow: UIView? {
-        return UIApplication.shared.keyWindow
+        return SS.getKeyWindows()
     }
     /// 当前系统版本
     public static var systemVersion: String {
@@ -88,34 +88,33 @@ public class SpeedySwift:NSObject {
         return SS.shared.h > 750
     }
     /// TableBar距底部区域高度
-    public var safeBottomHeight : CGFloat {
-        var bottomH : CGFloat = 0.0
-        if isX {
-            bottomH = 34.0
-        }
-        return bottomH
+    public var bottomSafeAreaHeight : CGFloat {
+        return SS.getKeyWindows()?.safeAreaInsets.bottom ?? 0
     }
     
     /// 状态栏的高度
     public var topSafeAreaHeight : CGFloat {
-        let window = UIApplication.shared.keyWindow
-        let topSafeAreaHeight = window?.safeAreaInsets.top ?? 0
-        return topSafeAreaHeight
+        return SS.getKeyWindows()?.safeAreaInsets.top ?? 0
     }
     
     /// 左边安全距
     public var leftSafeAreaWidth : CGFloat {
-        let window = UIApplication.shared.keyWindow
-        let topSafeAreaHeight = window?.safeAreaInsets.left ?? 0
-        return topSafeAreaHeight
-    }
-    /// 右边安全距
-    public var rightSafeAreaWidth : CGFloat {
-        let window = UIApplication.shared.keyWindow
-        let topSafeAreaHeight = window?.safeAreaInsets.right ?? 0
-        return topSafeAreaHeight
+        return SS.getKeyWindows()?.safeAreaInsets.left ?? 0
     }
     
+    /// 右边安全距
+    public var rightSafeAreaWidth : CGFloat {
+        return SS.getKeyWindows()?.safeAreaInsets.right ?? 0
+    }
+    public static func getKeyWindows()->UIWindow?{
+        var keyWindow: UIWindow?
+        if #available(iOS 13.0, *) {
+            keyWindow = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.windows.first
+        } else {
+            keyWindow = UIApplication.shared.keyWindow
+        }
+        return keyWindow
+    }
     /// 导航栏的高度
     public static var navBarHeight: CGFloat {
         return 44.0
@@ -175,7 +174,7 @@ public class SpeedySwift:NSObject {
     }
     /// 获取顶层控制器 根据window
     public static func topVC() -> UIViewController? {
-        var window = UIApplication.shared.keyWindow
+        var window = SS.getKeyWindows()
         //是否为当前显示的window
         if window?.windowLevel != UIWindow.Level.normal{
             let windows = UIApplication.shared.windows
@@ -191,7 +190,7 @@ public class SpeedySwift:NSObject {
     }
     /// window 的 toast
     public static func toast(message:String,duration: TimeInterval  = 1){
-        if let view = UIApplication.shared.keyWindow{
+        if let view = SS.getKeyWindows(){
             view.toast(message: message,duration: duration)
         }
     }
@@ -201,7 +200,7 @@ public class SpeedySwift:NSObject {
         _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification,
                                                    object: nil,
                                                    queue: OperationQueue.main) { notification in
-                                                    action(notification)
+            action(notification)
         }
     }
     /// 主动崩溃
