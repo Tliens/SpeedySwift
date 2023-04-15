@@ -21,7 +21,7 @@ extension UIView {
         self.backgroundColor = backgroundColor
         
         if let radius = cornerRadius {
-            self.cornerRadius = radius
+            self.ss_cornerRadius = radius
         }
     }
     
@@ -147,7 +147,7 @@ extension UIView {
 
 extension UIView {
     /// 设置圆角
-    public var cornerRadius: CGFloat {
+    public var ss_cornerRadius: CGFloat {
         set {
             self.layer.masksToBounds = true
             self.layer.cornerRadius = newValue

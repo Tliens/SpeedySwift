@@ -113,7 +113,7 @@ open class SSWebViewController: SSFullViewController {
         
         self.webView?.snp.makeConstraints({ (make) in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(SS.shared.statusBarHeight)
+            make.top.equalTo(SS.shared.topSafeAreaHeight)
         })
         
         webView?.evaluateJavaScript("navigator.userAgent") { [weak self](result, error) in
@@ -126,7 +126,7 @@ open class SSWebViewController: SSFullViewController {
     // MARK: - 构建进度条
     private func buildProgressView() {
         
-        progressView = UIProgressView.init(frame: CGRect.init(x: 0, y: SS.shared.statusBarHeight, width: SS.shared.w, height: 3))
+        progressView = UIProgressView.init(frame: CGRect.init(x: 0, y: SS.shared.topSafeAreaHeight, width: SS.shared.w, height: 3))
         progressView?.progressTintColor = UIColor.hex("#26A1DE")
         progressView?.trackTintColor = UIColor.clear
         self.view.addSubview(progressView!)

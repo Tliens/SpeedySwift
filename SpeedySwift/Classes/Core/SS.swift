@@ -97,10 +97,23 @@ public class SpeedySwift:NSObject {
     }
     
     /// 状态栏的高度
-    public var statusBarHeight : CGFloat {
-        var height = UIApplication.shared.statusBarFrame.size.height
-        height = height < 20 ? (safeBottomHeight > 0 ? 44 : 20) : height
-        return height
+    public var topSafeAreaHeight : CGFloat {
+        let window = UIApplication.shared.keyWindow
+        let topSafeAreaHeight = window?.safeAreaInsets.top ?? 0
+        return topSafeAreaHeight
+    }
+    
+    /// 左边安全距
+    public var leftSafeAreaWidth : CGFloat {
+        let window = UIApplication.shared.keyWindow
+        let topSafeAreaHeight = window?.safeAreaInsets.left ?? 0
+        return topSafeAreaHeight
+    }
+    /// 右边安全距
+    public var rightSafeAreaWidth : CGFloat {
+        let window = UIApplication.shared.keyWindow
+        let topSafeAreaHeight = window?.safeAreaInsets.right ?? 0
+        return topSafeAreaHeight
     }
     
     /// 导航栏的高度
@@ -115,7 +128,7 @@ public class SpeedySwift:NSObject {
     
     /// 状态栏和导航栏的高度
     public static var statusWithNavBarHeight : CGFloat {
-        let heigth = SS.shared.statusBarHeight + navBarHeight
+        let heigth = SS.shared.topSafeAreaHeight + navBarHeight
         return heigth
     }
     /// 根据宽度缩放

@@ -71,6 +71,9 @@ extension UIViewController {
         }
     }
     
+    public func closePopGesture(isEnabled:Bool){
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = isEnabled
+    }
 }
 
 

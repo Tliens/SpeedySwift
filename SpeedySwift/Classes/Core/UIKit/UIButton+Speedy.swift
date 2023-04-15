@@ -64,7 +64,7 @@ extension UIButton{
         self.titleFont = titleFont
         self.backgroundColor = backgroundColor
         if cornerRadius > 0 {
-            self.cornerRadius = cornerRadius
+            self.ss_cornerRadius = cornerRadius
         }
     }
     
