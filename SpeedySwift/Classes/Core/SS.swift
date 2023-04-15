@@ -83,9 +83,9 @@ public class SpeedySwift:NSObject {
     public static var systemVersion: String {
         return UIDevice.current.systemVersion
     }
-    /// 判断设备是不是iPhoneX
+    /// 判断设备是不是iPhoneX系列
     public var isX : Bool {
-        return SS.shared.h > 750
+        return self.bottomSafeAreaHeight != 0
     }
     /// TableBar距底部区域高度
     public var bottomSafeAreaHeight : CGFloat {
