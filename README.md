@@ -8,7 +8,7 @@
 
 这是一个app开发的加速库，我的几款app都是基于这个加速库完成的
 
- - 《NOTO-极简任务清单》https://apps.apple.com/cn/app/id6443862267
+ - 《小灵感》https://apps.apple.com/cn/app/id6447693393
 
  - 《今日计划》https://apps.apple.com/cn/app/id1505020317
 
@@ -168,6 +168,8 @@ class Member:Codable {
 ![img](https://github.com/Tliens/SpeedySwift/blob/master/SpeedySwiftMind.png)
 
 ## 我的其他开源框架
+
+- [Cooler 🚀最酷开源的框架 + 🚀最实用的工具 + 🚀加速独立开发](https://github.com/Tliens/Cooler)
 
 - [KillBug  通过runtime记录用户日志，获取复现步骤的工具 KillBug](https://github.com/Tliens/KillBug)
 
