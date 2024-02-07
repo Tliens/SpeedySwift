@@ -14,7 +14,7 @@ public extension SS{
         let path = SSSandbox.cacheImgPath + name
         
         if let localURL = path.localURL{
-            if !SSSandbox.checPathExists(path){
+            if !SSSandbox.checkPathExists(path){
                 DispatchQueue.global().async {
                     if let netURL = url.netUrl{
                         if let data = try? Data(contentsOf: netURL){

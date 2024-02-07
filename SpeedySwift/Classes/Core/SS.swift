@@ -24,9 +24,15 @@ public class SpeedySwift:NSObject {
     public static let shared = SpeedySwift()
     public static let lock = DispatchSemaphore(value: 1)
     
-    public let w = UIScreen.main.bounds.width
-    public let h = UIScreen.main.bounds.height
-    public let bounds = UIScreen.main.bounds
+    public var w:CGFloat{
+        UIScreen.main.bounds.width
+    }
+    public var h:CGFloat{
+        UIScreen.main.bounds.height
+    }
+    public var bounds:CGRect{
+        UIScreen.main.bounds
+    }
     
     public var openLog = false
     

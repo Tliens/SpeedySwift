@@ -18,3 +18,16 @@ open class SSContentView: UIView {
     }
 
 }
+
+/// 不响应事件视图
+open class SSContentAllView: UIView {
+
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event);
+        if self.subviews.contains(where: {$0 == view}) {
+            return nil
+        }
+        return view
+    }
+
+}

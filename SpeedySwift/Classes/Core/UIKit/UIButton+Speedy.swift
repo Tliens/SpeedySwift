@@ -11,6 +11,8 @@ extension UIButton {
     public var image : UIImage? {
         set {
             self.setImage(newValue, for: .normal)
+            self.setImage(newValue, for: .selected)
+            self.setImage(newValue, for: .highlighted)
         }
         get {
             return self.image(for: .normal)!

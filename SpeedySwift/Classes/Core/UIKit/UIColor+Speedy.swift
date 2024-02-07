@@ -19,36 +19,15 @@ extension UIColor {
 
     /// UIColor -> Hex String
     public var hex: String? {
-        var red: CGFloat = 0
-        var green: CGFloat = 0
-        var blue: CGFloat = 0
-        var alpha: CGFloat = 0
+        let components = self.cgColor.components
+        let r: CGFloat = components?[0] ?? 0.0
+        let g: CGFloat = components?[1] ?? 0.0
+        let b: CGFloat = components?[2] ?? 0.0
         
-        let multiplier = CGFloat(255.999999)
+        let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
+        return hexString
         
-        guard self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) else {
-            return nil
-        }
-        
-        if alpha == 1.0 {
-            return String(
-                format: "#%02lX%02lX%02lX",
-                Int(red * multiplier),
-                Int(green * multiplier),
-                Int(blue * multiplier)
-            )
-        }
-        else {
-            return String(
-                format: "#%02lX%02lX%02lX%02lX",
-                Int(red * multiplier),
-                Int(green * multiplier),
-                Int(blue * multiplier),
-                Int(alpha * multiplier)
-            )
-        }
     }
-    
     /// 随机颜色
     public class func randrom() -> UIColor {
         let r = CGFloat(arc4random()%256)/255.0

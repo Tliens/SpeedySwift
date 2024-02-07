@@ -16,4 +16,7 @@ extension UIFont{
     public class func sc_medium(size:CGFloat)->UIFont{
         return UIFont(name: "PingFangSC-Medium", size: size) ?? UIFont.systemFont(ofSize: size)
     }
+    public class func sc_black(size:CGFloat)->UIFont{
+        return UIFont(name: "PingFangSC-Black", size: size) ?? UIFont.systemFont(ofSize: size)
+    }
 }

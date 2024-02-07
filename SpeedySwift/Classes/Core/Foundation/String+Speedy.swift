@@ -104,6 +104,10 @@ public extension String {
     var localURL:URL?{
         return URL(fileURLWithPath: self, isDirectory: true)
     }
+    
+    var color:UIColor{
+        return UIColor.hex(self)
+    }
 }
 
 // MARK: - Methods

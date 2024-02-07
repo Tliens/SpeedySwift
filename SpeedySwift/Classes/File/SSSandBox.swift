@@ -70,7 +70,7 @@ open class SSSandbox: NSObject {
     }
     
     /// 检查文件是否存在
-    static func checPathExists(_ path: String) ->Bool{
+    public static func checkPathExists(_ path: String) ->Bool{
         let fileManager: FileManager = FileManager.default
         return fileManager.fileExists(atPath: path)
     }

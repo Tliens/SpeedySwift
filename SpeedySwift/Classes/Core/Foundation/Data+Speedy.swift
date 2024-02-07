@@ -36,7 +36,7 @@ public extension Data {
         do {
             return try JSONDecoder().decode(type, from: self)
         } catch  {
-            SS.log(false,items: "data to model error")
+            SS.log(false,items: "data to model error",error)
             return nil
         }
     }

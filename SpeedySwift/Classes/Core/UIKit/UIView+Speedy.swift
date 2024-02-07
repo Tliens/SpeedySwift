@@ -31,7 +31,7 @@ extension UIView {
     }
     
     /// 添加阴影
-    public func shadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.2) {
+    public func shadow(ofColor color: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0), radius: CGFloat = 2, offset: CGSize = .zero, opacity: Float = 0.2) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -39,7 +39,7 @@ extension UIView {
         layer.masksToBounds = false
     }
     /// 添加阴影图层
-    public func shadowLayer(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5,cornerRadius:CGFloat,bounds:CGRect) {
+    public func shadowLayer(ofColor color: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1.0), radius: CGFloat = 2, offset: CGSize = .zero, opacity: Float = 0.2,cornerRadius:CGFloat,bounds:CGRect) {
         
         let layer = CALayer()
         layer.frame = bounds
@@ -208,6 +208,25 @@ public extension UIView {
                 blurView,
                 .OBJC_ASSOCIATION_RETAIN_NONATOMIC
             )
+        }
+    }
+}
+
+extension CALayer {
+    
+    public func applySketchShadow(color: UIColor = .black, alpha: Float = 0.5, x: CGFloat = 0, y: CGFloat = 2, blur: CGFloat = 4, spread: CGFloat = 0) {
+        self.masksToBounds = false
+        self.shadowColor = color.cgColor
+        self.shadowOpacity = alpha
+        self.shadowOffset = CGSize(width: x, height: y)
+        self.shadowRadius = blur / 2.0
+        
+        if spread == 0 {
+            self.shadowPath = nil
+        } else {
+            let dx = -spread
+            let rect = bounds.insetBy(dx: dx, dy: dx)
+            self.shadowPath = UIBezierPath(rect: rect).cgPath
         }
     }
 }

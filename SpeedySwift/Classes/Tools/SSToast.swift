@@ -27,23 +27,23 @@ public class SSToastConfigure{
     }
 }
 public extension UIView{
-    func toast(message:String,duration: TimeInterval  = 2){
+    func toast(message:String,duration: TimeInterval  = 2, offsetY:CGFloat = 0){
         
-        self.makeToast(message, duration: duration, point: self.center, title: nil, image: nil, style: SSToastConfigure.shared.style, completion: nil)
+        self.makeToast(message, duration: duration, point: CGPoint(x: self.center.x, y: self.center.y + offsetY), title: nil, image: nil, style: SSToastConfigure.shared.style, completion: nil)
     }
-    func globalToast(message:String){
+    func globalToast(message:String, offsetY:CGFloat = 0){
         if let view = UIApplication.shared.keyWindow{
-            view.toast(message: message)
+            view.toast(message: message, offsetY:offsetY)
         }
     }
 }
 public extension UIViewController{
-    func toast(message:String,duration: TimeInterval  = 2){
-        self.view.toast(message: message,duration: duration)
+    func toast(message:String,duration: TimeInterval  = 2, offsetY:CGFloat = 0){
+        self.view.toast(message: message,duration: duration, offsetY:offsetY)
     }
-    func globalToast(message:String){
+    func globalToast(message:String, offsetY:CGFloat = 0){
         if let view = UIApplication.shared.keyWindow{
-            view.toast(message: message)
+            view.toast(message: message, offsetY:offsetY)
         }
     }
 }

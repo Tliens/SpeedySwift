@@ -11,7 +11,7 @@ public extension Date{
     /// 日期 -> 字符串
     func toString(dateFormat:String = "yyyy-MM-dd") -> String {
         let formatter = DateFormatter()
-        formatter.locale = Locale.current
+        formatter.locale = Locale(identifier: "zh-CN")
         formatter.dateFormat = dateFormat
         let date = formatter.string(from: self)
         return date
